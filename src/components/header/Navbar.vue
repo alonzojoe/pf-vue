@@ -118,19 +118,20 @@ header .controls #menu {
   header .navbar {
     background: var(--bg-light);
     position: absolute;
-    top: -1900%;
+    top: -1900vh;
     right: 0;
     left: 0;
     border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
     border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
     padding: 1rem;
-    height: 100vh;
+    height: 0;
     overflow: hidden;
+    transition: height 0.2s ease-in;
   }
 
   header .navbar.active {
     top: 100%;
-    transition: 0.2s ease-in;
+    height: 100vh;
   }
 
   header .navbar .control {
@@ -157,7 +158,6 @@ header .controls #menu {
     text-align: center;
     /* background: #eee; */
     padding: 1.5rem;
-    margin: 2rem 30rem;
     display: block;
     font-size: 1.9rem;
     font-weight: 600;
