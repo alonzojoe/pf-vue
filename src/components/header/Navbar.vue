@@ -2,7 +2,7 @@
   <header id="header">
     <a href="" class="logo"> Joe </a>
 
-    <div class="navbar">
+    <div class="navbar" :class="showMenu">
       <!-- <div class="control">
                   <div class="close-btn"><i class='bx bxs-x-circle'></i></div>
               </div> -->
@@ -15,12 +15,23 @@
 
     <div class="controls">
       <a href="#" class="bx bxs-moon" id="theme"></a>
-      <a href="#" class="bx bx-menu-alt-right" id="menu"></a>
+      <a href="#" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
     </div>
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, computed } from "vue";
+const isToggle = ref(false);
+
+const menu = computed(() => {
+  return isToggle.value ? "bx bx-x" : "bx bx-menu-alt-right";
+});
+
+const showMenu = computed(() => {
+  return isToggle.value ? "active" : "";
+});
+</script>
 
 <style scoped>
 header {
@@ -74,8 +85,6 @@ header .controls #theme {
 header .controls #menu {
   cursor: pointer;
   font-size: 1.7rem;
-
-  /* background: var(--text-purple); */
   text-align: center;
   color: var(--text-light);
   margin-left: 0.5rem;
