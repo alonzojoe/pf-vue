@@ -119,10 +119,6 @@ header .controls #menu {
 }
 
 @media (max-width: 991px) {
-  html {
-    font-size: 55%;
-  }
-
   header {
     padding: 1rem 2rem;
   }
@@ -190,12 +186,6 @@ header .controls #menu {
     display: block;
     font-size: 1.9rem;
     font-weight: 600;
-  }
-}
-
-@media (max-width: 450px) {
-  html {
-    font-size: 50%;
   }
 }
 </style>
