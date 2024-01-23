@@ -1,20 +1,21 @@
 <template>
   <header id="header">
-    <a href="" class="logo"> Joe </a>
-
+    <a href="" class="logo"> Box </a>
     <div class="navbar" :class="showMenu">
-      <!-- <div class="control">
-                  <div class="close-btn"><i class='bx bxs-x-circle'></i></div>
-              </div> -->
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
     </div>
-
     <div class="controls">
-      <a href="#" class="bx bxs-moon" id="theme"></a>
+      <a
+        href="#"
+        class="bx"
+        :class="classTheme"
+        id="theme"
+        @click="toggleTheme()"
+      ></a>
       <a href="#" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
     </div>
   </header>
@@ -22,6 +23,28 @@
 
 <script setup>
 import { ref, computed } from "vue";
+import { usePrimeVue } from "primevue/config";
+
+const currentTheme = ref("lara-light-purple");
+
+const PrimeVue = usePrimeVue();
+
+const toggleTheme = () => {
+  let nextTheme = "lara-light-purple";
+
+  if (currentTheme.value === "lara-light-purple")
+    nextTheme = "lara-dark-purple";
+  else if (currentTheme.value === "lara-dark-purple")
+    nextTheme = "lara-light-purple";
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "id-to-link", () => {});
+
+  currentTheme.value = nextTheme;
+};
+
+const classTheme = computed(() => {
+  return currentTheme.value == "lara-light-purple" ? "bxs-moon" : "bxs-sun";
+});
+
 const isToggle = ref(false);
 
 const menu = computed(() => {
@@ -74,11 +97,15 @@ header .navbar a:hover {
 }
 
 header .controls #theme {
+  background: var(--text-purple);
+  border-radius: 50%;
+  padding: 7px;
+  text-align: center;
   cursor: pointer;
   font-size: 1.7rem;
   /* background: var(--text-purple); */
   text-align: center;
-  color: var(--text-light);
+  color: var(--text-white);
   margin-left: 0.5rem;
 }
 
@@ -110,7 +137,9 @@ header .controls #menu {
     display: inline-block;
   }
 
-  header .controls #theme,
+  header .controls #theme {
+    font-size: 3rem;
+  }
   header .controls #menu {
     font-size: 3rem;
   }
