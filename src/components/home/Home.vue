@@ -132,6 +132,31 @@
   object-fit: cover;
 }
 
+.btn {
+  cursor: pointer;
+  margin-top: 1rem;
+  color: var(--text-white);
+  font-size: 1.7rem;
+  background: var(--text-purple);
+  border-radius: .5rem;
+  padding: .9rem 3rem;
+  transition: all .2s ease-in-out;
+}
+
+.btn:hover {
+  background: #7d4ec9;
+}
+
+.btn-sm {
+  cursor: pointer;
+  color: var(--text-white);
+  font-size: 1.3rem;
+  background: var(--text-purple);
+  border-radius: .5rem;
+  padding: .8rem 2rem;
+  transition: all .2s ease-in-out;
+}
+
 @media (max-width: 768px) {
   .home {
     grid-template-columns: repeat(1, 1fr);
