@@ -5,8 +5,7 @@
       <h1>Joenell Alonzo</h1>
       <h5>A Software Engineer From <span>Pampanga, Philippines 2020</span></h5>
       <p>
-        I'm passionate in building dynamic, functional and user-friendly web
-        applications.
+        I am passionate about building dynamic and functional web applications using RESTful API integration.
       </p>
       <div class="socials">
         <a href="#" target="_blank" class="bx bxl-facebook"></a>

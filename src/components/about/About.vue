@@ -38,7 +38,7 @@
 <style scoped>
 .about {
     border: 1px solid red;
-    background: var(--bg-light);
+    /* background: var(--bg-light); */
 }
 
 .about .about-content {
