@@ -88,28 +88,28 @@
 <style scoped>
 .skills {
     border: 1px solid red;
-    background: var(--bg-light);
+    /* background: var(--bg-light); */
 }
 
 .skills .skills-container {
     border: 1px solid red;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 3fr);
+    gap: 1.3rem;
     text-align: center;
     align-items: center;
-    padding: 3rem;
+    padding: 45px 100px 45px 100px;
 }
 
 .skills .skills-container .skill-card {
     padding: 1.2rem;
     border: .1rem solid rgba(0, 0, 0, .2);
-    border-radius: .6rem;
-    background: var(--card-bg);
+    border-radius: 15px;
+    /* background: var(--card-bg); */
 }
 
 .skills .skills-container .skill-card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: .5s;
 }
 
