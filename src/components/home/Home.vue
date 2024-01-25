@@ -32,9 +32,11 @@
   /* min-height: 100vh;
     height: 100%;
     width: 100%; */
-  background-size: cover;
+  background-image: url('../../assets/background/home-bg.png');
+  background-repeat: no-repeat, no-repeat;
+  background-size: auto, cover;
   /* background: var(--bg-light); */
-  background-position: center;
+  background-position: 45% 22%, 50% 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;

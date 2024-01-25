@@ -88,6 +88,10 @@
 <style scoped>
 .skills {
     border: 1px solid red;
+    background-image: url('../../assets/background/skills-bg.png');
+    background-position: 0 0;
+    background-repeat: no-repeat;
+    background-size: cover;
     /* background: var(--bg-light); */
 }
 
@@ -137,6 +141,10 @@
 
     .skills .skills-container {
         grid-template-columns: repeat(2, 2fr);
+    }
+
+    .skills .skills-container {
+        padding: 45px;
     }
 
 }

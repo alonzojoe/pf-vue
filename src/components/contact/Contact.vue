@@ -165,6 +165,20 @@
     margin-bottom: 2rem;
 }
 
+.btn-sm {
+    cursor: pointer;
+    color: var(--text-white);
+    font-size: 1.3rem;
+    background: var(--text-purple);
+    border-radius: .5rem;
+    padding: .8rem 2rem;
+    transition: all .2s ease-in-out;
+}
+
+.btn-sm:hover {
+    background: #7d4ec9;
+}
+
 @media (max-width: 768px) {
 
     .contact .contact-container {
