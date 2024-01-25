@@ -5755,3 +5755,15 @@
     color: #030712;
   }
 }
+
+.skills .skills-container .skill-card {
+  padding: 1.2rem;
+  border: .1rem solid rgba(0, 0, 0, .2);
+  border-radius: 15px;
+  background: #1B1B23 !important;
+}
+
+
+.skills .skills-container span {
+  color: #fff !important;
+}

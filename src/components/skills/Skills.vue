@@ -88,7 +88,7 @@
 <style scoped>
 .skills {
     border: 1px solid red;
-    background-image: url('../../assets/background/skills-bg.png');
+    /* background-image: url('../../assets/background/skills-bg.png'); */
     background-position: 0 0;
     background-repeat: no-repeat;
     background-size: cover;
@@ -109,11 +109,12 @@
     padding: 1.2rem;
     border: .1rem solid rgba(0, 0, 0, .2);
     border-radius: 15px;
+    transition: ease .50s;
     /* background: var(--card-bg); */
 }
 
 .skills .skills-container .skill-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
     transition: .5s;
 }
 
@@ -125,7 +126,7 @@
 }
 
 .skills .skills-container span {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     line-height: 1.4;
     color: var(--text-light);
 }
