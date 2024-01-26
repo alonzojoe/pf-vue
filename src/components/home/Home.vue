@@ -5,7 +5,8 @@
       <h1>Joenell Alonzo</h1>
       <h5>A Software Engineer From <span>Pampanga, Philippines 2020</span></h5>
       <p>
-        I am passionate about building dynamic and functional web applications using RESTful API integration.
+        I am passionate about building dynamic and functional web applications
+        using RESTful API integration.
       </p>
       <div class="socials">
         <a href="#" target="_blank" class="bx bxl-facebook"></a>
@@ -28,11 +29,11 @@
 
 <style scoped>
 .home {
-  margin-top: 9rem;
+  padding-top: 9rem;
   /* min-height: 100vh;
     height: 100%;
     width: 100%; */
-  background-image: url('../../assets/background/home-bg.png');
+  background-image: url("../../assets/background/home-bg.png");
   background-repeat: no-repeat, no-repeat;
   background-size: auto, cover;
   /* background: var(--bg-light); */
@@ -139,9 +140,9 @@
   color: var(--text-white);
   font-size: 1.7rem;
   background: var(--text-purple);
-  border-radius: .5rem;
-  padding: .9rem 3rem;
-  transition: all .2s ease-in-out;
+  border-radius: 0.5rem;
+  padding: 0.9rem 3rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn:hover {
@@ -153,9 +154,9 @@
   color: var(--text-white);
   font-size: 1.3rem;
   background: var(--text-purple);
-  border-radius: .5rem;
-  padding: .8rem 2rem;
-  transition: all .2s ease-in-out;
+  border-radius: 0.5rem;
+  padding: 0.8rem 2rem;
+  transition: all 0.2s ease-in-out;
 }
 
 @media (max-width: 768px) {
