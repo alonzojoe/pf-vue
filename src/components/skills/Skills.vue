@@ -59,7 +59,7 @@
 
       <div class="skill-card">
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/php-logo.svg" alt="PHP" />
+          <img src="../../../src/assets/icons/php.svg" alt="PHP" />
         </div>
         <span>PHP</span>
       </div>
@@ -71,14 +71,14 @@
       </div>
       <div class="skill-card">
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/mysql-logo.svg" alt="MySQL" />
+          <img src="../../../src/assets/icons/mysql-circ.svg" alt="MySQL" />
         </div>
         <span>MySQL</span>
       </div>
       <div class="skill-card">
         <div class="skill-icon">
           <img
-            src="../../../src/assets/icons/microsoft-sql-server-logo-svgrepo-com.svg"
+            src="../../../src/assets/icons/sql-server.png"
             alt="SQL Server"
           />
         </div>
@@ -152,9 +152,13 @@
 }
 
 .skills .skills-container .skill-icon img {
-  max-width: 100%;
+  /*max-width: 100%;
   height: 5rem;
   width: 4rem;
+  margin-bottom: 0.3rem;*/
+  width: 4rem;
+  height: 4rem; /* Keep the height and width the same for a circular shape */
+  object-fit: cover; /* Maintain aspect ratio without stretching */
   margin-bottom: 0.3rem;
 }
 
