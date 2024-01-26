@@ -1,5 +1,6 @@
 <template>
-    <section class="about" id="about">
+    <section v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="about animation-duration-1000"
+        id="about">
         <h2 class="heading">About</h2>
         <div class="about-content">
             <div class="about-paragraph">
