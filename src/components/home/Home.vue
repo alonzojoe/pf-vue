@@ -29,7 +29,7 @@
 
 <style scoped>
 .home {
-  padding-top: 9rem;
+  padding-top: 15rem;
   /* min-height: 100vh;
     height: 100%;
     width: 100%; */
@@ -42,6 +42,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   border: 1px solid red;
+  padding-bottom: 9rem;
 }
 
 .home .home-intro {
@@ -56,21 +57,21 @@
 }
 
 .home .home-intro h3 {
-  font-size: 2rem;
-  font-weight: 500;
+  font-size: 3rem;
+  font-weight: 600;
   color: var(--text-purple);
 }
 
 .home .home-intro h1 {
-  font-size: 7rem;
+  font-size: 8rem;
   margin: 10px 0px 25px;
-  line-height: 1;
-  font-weight: 650;
+  line-height: 1.5;
+  font-weight: 700;
   color: var(--text-dark);
 }
 
 .home .home-intro h5 {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
   font-size: 1.9rem;
   font-weight: 599;
   color: var(--text-light);
@@ -93,12 +94,12 @@
 }
 
 .home .home-intro .socials a {
-  height: 3.7rem;
-  width: 3.7rem;
-  line-height: 3.7rem;
+  height: 4rem;
+  width: 4rem;
+  line-height: 4rem;
   text-align: center;
   border-radius: 50%;
-  font-size: 1.8rem;
+  font-size: 2.1rem;
   color: var(--text-white);
   margin-right: 1.3rem;
   margin-bottom: 2rem;

@@ -3,7 +3,8 @@
         id="about">
         <h2 class="heading">About</h2>
         <div class="about-content">
-            <div class="about-paragraph">
+            <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
+                class="about-paragraph animation-duration-1000">
                 <p>
                     Hello, I'm Joe, a motivated and collaborative software engineer with
                     several years of industry experience.
@@ -24,7 +25,8 @@
                     knowledge in this dynamic field.
                 </p>
             </div>
-            <div class="about-paragraph">
+            <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
+                class="about-paragraph animation-duration-1000">
                 <h3>Bachelor of Science in Information Technology</h3>
                 <span>Don Honorio Ventura State University</span>
             </div>
