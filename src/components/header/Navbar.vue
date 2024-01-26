@@ -9,13 +9,7 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="controls">
-      <a
-        href="#"
-        class="bx"
-        :class="classTheme"
-        id="theme"
-        @click="toggleTheme()"
-      ></a>
+      <a href="#" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
       <a href="#" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
     </div>
   </header>
@@ -24,6 +18,8 @@
 <script setup>
 import { ref, computed } from "vue";
 import { usePrimeVue } from "primevue/config";
+
+const emit = defineEmits(['toggle-theme'])
 
 const currentTheme = ref("lara-light-purple");
 
@@ -36,9 +32,10 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "id-to-link", () => {});
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "id-to-link", () => { });
 
   currentTheme.value = nextTheme;
+  emit('toggle-theme', currentTheme.value)
 };
 
 const classTheme = computed(() => {
@@ -136,6 +133,7 @@ header .controls #menu {
   header .controls #theme {
     font-size: 3rem;
   }
+
   header .controls #menu {
     font-size: 3rem;
   }
