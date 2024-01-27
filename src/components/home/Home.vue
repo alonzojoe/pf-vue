@@ -1,5 +1,5 @@
 <template>
-  <section class="home" id="home">
+  <section class="home fadeindown animation-duration-100" id="home">
     <div class="home-intro">
       <h3>Hello, I'm</h3>
       <h1>Joenell Alonzo</h1>
@@ -18,22 +18,36 @@
       </div>
     </div>
     <div class="home-profile">
-      <div class="profile-bg">
-        <img src="./assets/images/joe-l.png" alt="joe" />
-      </div>
+      <!-- <div class="profile-bg">
+        <img :src="mainIcon" alt="joe" />
+      </div> -->
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, computed } from "vue";
+import { useStore } from "vuex";
+import imageBackground from "../../assets/background/home-bg.png";
+import mainIcon from "../../assets/icons/joe.svg";
+import mainIconPng from "../../assets/icons/joe1.png";
+const store = useStore();
+const storeTheme = computed(() => store.getters.getCurrentTheme);
+
+const bgImage = computed(() => {
+  return storeTheme.value !== "lara-dark-purple"
+    ? `url(${imageBackground})`
+    : "";
+});
+</script>
 
 <style scoped>
 .home {
-  padding-top: 15rem;
+  padding-top: 9rem;
   /* min-height: 100vh;
     height: 100%;
     width: 100%; */
-  background-image: url("../../assets/background/home-bg.png");
+  background-image: v-bind(bgImage);
   background-repeat: no-repeat, no-repeat;
   background-size: auto, cover;
   /* background: var(--bg-light); */
@@ -54,6 +68,12 @@
 
 .home .home-profile {
   border: 1px solid red;
+
+  width: 100%;
+  height: 580px;
+  background-image: url("../../assets/icons/joe1.png");
+  background-position: 50% 50%;
+  background-size: 720px;
 }
 
 .home .home-intro h3 {
@@ -65,7 +85,7 @@
 .home .home-intro h1 {
   font-size: 8rem;
   margin: 10px 0px 25px;
-  line-height: 1.5;
+  line-height: 1;
   font-weight: 700;
   color: var(--text-dark);
 }
@@ -111,12 +131,17 @@
   transition: 0.5s;
 }
 
+.home-profile {
+  display: flex;
+  align-items: end;
+}
+
 .home .home-profile {
   display: flex;
   justify-content: center;
 }
 
-.home .home-profile .profile-bg {
+/* .home .home-profile .profile-bg {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -126,13 +151,25 @@
   overflow: hidden;
   background: var(--text-purple);
   border: 0.2rem solid var(--text-purple);
-}
+} */
 
-.home .home-profile .profile-bg img {
+/* .home .home-profile .profile-bg img {
   max-width: 100%;
   height: auto;
   width: 100%;
   object-fit: cover;
+} */
+
+/* .home-profile {
+  background-image: v-bind(mainIcon);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+} */
+
+.home-profile .profile-bg img {
+  max-width: 100%;
+  height: auto;
 }
 
 .btn {

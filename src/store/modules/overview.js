@@ -1,10 +1,20 @@
-const state = {};
+const state = {
+  data: {
+    theme: "",
+  },
+};
 
-const mutations = {};
+const mutations = {
+  setTheme: (state, payload) => {
+    state.data.theme = payload;
+  },
+};
 
 const actions = {};
 
-const getters = {};
+const getters = {
+  getCurrentTheme: (state) => state.data.theme,
+};
 
 export default {
   state,

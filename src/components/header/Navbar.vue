@@ -1,6 +1,6 @@
 <template>
   <header id="header">
-    <a href="" class="logo"> Box </a>
+    <a href="" class="logo"> {{ storeTheme }} </a>
     <div class="navbar" :class="showMenu">
       <a href="#home" class="active">Home</a>
       <a href="#about">About</a>
@@ -9,8 +9,19 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="controls">
-      <a href="#" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
-      <a href="#" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
+      <a
+        href="#"
+        class="bx"
+        :class="classTheme"
+        id="theme"
+        @click="toggleTheme()"
+      ></a>
+      <a
+        href="javascript:void(0);"
+        :class="menu"
+        id="menu"
+        @click="isToggle = !isToggle"
+      ></a>
     </div>
   </header>
 </template>
@@ -18,8 +29,13 @@
 <script setup>
 import { ref, computed } from "vue";
 import { usePrimeVue } from "primevue/config";
+import { useStore } from "vuex";
 
-const emit = defineEmits(['toggle-theme'])
+const store = useStore();
+
+const storeTheme = computed(() => store.getters.getCurrentTheme);
+
+const emit = defineEmits(["toggle-theme"]);
 
 const currentTheme = ref("lara-light-purple");
 
@@ -32,10 +48,11 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "id-to-link", () => { });
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "id-to-link", () => {});
 
   currentTheme.value = nextTheme;
-  emit('toggle-theme', currentTheme.value)
+  store.commit("setTheme", nextTheme);
+  emit("toggle-theme", currentTheme.value);
 };
 
 const classTheme = computed(() => {
@@ -65,6 +82,7 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--box-shadow-bottom);
+  z-index: 200;
 }
 
 header .logo {
