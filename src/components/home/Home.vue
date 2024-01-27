@@ -30,7 +30,7 @@ import { ref, computed } from "vue";
 import { useStore } from "vuex";
 import imageBackground from "../../assets/background/home-bg.png";
 import mainIcon from "../../assets/icons/joe.svg";
-import mainIconPng from "../../assets/icons/joe1.png";
+import mainIconPng from "../../assets/icons/joev1.png";
 const store = useStore();
 const storeTheme = computed(() => store.getters.getCurrentTheme);
 
@@ -71,7 +71,7 @@ const bgImage = computed(() => {
 
   width: 100%;
   height: 580px;
-  background-image: url("../../assets/icons/joe1.png");
+  background-image: url("../../assets/icons/joev1.png");
   background-position: 50% 50%;
   background-size: 720px;
 }
