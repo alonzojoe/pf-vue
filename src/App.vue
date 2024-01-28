@@ -19,14 +19,14 @@ const switchTheme = (theme) => {
 <template>
   <div>
     <Navbar @toggle-theme="switchTheme" />
-    <div class="page-sections" v-scroll-spy="{ offset: 70, allowNoActive: false }">
-      <Home />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+    <div class="page-sections" v-scroll-spy="{ offset: 100, }">
+      <Home id="home" />
+      <About id="about" />
+      <Skills id="skills" />
+      <Projects id="projects" />
+      <Contact id="contact" />
     </div>
+    <Footer />
   </div>
 </template>
 

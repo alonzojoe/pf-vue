@@ -1,13 +1,13 @@
 <template>
   <header id="header">
     <a href="" class="logo"> {{ storeTheme }} </a>
-    <div v-scroll-spy v-scroll-spy-active="{ selector: 'a.menu-item', class: 'active' }" class=" navbar"
+    <div v-scroll-spy v-scroll-spy-active="{ selector: 'a.menu-item-selection', class: 'active' }" class=" navbar"
       :class="showMenu">
-      <a href="#home" class="menu-item">Home</a>
-      <a href="#about" class="menu-item">About</a>
-      <a href="#skills" class="menu-item">Skills</a>
-      <a href="#projects" class="menu-item">Projects</a>
-      <a href="#contact" class="menu-item">Contact</a>
+      <a href="#home" class="menu-item-selection">Home</a>
+      <a href="#about" class="menu-item-selection">About</a>
+      <a href="#skills" class="menu-item-selection">Skills</a>
+      <a href="#projects" class="menu-item-selection">Projects</a>
+      <a href="#contact" class="menu-item-selection">Contact</a>
     </div>
     <div class="controls">
       <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>

@@ -1,5 +1,5 @@
 <template>
-  <section class="home fadeindown animation-duration-100" id="home">
+  <section class="home fadeindown animation-duration-100">
     <div class="home-intro">
       <h3>Hello, I'm</h3>
       <h1>Joenell Alonzo</h1>

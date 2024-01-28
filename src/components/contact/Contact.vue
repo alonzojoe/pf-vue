@@ -1,5 +1,5 @@
 <template>
-  <section class="contact" id="contact">
+  <section class="contact">
     <h2 class="heading">Contact</h2>
     <h5 class="sub-heading">Get in touch</h5>
     <div class="contact-container">
@@ -73,6 +73,10 @@ section {
 
 .heading {
   color: #fff !important;
+}
+
+.sub-heading {
+  color: #E2E2E2 !important;
 }
 
 .contact .contact-container {
