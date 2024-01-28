@@ -3,7 +3,33 @@
         <h2 class="heading">Projects</h2>
 
         <div class="projects-container">
-            <div class="project-card">
+            <div class="card">
+                <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" circular
+                    :autoplayInterval="3000">
+                    <template #item="slotProps">
+                        <div class="border-1 surface-border border-round m-2  p-3">
+                            <div class="mb-3">
+                                <div class="relative mx-auto">
+                                    <img :src="'https://primefaces.org/cdn/primevue/images/product/' + slotProps.data.image"
+                                        :alt="slotProps.data.name" class="w-full border-round" />
+                                    <Tag :value="slotProps.data.inventoryStatus"
+                                        :severity="getSeverity(slotProps.data.inventoryStatus)" class="absolute"
+                                        style="left:5px; top: 5px" />
+                                </div>
+                            </div>
+                            <div class="mb-3 font-medium">{{ slotProps.data.name }}</div>
+                            <div class="flex justify-content-between align-items-center">
+                                <div class="mt-0 font-semibold text-xl">${{ slotProps.data.price }}</div>
+                                <span>
+                                    <Button icon="pi pi-heart" severity="secondary" outlined />
+                                    <Button icon="pi pi-shopping-cart" class="ml-2" />
+                                </span>
+                            </div>
+                        </div>
+                    </template>
+                </Carousel>
+            </div>
+            <!-- <div class="project-card">
                 <div class="project-title">
                     <div class="image-section">
                         <img src="./assets/images/projects/e1.png" alt="" />
@@ -127,13 +153,98 @@
                         to Personnel
                     </p>
                 </div>
-            </div>
+            </div> -->
         </div>
     </section>
 </template>
 
 <script setup>
+import Carousel from 'primevue/carousel';
+import { ref, onMounted } from "vue";
+// import { ProductService } from '@/service/ProductService';
 
+const ProductService = [
+    {
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'Bamboo Watch',
+        description: 'Product Description',
+        image: 'bamboo-watch.jpg',
+        price: 65,
+        category: 'Accessories',
+        quantity: 24,
+        inventoryStatus: 'INSTOCK',
+        rating: 5
+    },
+    {
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'Bamboo Watch',
+        description: 'Product Description',
+        image: 'bamboo-watch.jpg',
+        price: 65,
+        category: 'Accessories',
+        quantity: 24,
+        inventoryStatus: 'INSTOCK',
+        rating: 5
+    },
+    {
+        id: '1000',
+        code: 'f230fh0g3',
+        name: 'Bamboo Watch',
+        description: 'Product Description',
+        image: 'bamboo-watch.jpg',
+        price: 65,
+        category: 'Accessories',
+        quantity: 24,
+        inventoryStatus: 'INSTOCK',
+        rating: 5
+    },
+]
+
+onMounted(() => {
+    ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 9)));
+})
+
+const products = ref();
+const responsiveOptions = ref([
+    {
+        breakpoint: '1400px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '1199px',
+        numVisible: 3,
+        numScroll: 1
+    },
+    {
+        breakpoint: '767px',
+        numVisible: 2,
+        numScroll: 1
+    },
+    {
+        breakpoint: '575px',
+        numVisible: 1,
+        numScroll: 1
+    }
+]);
+
+const getSeverity = (status) => {
+    switch (status) {
+        case 'INSTOCK':
+            return 'success';
+
+        case 'LOWSTOCK':
+            return 'warning';
+
+        case 'OUTOFSTOCK':
+            return 'danger';
+
+        default:
+            return null;
+    }
+};
 </script>
 
 <style scoped>
@@ -145,9 +256,9 @@
 .projects .projects-container {
     border: 1px solid red;
     padding: 3rem;
-    display: grid;
+    /* display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); */
 }
 
 .projects .projects-container .project-card {

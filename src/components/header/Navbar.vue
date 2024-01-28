@@ -1,8 +1,8 @@
 <template>
   <header id="header">
     <a href="" class="logo"> {{ storeTheme }} </a>
-    <div v-scroll-spy v-scroll-spy-active="{ selector: 'a.menu-item-selection', class: 'active' }" class=" navbar"
-      :class="showMenu">
+    <div v-scroll-spy v-scroll-spy-active="{ selector: 'a.menu-item-selection', class: 'active-menu-item' }"
+      class=" navbar" :class="showMenu">
       <a href="#home" class="menu-item-selection">Home</a>
       <a href="#about" class="menu-item-selection">About</a>
       <a href="#skills" class="menu-item-selection">Skills</a>
@@ -38,7 +38,7 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "id-to-link", () => { });
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
 
   currentTheme.value = nextTheme;
   store.commit("setTheme", nextTheme);
@@ -160,7 +160,7 @@ header .controls #menu {
     transition: height 0.2s ease-in;
   }
 
-  header .navbar.active {
+  header .navbar.active-menu-item {
     top: 100%;
     height: 100vh;
   }
