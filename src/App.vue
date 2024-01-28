@@ -4,6 +4,7 @@ import Navbar from "@/components/header/Navbar.vue";
 import Home from "@/components/home/Home.vue";
 import About from "@/components/about/About.vue";
 import Skills from "@/components/skills/Skills.vue"
+import Projects from "@/components/projects/Projects.vue"
 import Contact from "@/components/contact/Contact.vue";
 
 
@@ -21,6 +22,7 @@ const switchTheme = (theme) => {
     <Home />
     <About />
     <Skills />
+    <Projects />
     <Contact />
     <h3>{{ appTheme }}</h3>
   </div>
