@@ -61,9 +61,18 @@
 <script setup></script>
 
 <style scoped>
+section {
+  margin-bottom: 0 !important;
+}
+
 .contact {
   border: 1px solid red;
+  background: #763ED0;
   /* background: var(--bg-light); */
+}
+
+.heading {
+  color: #fff !important;
 }
 
 .contact .contact-container {
@@ -76,7 +85,7 @@
 
 .contact .contact-container .contact-box {
   /* border: 1px solid red; */
-  /* background: var(--card-bg); */
+  background: var(--card-bg);
   /* border: 0.1rem solid rgba(0, 0, 0, 0.2);*/
   border-radius: 15px;
   box-shadow: 7px 7px 36px 5px rgba(67, 56, 67, 0.09);

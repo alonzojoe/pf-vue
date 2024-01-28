@@ -6,7 +6,7 @@ import About from "@/components/about/About.vue";
 import Skills from "@/components/skills/Skills.vue"
 import Projects from "@/components/projects/Projects.vue"
 import Contact from "@/components/contact/Contact.vue";
-
+import Footer from "@/components/footer/Footer.vue"
 
 const appTheme = ref('')
 
@@ -19,14 +19,14 @@ const switchTheme = (theme) => {
 <template>
   <div>
     <Navbar @toggle-theme="switchTheme" />
-    <div class="page-sections" v-scroll-spy="{ offset: 70 }">
+    <div class="page-sections" v-scroll-spy="{ offset: 70, allowNoActive: false }">
       <Home />
       <About />
       <Skills />
       <Projects />
       <Contact />
+      <Footer />
     </div>
-    <h3>{{ appTheme }}</h3>
   </div>
 </template>
 
