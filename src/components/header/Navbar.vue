@@ -9,19 +9,8 @@
       <a href="#contact">Contact</a>
     </div>
     <div class="controls">
-      <a
-        href="#"
-        class="bx"
-        :class="classTheme"
-        id="theme"
-        @click="toggleTheme()"
-      ></a>
-      <a
-        href="javascript:void(0);"
-        :class="menu"
-        id="menu"
-        @click="isToggle = !isToggle"
-      ></a>
+      <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
+      <a href="javascript:void(0);" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
     </div>
   </header>
 </template>
@@ -48,7 +37,7 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "id-to-link", () => {});
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "id-to-link", () => { });
 
   currentTheme.value = nextTheme;
   store.commit("setTheme", nextTheme);
@@ -77,7 +66,7 @@ header {
   left: 0;
   right: 0;
   background: var(--bg-light);
-  padding: 1rem 9%;
+  padding: 1.7rem 9%;
   display: flex;
   justify-content: space-between;
   align-items: center;
