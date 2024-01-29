@@ -17,7 +17,8 @@
         <a href="#" class="btn">Download X</a>
       </div>
     </div>
-    <div class="home-profile">
+    <div class="home-profile profile-icons">
+      <img class="vue-circe" src="../../assets/icons/vue-circ.png" alt="" />
       <!-- <div class="profile-bg">
         <img :src="mainIcon" alt="joe" />
       </div> -->
@@ -71,7 +72,7 @@ const bgImage = computed(() => {
 
   width: 100%;
   height: 580px;
-  background-image: url("../../assets/icons/joev1.png");
+  background-image: url("../../assets/icons/joe-updated.png");
   background-position: 50% 50%;
   background-size: 720px;
 }
@@ -139,6 +140,43 @@ const bgImage = computed(() => {
 .home .home-profile {
   display: flex;
   justify-content: center;
+}
+
+.home-profile.profile-icons {
+  border: 1px solid green;
+  position: relative;
+}
+
+.home-profile.profile-icons .vue-circe {
+  position: absolute;
+  top: 180px;
+  left: 60px;
+  height: 100px;
+  height: 100px;
+  transform: translate3d(-21.0743px, 48.344px, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  animation: vueMovement 10s ease-in-out infinite;
+  z-index: 10;
+}
+
+@keyframes vueMovement {
+  0%,
+  100% {
+    transform: translate3d(-21.0743px, 65.344px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+  25% {
+    transform: translate3d(-21.0743px, -48.344px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+  50% {
+    transform: translate3d(48.344px, -21.0743px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+  75% {
+    transform: translate3d(-48.344px, 21.0743px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
 }
 
 /* .home .home-profile .profile-bg {

@@ -1,9 +1,9 @@
 <template>
-    <section class="projects">
-        <h2 class="heading">Projects</h2>
+  <section class="projects">
+    <h2 class="heading">Projects</h2>
 
-        <div class="projects-container">
-            <div class="card">
+    <div class="projects-container">
+      <!-- <div class="card">
                 <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions" circular
                     :autoplayInterval="3000">
                     <template #item="slotProps">
@@ -28,8 +28,8 @@
                         </div>
                     </template>
                 </Carousel>
-            </div>
-            <!-- <div class="project-card">
+            </div> -->
+      <!-- <div class="project-card">
                 <div class="project-title">
                     <div class="image-section">
                         <img src="./assets/images/projects/e1.png" alt="" />
@@ -154,187 +154,196 @@
                     </p>
                 </div>
             </div> -->
-        </div>
-    </section>
+    </div>
+  </section>
 </template>
 
 <script setup>
-import Carousel from 'primevue/carousel';
-import { ref, onMounted } from "vue";
-// import { ProductService } from '@/service/ProductService';
+// import Carousel from "primevue/carousel";
+// import { ref, onMounted } from "vue";
+// // import { ProductService } from '@/service/ProductService';
 
-const ProductService = [
-    {
-        id: '1000',
-        code: 'f230fh0g3',
-        name: 'Bamboo Watch',
-        description: 'Product Description',
-        image: 'bamboo-watch.jpg',
-        price: 65,
-        category: 'Accessories',
-        quantity: 24,
-        inventoryStatus: 'INSTOCK',
-        rating: 5
-    },
-    {
-        id: '1000',
-        code: 'f230fh0g3',
-        name: 'Bamboo Watch',
-        description: 'Product Description',
-        image: 'bamboo-watch.jpg',
-        price: 65,
-        category: 'Accessories',
-        quantity: 24,
-        inventoryStatus: 'INSTOCK',
-        rating: 5
-    },
-    {
-        id: '1000',
-        code: 'f230fh0g3',
-        name: 'Bamboo Watch',
-        description: 'Product Description',
-        image: 'bamboo-watch.jpg',
-        price: 65,
-        category: 'Accessories',
-        quantity: 24,
-        inventoryStatus: 'INSTOCK',
-        rating: 5
-    },
-]
+// const ProductService = [
+//   {
+//     id: "1000",
+//     code: "f230fh0g3",
+//     name: "Bamboo Watch",
+//     description: "Product Description",
+//     image: "bamboo-watch.jpg",
+//     price: 65,
+//     category: "Accessories",
+//     quantity: 24,
+//     inventoryStatus: "INSTOCK",
+//     rating: 5,
+//   },
+//   {
+//     id: "1000",
+//     code: "f230fh0g3",
+//     name: "Bamboo Watch",
+//     description: "Product Description",
+//     image: "bamboo-watch.jpg",
+//     price: 65,
+//     category: "Accessories",
+//     quantity: 24,
+//     inventoryStatus: "INSTOCK",
+//     rating: 5,
+//   },
+//   {
+//     id: "1000",
+//     code: "f230fh0g3",
+//     name: "Bamboo Watch",
+//     description: "Product Description",
+//     image: "bamboo-watch.jpg",
+//     price: 65,
+//     category: "Accessories",
+//     quantity: 24,
+//     inventoryStatus: "INSTOCK",
+//     rating: 5,
+//   },
+// ];
 
-onMounted(() => {
-    ProductService.getProductsSmall().then((data) => (products.value = data.slice(0, 9)));
-})
+// onMounted(() => {
+//   ProductService.getProductsSmall().then(
+//     (data) => (products.value = data.slice(0, 9))
+//   );
+// });
 
-const products = ref();
-const responsiveOptions = ref([
-    {
-        breakpoint: '1400px',
-        numVisible: 2,
-        numScroll: 1
-    },
-    {
-        breakpoint: '1199px',
-        numVisible: 3,
-        numScroll: 1
-    },
-    {
-        breakpoint: '767px',
-        numVisible: 2,
-        numScroll: 1
-    },
-    {
-        breakpoint: '575px',
-        numVisible: 1,
-        numScroll: 1
-    }
-]);
+// const products = ref();
+// const responsiveOptions = ref([
+//   {
+//     breakpoint: "1400px",
+//     numVisible: 2,
+//     numScroll: 1,
+//   },
+//   {
+//     breakpoint: "1199px",
+//     numVisible: 3,
+//     numScroll: 1,
+//   },
+//   {
+//     breakpoint: "767px",
+//     numVisible: 2,
+//     numScroll: 1,
+//   },
+//   {
+//     breakpoint: "575px",
+//     numVisible: 1,
+//     numScroll: 1,
+//   },
+// ]);
 
-const getSeverity = (status) => {
-    switch (status) {
-        case 'INSTOCK':
-            return 'success';
+// const getSeverity = (status) => {
+//   switch (status) {
+//     case "INSTOCK":
+//       return "success";
 
-        case 'LOWSTOCK':
-            return 'warning';
+//     case "LOWSTOCK":
+//       return "warning";
 
-        case 'OUTOFSTOCK':
-            return 'danger';
+//     case "OUTOFSTOCK":
+//       return "danger";
 
-        default:
-            return null;
-    }
-};
+//     default:
+//       return null;
+//   }
+// };
 </script>
 
 <style scoped>
 .projects {
-    border: 1px solid red;
-    background: var(--bg-light);
+  border: 1px solid red;
+  background: var(--bg-light);
 }
 
 .projects .projects-container {
-    border: 1px solid red;
-    padding: 3rem;
-    /* display: grid;
+  border: 1px solid red;
+  padding: 3rem;
+  /* display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(3, 1fr); */
 }
 
 .projects .projects-container .project-card {
-    border-radius: .6rem;
-    border: .1rem solid rgba(0, 0, 0, .2);
-    background: var(--card-bg);
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1.5rem;
+  border-radius: 0.6rem;
+  border: 0.1rem solid rgba(0, 0, 0, 0.2);
+  background: var(--card-bg);
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
 }
 
 .projects .projects-container .project-card .project-title .image-section {
-    /* background: var(--text-purple); */
-    border-radius: .6rem .6rem 0 0;
+  /* background: var(--text-purple); */
+  border-radius: 0.6rem 0.6rem 0 0;
 }
 
 .projects .projects-container .project-card .project-title .image-section img {
-    width: 100%;
-    border-radius: .6rem .6rem 0 0;
-    border-bottom: .1rem solid rgba(0, 0, 0, .1);
+  width: 100%;
+  border-radius: 0.6rem 0.6rem 0 0;
+  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
 }
-
 
 .projects .projects-container .project-card .project-title .text-section {
-    padding: 0 1rem;
+  padding: 0 1rem;
 }
 
-.projects .projects-container .project-card .project-title .text-section .title {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.projects
+  .projects-container
+  .project-card
+  .project-title
+  .text-section
+  .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.projects .projects-container .project-card .project-title .text-section .title h2 {
-    font-size: 2.5rem;
-    letter-spacing: .1rem;
-    color: var(--text-light);
-    margin: 1rem 0;
+.projects
+  .projects-container
+  .project-card
+  .project-title
+  .text-section
+  .title
+  h2 {
+  font-size: 2.5rem;
+  letter-spacing: 0.1rem;
+  color: var(--text-light);
+  margin: 1rem 0;
 }
 
 .projects .projects-container .project-card .project-title .text-section p {
-    font-size: 1.5rem;
-    line-height: 1.3;
-    color: var(--text-light);
+  font-size: 1.5rem;
+  line-height: 1.3;
+  color: var(--text-light);
 }
 
-
 .projects .projects-container .project-card .project-info {
-    /* border: 1px solid red; */
-    padding: 1rem 1rem;
+  /* border: 1px solid red; */
+  padding: 1rem 1rem;
 }
 
 .projects .projects-container .project-card .project-info h3 {
-    color: var(--text-light);
-    font-size: 1.5rem;
-    line-height: 1;
-    font-weight: 500;
-    margin-bottom: .6rem;
+  color: var(--text-light);
+  font-size: 1.5rem;
+  line-height: 1;
+  font-weight: 500;
+  margin-bottom: 0.6rem;
 }
 
 .projects .projects-container .project-card .project-info p {
-    font-size: 1.4rem;
-    line-height: 1.2;
-    color: var(--text-light);
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: var(--text-light);
 }
 
 .projects .projects-container .project-card .project-info p .bxs-circle {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 @media (max-width: 991px) {
-
-    .projects .projects-container {
-        grid-template-columns: repeat(1, 1fr);
-        transition: .3s;
-    }
-
+  .projects .projects-container {
+    grid-template-columns: repeat(1, 1fr);
+    transition: 0.3s;
+  }
 }
 </style>
