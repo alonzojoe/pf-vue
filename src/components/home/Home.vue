@@ -25,7 +25,26 @@
         alt="Laravel"
       />
       <img class="api-circe" src="../../assets/icons/api-circ.png" alt="API" />
-      <img class="db-circe" src="../../assets/icons/db-circ.png" alt="API" />
+      <img
+        class="db-circe"
+        src="../../assets/icons/db-circ.png"
+        alt="Database"
+      />
+      <img
+        class="ball-left"
+        src="../../assets/icons/ball-left.png"
+        alt="Ball-Left"
+      />
+      <img
+        class="ball-right-lower"
+        src="../../assets/icons/ball-right-lower.png"
+        alt="Ball-right-lower"
+      />
+      <img
+        class="ball-right-upper"
+        src="../../assets/icons/ball-right-upper.png"
+        alt="Ball-right-lower"
+      />
       <!-- <div class="profile-bg">
         <img :src="mainIcon" alt="joe" />
       </div> -->
@@ -209,6 +228,60 @@ const bgImage = computed(() => {
   animation: dbMovement 10s ease-in-out infinite;
 }
 
+.home-profile.profile-icons .ball-left {
+  position: absolute;
+  top: 95px;
+  height: 25px;
+  width: 25px;
+  z-index: 7;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translate3d(-95.5827px, -1.6944px, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  animation: ballLeftMovement 10s ease-in-out infinite;
+}
+
+.home-profile.profile-icons .ball-right-lower {
+  position: absolute;
+  top: 160px;
+  height: 35px;
+  width: 35px;
+  z-index: 7;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translate3d(280.5048px, 54.4429px, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  animation: ballRightLowerMovement 10s ease-in-out infinite;
+}
+
+.home-profile.profile-icons .ball-right-lower {
+  position: absolute;
+  top: 160px;
+  height: 35px;
+  width: 35px;
+  z-index: 7;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translate3d(280.5048px, 54.4429px, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  animation: ballRightLowerMovement 10s ease-in-out infinite;
+}
+
+.home-profile.profile-icons .ball-right-upper {
+  position: absolute;
+  top: 20px;
+  height: 25px;
+  width: 25px;
+  z-index: 7;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translate3d(280.5048px, 54.4429px, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  animation: ballRightUpperMovement 10s ease-in-out infinite;
+}
+
+/* transform: translate3d(107.25px, -36.7123px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); */
+
 @keyframes vueMovement {
   0%,
   100% {
@@ -322,6 +395,86 @@ const bgImage = computed(() => {
   }
 }
 
+@keyframes ballLeftMovement {
+  /* Start: Original Position */
+  0%,
+  100% {
+    transform: translate3d(-95.5827px, -1.6944px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Downward Left */
+  25% {
+    transform: translate3d(-170px, 60px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg);
+  }
+
+  /* Left */
+  50% {
+    transform: translate3d(-195px, 200px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Downward Left */
+  75% {
+    transform: translate3d(-130px, -1.6944px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+}
+
+@keyframes ballRightLowerMovement {
+  /* Start: Original Position */
+  0%,
+  100% {
+    transform: translate3d(280.5048px, 54.4429px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Top Right */
+  25% {
+    transform: translate3d(150px, 140px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Left to Bottom Right */
+  50% {
+    transform: translate3d(190px, 110px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Bottom Right to Original Position */
+  75% {
+    transform: translate3d(320px, 250px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg);
+  }
+}
+
+@keyframes ballRightUpperMovement {
+  /* Start: Original Position */
+  0%,
+  100% {
+    transform: translate3d(280.5048px, 54.4429px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Top Right to Bottom Right */
+  25% {
+    transform: translate3d(280.5048px, 160px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Right to Left */
+  50% {
+    transform: translate3d(180px, 160px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Bottom Right to Bottom Left */
+  75% {
+    transform: translate3d(160px, 20px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+}
 /* .home .home-profile .profile-bg {
   display: flex;
   justify-content: center;
