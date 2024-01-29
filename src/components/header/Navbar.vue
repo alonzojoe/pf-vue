@@ -1,8 +1,15 @@
 <template>
   <header id="header">
     <a href="" class="logo"> {{ storeTheme }} </a>
-    <div v-scroll-spy v-scroll-spy-active="{ selector: 'a.menu-item-selection', class: 'active-menu-item' }"
-      class=" navbar" :class="showMenu">
+    <div
+      v-scroll-spy
+      v-scroll-spy-active="{
+        selector: 'a.menu-item-selection',
+        class: 'active-menu-item',
+      }"
+      class="navbar"
+      :class="showMenu"
+    >
       <a href="#home" class="menu-item-selection">Home</a>
       <a href="#about" class="menu-item-selection">About</a>
       <a href="#skills" class="menu-item-selection">Skills</a>
@@ -10,8 +17,19 @@
       <a href="#contact" class="menu-item-selection">Contact</a>
     </div>
     <div class="controls">
-      <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
-      <a href="javascript:void(0);" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
+      <a
+        href="javascript:void(0);"
+        class="bx"
+        :class="classTheme"
+        id="theme"
+        @click="toggleTheme()"
+      ></a>
+      <a
+        href="javascript:void(0);"
+        :class="menu"
+        id="menu"
+        @click="isToggle = !isToggle"
+      ></a>
     </div>
   </header>
 </template>
@@ -38,7 +56,7 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => {});
 
   currentTheme.value = nextTheme;
   store.commit("setTheme", nextTheme);
@@ -46,7 +64,7 @@ const toggleTheme = () => {
 };
 
 const classTheme = computed(() => {
-  return currentTheme.value == "lara-light-purple" ? "bxs-moon" : "bxs-sun";
+  return currentTheme.value == "lara-light-purple" ? "bxs-sun" : "bxs-moon";
 });
 
 const isToggle = ref(false);
@@ -102,21 +120,27 @@ header .navbar a:hover {
 }
 
 header .controls #theme {
-  background: var(--text-purple);
-  border-radius: 50%;
+  /* background: var(--text-purple); */
+  background: #f6f6f6;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
   padding: 7px;
   text-align: center;
   cursor: pointer;
-  font-size: 1.7rem;
+  font-size: 2rem;
   /* background: var(--text-purple); */
   text-align: center;
-  color: var(--text-white);
+  color: var(--text-light);
   margin-left: 0.5rem;
 }
 
 header .controls #menu {
+  background: #f6f6f6;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 7px;
   cursor: pointer;
-  font-size: 1.7rem;
+  font-size: 2rem;
   text-align: center;
   color: var(--text-light);
   margin-left: 0.5rem;
@@ -134,16 +158,13 @@ header .controls #menu {
     z-index: 100;
   }
 
+  header .controls #theme {
+    font-size: 2.5rem;
+  }
+
   header .controls #menu {
     display: inline-block;
-  }
-
-  header .controls #theme {
-    font-size: 3rem;
-  }
-
-  header .controls #menu {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   header .navbar {

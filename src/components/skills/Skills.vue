@@ -5,98 +5,155 @@
       Technologies and tools that I use in building web applications.
     </h5>
     <div class="skills-container">
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-100"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/html-5.svg" alt="HTML5" />
         </div>
         <span>HTML5</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-200"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/css.svg" alt="CSS3" />
         </div>
         <span>CSS3</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-300"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/js.svg" alt="JavaScript" />
         </div>
         <span>JavaScript</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-400"
+      >
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/bootstrap-5-1.svg" alt="Bootstrap" />
+          <img
+            src="../../../src/assets/icons/bootstrap-5-1.svg"
+            alt="Bootstrap"
+          />
         </div>
         <span>Bootstrap</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-100"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/vue.svg" alt="Vue.js" />
         </div>
         <span>Vue</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-200"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/vuex.png" alt="Vue.js" />
         </div>
         <span>VueX</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-300"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/primevue.png" alt="Vue.js" />
         </div>
         <span>PrimeVue</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-400"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/primeflex.png" alt="Vue.js" />
         </div>
         <span>PrimeFlex</span>
       </div>
 
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-100"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/php.svg" alt="PHP" />
         </div>
         <span>PHP</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-200"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/laravel.svg" alt="Laravel" />
         </div>
         <span>Laravel</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-300"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/mysql-circ.svg" alt="MySQL" />
         </div>
         <span>MySQL</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-400"
+      >
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/sql-server-new.svg" alt="SQL Server" />
+          <img
+            src="../../../src/assets/icons/sql-server-new.svg"
+            alt="SQL Server"
+          />
         </div>
         <span>SQL Server</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-100"
+      >
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/api-page-svgrepo-com.svg" alt="REST API" />
+          <img
+            src="../../../src/assets/icons/api-page-svgrepo-com.svg"
+            alt="REST API"
+          />
         </div>
         <span>REST API</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-200"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/git.png" alt="REST API" />
         </div>
         <span>Git</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-300"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/postman-icon.svg" alt="Postman" />
         </div>
         <span>Postman</span>
       </div>
-      <div v-animateonscroll="{ enterClass: 'flipleft' }" class="skill-card animation-duration-500">
+      <div
+        v-animateonscroll="{ enterClass: 'fadeindown' }"
+        class="skill-card animation-duration-400"
+      >
         <div class="skill-icon">
           <img src="../../../src/assets/icons/vscode.svg" alt="VS Code" />
         </div>

@@ -537,6 +537,14 @@ const bgImage = computed(() => {
     gap: 1.5rem;
   }
 
+  .home-intro {
+    order: 2; /* Change the order of the first item */
+  }
+
+  .home-profile {
+    order: 1; /* Change the order of the second item */
+  }
+
   .home .home-profile .profile-bg {
     height: 35rem;
     width: 35rem;
