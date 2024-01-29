@@ -70,7 +70,7 @@ const classTheme = computed(() => {
 const isToggle = ref(false);
 
 const menu = computed(() => {
-  return isToggle.value ? "bx bx-x" : "bx bx-menu-alt-right";
+  return isToggle.value ? "bx bx-x" : "bx bx-menu";
 });
 
 const showMenu = computed(() => {
@@ -103,6 +103,7 @@ header .logo {
 header .navbar {
   flex: 1;
   text-align: right;
+  z-index: 400;
 }
 
 header .navbar a {
@@ -119,6 +120,13 @@ header .navbar a:hover {
   background: var(--text-purple);
 }
 
+header .controls {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 1rem;
+}
+
 header .controls #theme {
   /* background: var(--text-purple); */
   background: #f6f6f6;
@@ -131,7 +139,6 @@ header .controls #theme {
   /* background: var(--text-purple); */
   text-align: center;
   color: var(--text-light);
-  margin-left: 0.5rem;
 }
 
 header .controls #menu {
@@ -143,7 +150,6 @@ header .controls #menu {
   font-size: 2rem;
   text-align: center;
   color: var(--text-light);
-  margin-left: 0.5rem;
   display: none;
 }
 
@@ -159,10 +165,12 @@ header .controls #menu {
   }
 
   header .controls #theme {
+    padding: 5px;
     font-size: 2.5rem;
   }
 
   header .controls #menu {
+    padding: 5px;
     display: inline-block;
     font-size: 2.5rem;
   }
@@ -180,7 +188,11 @@ header .controls #menu {
     overflow: hidden;
     transition: height 0.2s ease-in;
   }
-
+  header .navbar.active {
+    top: 100%;
+    transition: top 0.2s ease-in, height 0.2s ease-in;
+    height: 100vh;
+  }
   header .navbar.active-menu-item {
     top: 100%;
     height: 100vh;
