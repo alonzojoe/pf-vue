@@ -1,41 +1,31 @@
 <template>
   <header id="header">
-    <a href="" class="logo"> {{ storeTheme }} </a>
-    <div
-      v-scroll-spy
-      v-scroll-spy-active="{
-        selector: 'a.menu-item-selection',
-        class: 'active-menu-item',
-      }"
-      class="navbar"
-      :class="showMenu"
-    >
-      <a href="#home" class="menu-item-selection">Home</a>
-      <a href="#about" class="menu-item-selection">About</a>
-      <a href="#skills" class="menu-item-selection">Skills</a>
-      <a href="#projects" class="menu-item-selection">Projects</a>
-      <a href="#contact" class="menu-item-selection">Contact</a>
+    <a href="" class="logo"> {{ storeTheme }} {{ isSmallScreen }} </a>
+    <!-- v-scroll-spy v-scroll-spy-active="{
+      selector: 'a.menu-item-selection',
+      class: 'active-menu-item',
+    }" -->
+    <div class="navbar" :class="showMenu">
+      <a href="#home" class="menu-item-selection"
+        :class="{ 'fadeindown animation-duration-400': isSmallScreen && isToggle }">Home</a>
+      <a href="#about" class="menu-item-selection"
+        :class="{ 'fadeindown animation-duration-500': isSmallScreen && isToggle }">About</a>
+      <a href="#skills" class="menu-item-selection"
+        :class="{ 'fadeindown animation-duration-600': isSmallScreen && isToggle }">Skills</a>
+      <a href="#projects" class="menu-item-selection"
+        :class="{ 'fadeindown animation-duration-700': isSmallScreen && isToggle }">Projects</a>
+      <a href="#contact" class="menu-item-selection"
+        :class="{ 'fadeindown animation-duration-800': isSmallScreen && isToggle }">Contact</a>
     </div>
     <div class="controls">
-      <a
-        href="javascript:void(0);"
-        class="bx"
-        :class="classTheme"
-        id="theme"
-        @click="toggleTheme()"
-      ></a>
-      <a
-        href="javascript:void(0);"
-        :class="menu"
-        id="menu"
-        @click="isToggle = !isToggle"
-      ></a>
+      <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
+      <a href="javascript:void(0);" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
     </div>
   </header>
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { usePrimeVue } from "primevue/config";
 import { useStore } from "vuex";
 
@@ -56,7 +46,7 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => {});
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
 
   currentTheme.value = nextTheme;
   store.commit("setTheme", nextTheme);
@@ -76,6 +66,21 @@ const menu = computed(() => {
 const showMenu = computed(() => {
   return isToggle.value ? "active" : "";
 });
+
+const isSmallScreen = ref(window.innerWidth <= 768);
+
+const handleResize = () => {
+  isSmallScreen.value = window.innerWidth <= 768;
+};
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize);
+});
+
 </script>
 
 <style scoped>
@@ -178,21 +183,32 @@ header .controls #menu {
   header .navbar {
     background: var(--bg-light);
     position: absolute;
-    top: -1900vh;
+    top: 100%;
     right: 0;
     left: 0;
     border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
     border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
-    padding: 1rem;
-    height: 0;
+    max-height: 0;
     overflow: hidden;
-    transition: height 0.2s ease-in;
+    opacity: 0;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out 0.2s !important;
   }
+
   header .navbar.active {
+    padding: 1rem;
     top: 100%;
-    transition: top 0.2s ease-in, height 0.2s ease-in;
+    transition: max-height 0.3s ease-in-out !important;
+    /* Remove the padding transition when adding the active class */
+    max-height: 100vh;
     height: 100vh;
+    opacity: 1;
   }
+
+  header .navbar:not(.active) {
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out !important;
+  }
+
   header .navbar.active-menu-item {
     top: 100%;
     height: 100vh;
@@ -223,7 +239,38 @@ header .controls #menu {
     /* background: #eee; */
     padding: 1.5rem;
     display: block;
-    font-size: 1.9rem;
+    font-size: 2rem;
+    font-weight: 600;
+  }
+}
+
+.animation-duration-400 {
+  animation-duration: 400ms !important;
+}
+
+.animation-duration-500 {
+  animation-duration: 500ms !important;
+}
+
+.animation-duration-600 {
+  animation-duration: 600ms !important;
+}
+
+.animation-duration-700 {
+  animation-duration: 700ms !important;
+}
+
+.animation-duration-800 {
+  animation-duration: 800ms !important;
+}
+
+@media (max-width: 450px) {
+  header .navbar a {
+    text-align: center;
+    /* background: #eee; */
+    padding: 1.5rem;
+    display: block;
+    font-size: 3rem;
     font-weight: 600;
   }
 }

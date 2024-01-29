@@ -1,9 +1,6 @@
 <template>
   <footer class="footer" id="footer">
-    <div
-      class="footer-box animation-duration-300"
-      v-animateonscroll="{ enterClass: 'fadeindown' }"
-    >
+    <div class="footer-box animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
       <div class="footer-items">
         <h3>Joe's Portfolio</h3>
       </div>
@@ -14,10 +11,7 @@
       </div>
     </div>
     <hr />
-    <p
-      class="animation-duration-500"
-      v-animateonscroll="{ enterClass: 'fadeindown' }"
-    >
+    <p class="animation-duration-500" v-animateonscroll="{ enterClass: 'fadeindown' }">
       &copy; Joenell Alonzo. All Rights Reserved {{ currentYear }}
     </p>
   </footer>
@@ -84,7 +78,7 @@ const currentYear = ref(moment().year());
 
   .footer .footer-box {
     flex-direction: column;
-    gap: 2rem;
+    gap: 3rem;
   }
 }
 </style>
