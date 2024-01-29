@@ -18,7 +18,14 @@
       </div>
     </div>
     <div class="home-profile profile-icons">
-      <img class="vue-circe" src="../../assets/icons/vue-circ.png" alt="" />
+      <img class="vue-circe" src="../../assets/icons/vue-circ.png" alt="Vue" />
+      <img
+        class="laravel-circe"
+        src="../../assets/icons/laravel-circ.png"
+        alt="Laravel"
+      />
+      <img class="api-circe" src="../../assets/icons/api-circ.png" alt="API" />
+      <img class="db-circe" src="../../assets/icons/db-circ.png" alt="API" />
       <!-- <div class="profile-bg">
         <img :src="mainIcon" alt="joe" />
       </div> -->
@@ -149,14 +156,57 @@ const bgImage = computed(() => {
 
 .home-profile.profile-icons .vue-circe {
   position: absolute;
-  top: 180px;
+  top: 100px;
   left: 60px;
   height: 100px;
   height: 100px;
+  transform-style: preserve-3d;
+  will-change: transform;
   transform: translate3d(-21.0743px, 48.344px, 0px) scale3d(1, 1, 1)
     rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   animation: vueMovement 10s ease-in-out infinite;
   z-index: 10;
+}
+
+.home-profile.profile-icons .laravel-circe {
+  position: absolute;
+  top: 260px;
+  left: 60px;
+  height: 80px;
+  width: 80px;
+  z-index: 8;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translate3d(1.02305px, 32.0162px, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  animation: laravelMovement 8s ease-in-out infinite;
+}
+
+.home-profile.profile-icons .api-circe {
+  position: absolute;
+  top: 160px;
+  right: 90px;
+  height: 80px;
+  width: 80px;
+  z-index: 10;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translate3d(48.0256px, 180.07px, 0px) scale3d(1, 1, 1)
+    rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  animation: apiMovement 10s ease-in-out infinite;
+}
+
+.home-profile.profile-icons .db-circe {
+  position: absolute;
+  top: 20px;
+  height: 50px;
+  width: 50px;
+  z-index: 7;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transform: translate3d(-9.091px, 25px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  animation: dbMovement 10s ease-in-out infinite;
 }
 
 @keyframes vueMovement {
@@ -176,6 +226,99 @@ const bgImage = computed(() => {
   75% {
     transform: translate3d(-48.344px, 21.0743px, 0px) scale3d(1, 1, 1)
       rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+}
+
+@keyframes laravelMovement {
+  /* Start: Original Position */
+  0%,
+  100% {
+    transform: translate3d(1.02305px, 32.0162px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Downward to the Left */
+  20% {
+    transform: translate3d(-32.0162px, 50.02305px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Straight Line to the Left */
+  40% {
+    transform: translate3d(-32.0162px, -1.02305px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Downward to the Right */
+  60% {
+    transform: translate3d(32.0162px, 50.02305px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Back to Original Position */
+}
+
+@keyframes apiMovement {
+  /* Start: Bottom */
+  0% {
+    transform: translate3d(48.0256px, 180.07px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Left */
+  25% {
+    transform: translate3d(-32.0162px, 50.02305px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Diagonal Left to Diagonal Center Top */
+  50% {
+    transform: translate3d(0px, -150px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Back to Original Position */
+  75% {
+    transform: translate3d(-32.0162px, 50.02305px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Return to Bottom */
+  100% {
+    transform: translate3d(48.0256px, 180.07px, 0px) scale3d(1, 1, 1)
+      rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+}
+
+@keyframes dbMovement {
+  /* Start: Bottom */
+  0% {
+    transform: translate3d(-9.091px, 25px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Wider Diagonal Left */
+  25% {
+    transform: translate3d(-190px, -20px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(-0deg) skew(0deg, 0deg);
+  }
+
+  /* Back to Bottom */
+  50% {
+    transform: translate3d(-9.091px, 25px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Wider Diagonal Right */
+  75% {
+    transform: translate3d(70px, -30px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  /* Back to Bottom */
+  100% {
+    transform: translate3d(-9.091px, 25px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   }
 }
 
