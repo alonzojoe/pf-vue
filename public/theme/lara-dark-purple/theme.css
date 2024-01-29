@@ -6950,3 +6950,19 @@ header {
 .contact .contact-container .contact-box {
   background: #1b1b23 !important;
 }
+
+
+@media (max-width: 768px) {
+  header .navbar {
+    background: #131313 !important;
+  }
+
+  header .navbar a {
+    color: #fff !important;
+  }
+
+  header .navbar a:hover {
+    color: #8e57e8 !important;
+    background: transparent !important;
+  }
+}

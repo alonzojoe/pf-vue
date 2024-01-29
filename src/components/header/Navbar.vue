@@ -6,7 +6,7 @@
       class: 'active-menu-item',
     }" -->
     <div class="navbar" :class="showMenu">
-      <a href="#home" class="menu-item-selection"
+      <a href="#home" class="menu-item-selection active"
         :class="{ 'fadeindown animation-duration-400': isSmallScreen && isToggle }">Home</a>
       <a href="#about" class="menu-item-selection"
         :class="{ 'fadeindown animation-duration-500': isSmallScreen && isToggle }">About</a>
@@ -239,8 +239,18 @@ header .controls #menu {
     /* background: #eee; */
     padding: 1.5rem;
     display: block;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 600;
+  }
+
+  header .navbar a.active {
+    background: transparent !important;
+    color: #8e57e8 !important;
+  }
+
+  header .navbar a:hover {
+    color: #8e57e8 !important;
+    background: transparent !important;
   }
 }
 
