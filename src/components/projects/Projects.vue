@@ -1,5 +1,5 @@
 <template>
-  <section class="projects">
+  <section class="projects" :id="sectionId">
     <h2 class="heading">Projects</h2>
 
     <div class="projects-container">
@@ -159,6 +159,18 @@
 </template>
 
 <script setup>
+import { ref, onMounted } from "vue";
+const props = defineProps({
+  id: String,
+});
+
+const sectionId = ref();
+const sectionName = ref();
+
+onMounted(() => {
+  sectionId.value = props.id;
+  sectionName.value = props.id.charAt(0).toUpperCase() + props.id.slice(1);
+});
 // import Carousel from "primevue/carousel";
 // import { ref, onMounted } from "vue";
 // // import { ProductService } from '@/service/ProductService';

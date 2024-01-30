@@ -6951,10 +6951,9 @@ header {
   background: #1b1b23 !important;
 }
 
-
 @media (max-width: 768px) {
   header .navbar {
-    background: #131313 !important;
+    background: #14141c !important;
   }
 
   header .navbar a {

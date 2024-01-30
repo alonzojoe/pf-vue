@@ -1,25 +1,67 @@
 <template>
   <header id="header">
     <a href="" class="logo"> {{ storeTheme }} {{ isSmallScreen }} </a>
-    <!-- v-scroll-spy v-scroll-spy-active="{
-      selector: 'a.menu-item-selection',
-      class: 'active-menu-item',
-    }" -->
     <div class="navbar" :class="showMenu">
-      <a href="#home" class="menu-item-selection active"
-        :class="{ 'fadeindown animation-duration-400': isSmallScreen && isToggle }">Home</a>
-      <a href="#about" class="menu-item-selection"
-        :class="{ 'fadeindown animation-duration-500': isSmallScreen && isToggle }">About</a>
-      <a href="#skills" class="menu-item-selection"
-        :class="{ 'fadeindown animation-duration-600': isSmallScreen && isToggle }">Skills</a>
-      <a href="#projects" class="menu-item-selection"
-        :class="{ 'fadeindown animation-duration-700': isSmallScreen && isToggle }">Projects</a>
-      <a href="#contact" class="menu-item-selection"
-        :class="{ 'fadeindown animation-duration-800': isSmallScreen && isToggle }">Contact</a>
+      <a
+        href="#home"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-400': isSmallScreen && isToggle,
+          active: currentSection == 'home',
+        }"
+        >Home</a
+      >
+      <a
+        href="#about"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-500': isSmallScreen && isToggle,
+          active: currentSection == 'about',
+        }"
+        >About</a
+      >
+      <a
+        href="#skills"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-600': isSmallScreen && isToggle,
+          active: currentSection == 'skills',
+        }"
+        >Skills</a
+      >
+      <a
+        href="#projects"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-700': isSmallScreen && isToggle,
+          active: currentSection == 'projects',
+        }"
+        >Projects</a
+      >
+      <a
+        href="#contact"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-800': isSmallScreen && isToggle,
+          active: currentSection == 'contact',
+        }"
+        >Contact</a
+      >
     </div>
     <div class="controls">
-      <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
-      <a href="javascript:void(0);" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
+      <a
+        href="javascript:void(0);"
+        class="bx"
+        :class="classTheme"
+        id="theme"
+        @click="toggleTheme()"
+      ></a>
+      <a
+        href="javascript:void(0);"
+        :class="menu"
+        id="menu"
+        @click="isToggle = !isToggle"
+      ></a>
     </div>
   </header>
 </template>
@@ -46,7 +88,7 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => {});
 
   currentTheme.value = nextTheme;
   store.commit("setTheme", nextTheme);
@@ -73,14 +115,33 @@ const handleResize = () => {
   isSmallScreen.value = window.innerWidth <= 768;
 };
 
+const currentSection = ref();
+let section = ref();
+
+const updateScroll = () => {
+  section.value.forEach((sec) => {
+    let top = window.scrollY;
+    let offset = sec.offsetTop - 150;
+    let height = sec.offsetHeight;
+    let id = sec.getAttribute("id");
+
+    if (top >= offset && top < offset + height) {
+      currentSection.value = id;
+    }
+  });
+};
+
 onMounted(() => {
-  window.addEventListener('resize', handleResize);
+  section.value = document.querySelectorAll("section");
+  window.addEventListener("scroll", updateScroll);
+  updateScroll();
+
+  window.addEventListener("resize", handleResize);
 });
 
 onUnmounted(() => {
-  window.removeEventListener('resize', handleResize);
+  window.removeEventListener("resize", handleResize);
 });
-
 </script>
 
 <style scoped>
@@ -191,6 +252,9 @@ header .controls #menu {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out 0.2s !important;
   }
 
@@ -238,9 +302,10 @@ header .controls #menu {
     text-align: center;
     /* background: #eee; */
     padding: 1.5rem;
-    display: block;
+    /* display: block; */
     font-size: 2.5rem;
     font-weight: 600;
+    width: 200px;
   }
 
   header .navbar a.active {
@@ -280,7 +345,7 @@ header .controls #menu {
     /* background: #eee; */
     padding: 1.5rem;
     display: block;
-    font-size: 3rem;
+    font-size: 2.7rem;
     font-weight: 600;
   }
 }

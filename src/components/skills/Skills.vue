@@ -1,5 +1,5 @@
 <template>
-  <section class="skills">
+  <section class="skills" :id="sectionId">
     <h2 class="heading">Skills</h2>
     <h5 class="sub-heading">
       Technologies and tools that I use in building web applications.
@@ -164,7 +164,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import imageBackground from "../../assets/background/skills-bg.png";
 const store = useStore();
@@ -174,6 +174,18 @@ const bgImage = computed(() => {
   return storeTheme.value !== "lara-dark-purple"
     ? `url(${imageBackground})`
     : "";
+});
+
+const props = defineProps({
+  id: String,
+});
+
+const sectionId = ref();
+const sectionName = ref();
+
+onMounted(() => {
+  sectionId.value = props.id;
+  sectionName.value = props.id.charAt(0).toUpperCase() + props.id.slice(1);
 });
 </script>
 

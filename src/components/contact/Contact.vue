@@ -1,5 +1,5 @@
 <template>
-  <section class="contact">
+  <section class="contact" :id="sectionId">
     <h2 class="heading">Contact</h2>
     <h5 class="sub-heading">Get in touch</h5>
     <div class="contact-container">
@@ -58,7 +58,20 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted } from "vue";
+const props = defineProps({
+  id: String,
+});
+
+const sectionId = ref();
+const sectionName = ref();
+
+onMounted(() => {
+  sectionId.value = props.id;
+  sectionName.value = props.id.charAt(0).toUpperCase() + props.id.slice(1);
+});
+</script>
 
 <style scoped>
 section {
@@ -67,7 +80,7 @@ section {
 
 .contact {
   border: 1px solid red;
-  background: #763ED0;
+  background: #763ed0;
   /* background: var(--bg-light); */
 }
 
@@ -76,7 +89,7 @@ section {
 }
 
 .sub-heading {
-  color: #E2E2E2 !important;
+  color: #e2e2e2 !important;
 }
 
 .contact .contact-container {

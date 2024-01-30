@@ -2,6 +2,7 @@
   <section
     v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
     class="about animation-duration-1000"
+    :id="sectionId"
   >
     <h2 class="heading">About</h2>
     <div class="about-content">
@@ -39,7 +40,20 @@
   </section>
 </template>
 
-<script setup></script>
+<script setup>
+import { ref, onMounted } from "vue";
+const props = defineProps({
+  id: String,
+});
+
+const sectionId = ref();
+const sectionName = ref();
+
+onMounted(() => {
+  sectionId.value = props.id;
+  sectionName.value = props.id.charAt(0).toUpperCase() + props.id.slice(1);
+});
+</script>
 
 <style scoped>
 .about {
