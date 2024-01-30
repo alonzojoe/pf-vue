@@ -67,3 +67,21 @@ section {
     font-size: 50%;
   }
 }
+
+.p-carousel-indicators {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
+}
+
+.p-carousel-prev svg {
+  width: 20px; /* Adjust the width as needed */
+  height: 20px; /* Adjust the height as needed */
+}
+
+.p-carousel-next svg {
+  width: 20px; /* Adjust the width as needed */
+  height: 20px; /* Adjust the height as needed */
+}

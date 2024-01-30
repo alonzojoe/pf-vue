@@ -3,15 +3,15 @@
     <h2 class="heading">Projects</h2>
 
     <div class="projects-container">
-      <div class="card">
+      <div class="card-project">
         <Carousel
           :value="products"
           :numVisible="3"
           :numScroll="1"
           :responsiveOptions="responsiveOptions"
-          circular
-          :autoplayInterval="3000"
         >
+          <!-- circular
+          :autoplayInterval="3000" -->
           <template #item="slotProps">
             <div class="border-1 surface-border border-round m-2 p-3">
               <div class="mb-3">
@@ -32,14 +32,15 @@
                   />
                 </div>
               </div>
-              <div class="mb-3 font-medium">{{ slotProps.data.name }}</div>
+              <div class="mb-3">
+                <h3 class="project-title">{{ slotProps.data.name }}</h3>
+              </div>
               <div class="flex justify-content-between align-items-center">
-                <div class="mt-0 font-semibold text-xl">
-                  ${{ slotProps.data.price }}
+                <div class="mt-0 font-semibold text-xxl">
+                  <!-- ${{ slotProps.data.price }} -->
                 </div>
                 <span>
-                  <Button icon="pi pi-heart" severity="secondary" outlined />
-                  <Button icon="pi pi-shopping-cart" class="ml-2" />
+                  <button class="btn-sm">Details</button>
                 </span>
               </div>
             </div>
@@ -111,11 +112,26 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.card {
-  background: var(--surface-card);
+.btn-sm {
+  cursor: pointer;
+  color: var(--text-white);
+  font-size: 1.4rem;
+  background: var(--text-purple);
+  border-radius: 0.5rem;
+  padding: 0.8rem 2rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-sm:hover {
+  background: #7d4ec9;
+}
+.card-project {
+  background: #f5fbf5;
   padding: 2rem;
-  border-radius: 10px;
+  border-radius: 15px;
   margin-bottom: 1rem;
+  transition: ease 0.5s;
+  box-shadow: 7px 7px 36px 5px rgba(67, 56, 67, 0.09) !important;
 }
 
 p {
@@ -123,7 +139,7 @@ p {
 }
 .projects {
   border: 1px solid red;
-  background: var(--bg-light);
+  /* background: var(--bg-light); */
 }
 
 .projects .projects-container {
@@ -134,81 +150,18 @@ p {
     grid-template-columns: repeat(3, 1fr); */
 }
 
-.projects .projects-container .project-card {
-  border-radius: 0.6rem;
-  border: 0.1rem solid rgba(0, 0, 0, 0.2);
-  background: var(--card-bg);
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 1.5rem;
-}
-
-.projects .projects-container .project-card .project-title .image-section {
-  /* background: var(--text-purple); */
-  border-radius: 0.6rem 0.6rem 0 0;
-}
-
-.projects .projects-container .project-card .project-title .image-section img {
-  width: 100%;
-  border-radius: 0.6rem 0.6rem 0 0;
-  border-bottom: 0.1rem solid rgba(0, 0, 0, 0.1);
-}
-
-.projects .projects-container .project-card .project-title .text-section {
-  padding: 0 1rem;
-}
-
-.projects
-  .projects-container
-  .project-card
-  .project-title
-  .text-section
-  .title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.projects
-  .projects-container
-  .project-card
-  .project-title
-  .text-section
-  .title
-  h2 {
-  font-size: 2.5rem;
-  letter-spacing: 0.1rem;
-  color: var(--text-light);
-  margin: 1rem 0;
-}
-
-.projects .projects-container .project-card .project-title .text-section p {
-  font-size: 1.5rem;
-  line-height: 1.3;
-  color: var(--text-light);
-}
-
-.projects .projects-container .project-card .project-info {
-  /* border: 1px solid red; */
-  padding: 1rem 1rem;
-}
-
-.projects .projects-container .project-card .project-info h3 {
-  color: var(--text-light);
-  font-size: 1.5rem;
-  line-height: 1;
+.project-title {
+  font-size: 2rem;
   font-weight: 500;
-  margin-bottom: 0.6rem;
+  line-height: 1.3;
 }
 
-.projects .projects-container .project-card .project-info p {
-  font-size: 1.4rem;
-  line-height: 1.2;
-  color: var(--text-light);
-}
-
-.projects .projects-container .project-card .project-info p .bxs-circle {
-  font-size: 1rem;
+.p-carousel-indicators {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.5rem !important;
 }
 
 @media (max-width: 991px) {
