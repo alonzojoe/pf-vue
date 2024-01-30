@@ -5,23 +5,23 @@
       <a href="#home" class="menu-item-selection" :class="{
         'fadeindown animation-duration-400': isSmallScreen && isToggle,
         active: currentSection == 'home',
-      }">Home</a>
+      }" @click="navigateMenu">Home</a>
       <a href="#about" class="menu-item-selection" :class="{
         'fadeindown animation-duration-500': isSmallScreen && isToggle,
         active: currentSection == 'about',
-      }">About</a>
+      }" @click="navigateMenu">About</a>
       <a href="#skills" class="menu-item-selection" :class="{
         'fadeindown animation-duration-600': isSmallScreen && isToggle,
         active: currentSection == 'skills',
-      }">Skills</a>
+      }" @click="navigateMenu">Skills</a>
       <a href="#projects" class="menu-item-selection" :class="{
         'fadeindown animation-duration-700': isSmallScreen && isToggle,
         active: currentSection == 'projects',
-      }">Projects</a>
+      }" @click="navigateMenu">Projects</a>
       <a href="#contact" class="menu-item-selection" :class="{
         'fadeindown animation-duration-800': isSmallScreen && isToggle,
         active: currentSection == 'contact',
-      }">Contact</a>
+      }" @click="navigateMenu">Contact</a>
     </div>
     <div class="controls">
       <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
@@ -78,6 +78,10 @@ const isSmallScreen = ref(window.innerWidth <= 768);
 const handleResize = () => {
   isSmallScreen.value = window.innerWidth <= 768;
 };
+
+const navigateMenu = () => {
+  isToggle.value = false
+}
 
 const currentSection = ref();
 let section = ref();
