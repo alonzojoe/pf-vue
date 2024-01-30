@@ -1,7 +1,7 @@
 <template>
   <section class="contact" :id="sectionId">
     <h2 class="heading">Contact</h2>
-    <h5 class="sub-heading">Get in touch</h5>
+    <h5 class="sub-heading">Let's build awesome stuffs for you.</h5>
     <div class="contact-container">
       <div class="contact-box">
         <div class="container-info">

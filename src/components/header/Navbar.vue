@@ -1,67 +1,31 @@
 <template>
   <header id="header">
-    <a href="" class="logo"> {{ storeTheme }} {{ isSmallScreen }} </a>
+    <a href="" class="logo"> {{ isSmallScreen }} </a>
     <div class="navbar" :class="showMenu">
-      <a
-        href="#home"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-400': isSmallScreen && isToggle,
-          active: currentSection == 'home',
-        }"
-        >Home</a
-      >
-      <a
-        href="#about"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-500': isSmallScreen && isToggle,
-          active: currentSection == 'about',
-        }"
-        >About</a
-      >
-      <a
-        href="#skills"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-600': isSmallScreen && isToggle,
-          active: currentSection == 'skills',
-        }"
-        >Skills</a
-      >
-      <a
-        href="#projects"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-700': isSmallScreen && isToggle,
-          active: currentSection == 'projects',
-        }"
-        >Projects</a
-      >
-      <a
-        href="#contact"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-800': isSmallScreen && isToggle,
-          active: currentSection == 'contact',
-        }"
-        >Contact</a
-      >
+      <a href="#home" class="menu-item-selection" :class="{
+        'fadeindown animation-duration-400': isSmallScreen && isToggle,
+        active: currentSection == 'home',
+      }">Home</a>
+      <a href="#about" class="menu-item-selection" :class="{
+        'fadeindown animation-duration-500': isSmallScreen && isToggle,
+        active: currentSection == 'about',
+      }">About</a>
+      <a href="#skills" class="menu-item-selection" :class="{
+        'fadeindown animation-duration-600': isSmallScreen && isToggle,
+        active: currentSection == 'skills',
+      }">Skills</a>
+      <a href="#projects" class="menu-item-selection" :class="{
+        'fadeindown animation-duration-700': isSmallScreen && isToggle,
+        active: currentSection == 'projects',
+      }">Projects</a>
+      <a href="#contact" class="menu-item-selection" :class="{
+        'fadeindown animation-duration-800': isSmallScreen && isToggle,
+        active: currentSection == 'contact',
+      }">Contact</a>
     </div>
     <div class="controls">
-      <a
-        href="javascript:void(0);"
-        class="bx"
-        :class="classTheme"
-        id="theme"
-        @click="toggleTheme()"
-      ></a>
-      <a
-        href="javascript:void(0);"
-        :class="menu"
-        id="menu"
-        @click="isToggle = !isToggle"
-      ></a>
+      <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
+      <a href="javascript:void(0);" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
     </div>
   </header>
 </template>
@@ -88,7 +52,7 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => {});
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
 
   currentTheme.value = nextTheme;
   store.commit("setTheme", nextTheme);
