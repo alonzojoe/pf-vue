@@ -1,25 +1,24 @@
 <script setup>
-import { ref } from 'vue'
+import { ref } from "vue";
 import Navbar from "@/components/header/Navbar.vue";
 import Home from "@/components/home/Home.vue";
 import About from "@/components/about/About.vue";
-import Skills from "@/components/skills/Skills.vue"
-import Projects from "@/components/projects/Projects.vue"
+import Skills from "@/components/skills/Skills.vue";
+import Projects from "@/components/projects/Projects.vue";
 import Contact from "@/components/contact/Contact.vue";
-import Footer from "@/components/footer/Footer.vue"
+import Footer from "@/components/footer/Footer.vue";
 
-const appTheme = ref('')
+const appTheme = ref("");
 
 const switchTheme = (theme) => {
-  appTheme.value = theme
-}
-
+  appTheme.value = theme;
+};
 </script>
 
 <template>
   <div>
     <Navbar @toggle-theme="switchTheme" />
-    <div class="page-sections" v-scroll-spy="{ offset: 100, }">
+    <div class="page-sections">
       <Home id="home" />
       <About id="about" />
       <Skills id="skills" />

@@ -207,6 +207,10 @@ header .controls #theme {
   color: var(--text-light);
 }
 
+header .controls #theme:hover {
+  border: 1px solid var(--text-purple);
+}
+
 header .controls #menu {
   background: #f6f6f6;
   border: 1px solid #e2e8f0;
@@ -217,6 +221,10 @@ header .controls #menu {
   text-align: center;
   color: var(--text-light);
   display: none;
+}
+
+header .controls #menu:hover {
+  border: 1px solid var(--text-purple);
 }
 
 @media (max-width: 991px) {

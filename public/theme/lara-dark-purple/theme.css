@@ -6965,3 +6965,11 @@ header {
     background: transparent !important;
   }
 }
+
+header .controls #theme:hover {
+  border: 1px solid var(--text-purple) !important;
+}
+
+header .controls #menu:hover {
+  border: 1px solid var(--text-purple) !important;
+}
