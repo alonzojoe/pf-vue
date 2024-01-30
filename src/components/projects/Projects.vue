@@ -36,11 +36,11 @@
                 <h3 class="project-title">{{ slotProps.data.name }}</h3>
               </div>
               <div class="flex justify-content-between align-items-center">
-                <div class="mt-0 font-semibold text-xxl">
-                  <!-- ${{ slotProps.data.price }} -->
-                </div>
                 <span>
                   <button class="btn-sm" @click="viewDetails">Details</button>
+                </span>
+                <span>
+                  <button class="btn-sm" @click="viewDetails">Preview</button>
                 </span>
               </div>
             </div>
@@ -49,32 +49,48 @@
       </div>
     </div>
   </section>
-  <Modal
-    class="modal-details"
-    v-model:visible="visible"
-    maximizable
-    modal
-    header="Header"
-    :draggable="false"
-    :style="{ width: '60vw' }"
-    :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
-  >
-    <p class="m-0">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
-    </p>
-  </Modal>
+  <div class="card flex justify-content-center">
+    <Galleria
+      v-model:visible="displayBasic"
+      :value="images"
+      :responsiveOptions="responsiveGallery"
+      :numVisible="9"
+      containerStyle="max-width: 50%"
+      :circular="true"
+      :fullScreen="true"
+      :showItemNavigators="true"
+    >
+      <template #item="slotProps">
+        <img
+          :src="slotProps.item.itemImageSrc"
+          :alt="slotProps.item.alt"
+          style="width: 100%; display: block"
+        />
+      </template>
+      <template #thumbnail="slotProps">
+        <img
+          :src="slotProps.item.thumbnailImageSrc"
+          :alt="slotProps.item.alt"
+          style="display: block"
+        />
+      </template>
+    </Galleria>
+
+    <Button
+      label="Show"
+      icon="pi pi-external-link"
+      @click="displayBasic = true"
+    />
+  </div>
+
+  <ProjectDetails :visible="visible" @close-modal="visible = false" />
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { ProductService } from "./systems";
-
+import ProjectDetails from "./projects-components/ProjectDetails.vue";
+import { PhotoService } from "./systems/photos";
 const props = defineProps({
   id: String,
 });
@@ -128,9 +144,31 @@ const viewDetails = () => {
   visible.value = true;
 };
 
+const images = ref();
+const responsiveGallery = ref([
+  {
+    breakpoint: "1500px",
+    numVisible: 5,
+  },
+  {
+    breakpoint: "1024px",
+    numVisible: 3,
+  },
+  {
+    breakpoint: "768px",
+    numVisible: 2,
+  },
+  {
+    breakpoint: "560px",
+    numVisible: 1,
+  },
+]);
+const displayBasic = ref(false);
+
 onMounted(() => {
   sectionId.value = props.id;
   sectionName.value = props.id.charAt(0).toUpperCase() + props.id.slice(1);
+  PhotoService.getImages().then((data) => (images.value = data));
   ProductService.getProductsSmall().then(
     (data) => (products.value = data.slice(0, 9))
   );
