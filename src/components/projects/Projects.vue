@@ -40,7 +40,7 @@
                   <!-- ${{ slotProps.data.price }} -->
                 </div>
                 <span>
-                  <button class="btn-sm">Details</button>
+                  <button class="btn-sm" @click="viewDetails">Details</button>
                 </span>
               </div>
             </div>
@@ -49,6 +49,26 @@
       </div>
     </div>
   </section>
+  <Modal
+    class="modal-details"
+    v-model:visible="visible"
+    maximizable
+    modal
+    header="Header"
+    :draggable="false"
+    :style="{ width: '60vw' }"
+    :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
+  >
+    <p class="m-0">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+      est laborum.
+    </p>
+  </Modal>
 </template>
 
 <script setup>
@@ -102,6 +122,12 @@ const getSeverity = (status) => {
   }
 };
 
+const visible = ref(false);
+
+const viewDetails = () => {
+  visible.value = true;
+};
+
 onMounted(() => {
   sectionId.value = props.id;
   sectionName.value = props.id.charAt(0).toUpperCase() + props.id.slice(1);
@@ -144,7 +170,7 @@ p {
 
 .projects .projects-container {
   border: 1px solid red;
-  padding: 3rem;
+  padding: 3rem 0;
   /* display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(3, 1fr); */
