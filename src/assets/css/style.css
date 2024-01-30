@@ -124,3 +124,19 @@ section {
   width: 15px; /* Adjust the width as needed */
   height: 15px; /* Adjust the height as needed */
 }
+
+.p-galleria-caption {
+  padding: 1rem;
+}
+
+.p-galleria-caption div {
+  font-size: 2rem;
+}
+
+.p-galleria-caption p {
+  font-size: 1.3rem;
+}
+
+.p-overflow-hidden {
+  --scrollbar-width: 0 !important;
+}

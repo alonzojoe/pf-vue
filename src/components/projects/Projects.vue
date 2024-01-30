@@ -54,7 +54,7 @@
       v-model:visible="displayBasic"
       :value="images"
       :responsiveOptions="responsiveGallery"
-      :numVisible="9"
+      :numVisible="5"
       containerStyle="max-width: 50%"
       :circular="true"
       :fullScreen="true"
@@ -73,6 +73,10 @@
           :alt="slotProps.item.alt"
           style="display: block"
         />
+      </template>
+      <template #caption="slotProps">
+        <div class="text-xl mb-2 font-bold">{{ slotProps.item.title }}</div>
+        <p class="text-white">{{ slotProps.item.alt }}</p>
       </template>
     </Galleria>
 

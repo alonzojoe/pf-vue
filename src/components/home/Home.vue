@@ -13,7 +13,7 @@
         <a href="#" target="_blank" class="bx bxl-github"></a>
         <a href="#" target="_blank" class="bx bxl-linkedin"></a>
       </div>
-      <div>
+      <div class="cv">
         <a href="#" class="btn">Download X</a>
       </div>
     </div>
@@ -110,6 +110,7 @@ onMounted(() => {
   background-image: url("../../assets/icons/joe-updated.png");
   background-position: 50% 50%;
   background-size: 720px;
+  background-repeat: no-repeat, no-repeat;
 }
 
 .home .home-intro h3 {
@@ -147,6 +148,7 @@ onMounted(() => {
 .home .home-intro .socials {
   display: flex;
   margin-bottom: 2rem;
+  gap: 1.3rem;
 }
 
 .home .home-intro .socials a {
@@ -157,7 +159,6 @@ onMounted(() => {
   border-radius: 50%;
   font-size: 2.1rem;
   color: var(--text-white);
-  margin-right: 1.3rem;
   margin-bottom: 2rem;
   background: var(--text-purple);
 }
@@ -543,6 +544,52 @@ onMounted(() => {
   border-radius: 0.5rem;
   padding: 0.8rem 2rem;
   transition: all 0.2s ease-in-out;
+}
+
+@media screen and (max-width: 991px) {
+  .home {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  .home-intro {
+    order: 2;
+    /* Change the order of the first item */
+  }
+
+  .home-profile {
+    order: 1;
+    /* Change the order of the second item */
+  }
+
+  .home-intro h1,
+  h3,
+  h5,
+  p {
+    text-align: center;
+  }
+
+  .home .home-intro .socials {
+    border: 1px solid red;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0;
+  }
+
+  .home .home-intro .socials a {
+    text-align: center;
+  }
+
+  .cv {
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cv .btn {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 768px) {
