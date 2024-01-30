@@ -55,6 +55,10 @@ import { useStore } from "vuex";
 import imageBackground from "../../assets/background/home-bg.png";
 import mainIcon from "../../assets/icons/joe.svg";
 import mainIconPng from "../../assets/icons/joev1.png";
+
+import profileLight from "../../assets/icons/joe-updated.png";
+import profileDark from "../../assets/icons/joe-dark-mode.png";
+
 const store = useStore();
 const storeTheme = computed(() => store.getters.getCurrentTheme);
 
@@ -62,6 +66,12 @@ const bgImage = computed(() => {
   return storeTheme.value !== "lara-dark-purple"
     ? `url(${imageBackground})`
     : "";
+});
+
+const profileBg = computed(() => {
+  return storeTheme.value !== "lara-dark-purple"
+    ? `url(${profileLight})`
+    : `url(${profileDark})`;
 });
 
 const props = defineProps({
@@ -107,7 +117,7 @@ onMounted(() => {
 
   width: 100%;
   height: 580px;
-  background-image: url("../../assets/icons/joe-updated.png");
+  background-image: v-bind(profileBg);
   background-position: 50% 50%;
   background-size: 720px;
   background-repeat: no-repeat, no-repeat;
