@@ -500,7 +500,7 @@ onMounted(() => {
     background: red;
   } */
   .home .home-intro h1 {
-    font-size: 7.5rem;
+    font-size: 7rem;
   }
 
   .home .home-profile {
@@ -510,6 +510,25 @@ onMounted(() => {
     background-size: 600px;
     width: 100%;
     height: 500px;
+
+  }
+}
+
+@media (max-width: 1285px) {
+  .home .home-intro h1 {
+    font-size: 6.5rem;
+  }
+}
+
+@media (max-width: 1279px) {
+
+  .home .home-profile {
+
+
+    background-position: 50% 50%;
+    background-size: 500px;
+    width: 100%;
+    height: 450px;
 
   }
 }
