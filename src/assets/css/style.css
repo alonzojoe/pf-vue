@@ -58,6 +58,12 @@ section {
   }
 }
 
+@media (max-width: 1200px) {
+  section {
+    padding: 2rem 2%;
+  }
+}
+
 @media (max-width: 991px) {
   html {
     font-size: 55%;

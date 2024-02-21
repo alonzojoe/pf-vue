@@ -566,6 +566,16 @@ onMounted(() => {
     /* Change the order of the second item */
   }
 
+  .home .home-profile {
+
+
+    background-position: 50% 50%;
+    background-size: 700px;
+    width: 100%;
+    height: 600px;
+
+  }
+
   .home-intro h1,
   h3,
   h5,
@@ -615,6 +625,16 @@ onMounted(() => {
   .home .home-profile .profile-bg {
     height: 35rem;
     width: 35rem;
+  }
+
+  .home .home-profile {
+
+
+    background-position: 50% 50%;
+    background-size: 500px;
+    width: 100%;
+    height: 350px;
+
   }
 }
 </style>
