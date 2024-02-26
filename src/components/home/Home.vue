@@ -172,6 +172,7 @@ onMounted(() => {
   border: 1px solid green;
   position: relative;
   /* overflow-x: hidden; */
+  /* overflow-x: hidden; */
 }
 
 .home-profile.profile-icons .vue-circe {
@@ -525,6 +526,7 @@ onMounted(() => {
   }
 }
 
+
 @media (max-width: 767px) {
   .home .home-profile {
     background-position: 50% 50%;
@@ -759,7 +761,7 @@ onMounted(() => {
   .home-profile.profile-icons .ball-right-lower {
     height: 25px;
     width: 25px;
-    transform: translate3d(280.5048px, 55.4429px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform: translate3d(210.5048px, 65.4429px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
     /* animation: none; */
   }
 
@@ -768,7 +770,7 @@ onMounted(() => {
     /* Start: Original Position */
     0%,
     100% {
-      transform: translate3d(280.5048px, 55.4429px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+      transform: translate3d(210.5048px, 65.4429px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
     }
 
     /* Diagonal Top Right */
@@ -783,13 +785,39 @@ onMounted(() => {
 
     /* Diagonal Bottom Right to Original Position */
     75% {
-      transform: translate3d(270px, 150px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg);
+      transform: translate3d(215px, 150px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg);
     }
   }
 
   .home-profile.profile-icons .ball-right-upper {
     height: 25px;
     width: 25px;
+    transform: translate3d(160px, 20px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+
+  }
+
+  @keyframes ballRightUpperMovement {
+
+    /* Start: Original Position */
+    0%,
+    100% {
+      transform: translate3d(200.5048px, 54.4429px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Diagonal Top Right to Bottom Right */
+    25% {
+      transform: translate3d(200.5048px, 160px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Right to Left */
+    50% {
+      transform: translate3d(180px, 160px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Bottom Right to Bottom Left */
+    75% {
+      transform: translate3d(160px, 20px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
   }
 }
 </style>
