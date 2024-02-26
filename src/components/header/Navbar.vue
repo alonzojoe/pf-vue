@@ -2,30 +2,71 @@
   <header id="header">
     <a href="" class="logo"> {{ isSmallScreen }} </a>
     <div class="navbar" :class="showMenu">
-      <a href="#home" class="menu-item-selection" :class="{
-        'fadeindown animation-duration-400': isSmallScreen && isToggle,
-        active: currentSection == 'home',
-      }" @click="navigateMenu ">Home</a>
-      <a href="#about" class="menu-item-selection" :class="{
-        'fadeindown animation-duration-500': isSmallScreen && isToggle,
-        active: currentSection == 'about',
-      }" @click="navigateMenu ">About</a>
-      <a href="#skills" class="menu-item-selection" :class="{
-        'fadeindown animation-duration-600': isSmallScreen && isToggle,
-        active: currentSection == 'skills',
-      }" @click="navigateMenu ">Skills</a>
-      <a href="#projects" class="menu-item-selection" :class="{
-        'fadeindown animation-duration-700': isSmallScreen && isToggle,
-        active: currentSection == 'projects',
-      }" @click="navigateMenu ">Projects</a>
-      <a href="#contact" class="menu-item-selection" :class="{
-        'fadeindown animation-duration-800': isSmallScreen && isToggle,
-        active: currentSection == 'contact',
-      }" @click="navigateMenu ">Contact</a>
+      <a
+        href="#home"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-400': isSmallScreen && isToggle,
+          active: currentSection == 'home',
+        }"
+        @click="navigateMenu"
+        >Home</a
+      >
+      <a
+        href="#about"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-500': isSmallScreen && isToggle,
+          active: currentSection == 'about',
+        }"
+        @click="navigateMenu"
+        >About</a
+      >
+      <a
+        href="#skills"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-600': isSmallScreen && isToggle,
+          active: currentSection == 'skills',
+        }"
+        @click="navigateMenu"
+        >Skills</a
+      >
+      <a
+        href="#projects"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-700': isSmallScreen && isToggle,
+          active: currentSection == 'projects',
+        }"
+        @click="navigateMenu"
+        >Projects</a
+      >
+      <a
+        href="#contact"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-800': isSmallScreen && isToggle,
+          active: currentSection == 'contact',
+        }"
+        @click="navigateMenu"
+        >Contact</a
+      >
     </div>
     <div class="controls">
-      <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
-      <a href="javascript:void(0);" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
+      <a
+        href="javascript:void(0);"
+        class="bx"
+        :class="classTheme"
+        id="theme"
+        @click="toggleTheme()"
+      ></a>
+      <a
+        href="javascript:void(0);"
+        :class="menu"
+        id="menu"
+        @click="isToggle = !isToggle"
+      ></a>
     </div>
   </header>
 </template>
@@ -52,7 +93,7 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => {});
 
   currentTheme.value = nextTheme;
   store.commit("setTheme", nextTheme);
@@ -80,8 +121,8 @@ const handleResize = () => {
 };
 
 const navigateMenu = () => {
-  isToggle.value = false
-}
+  isToggle.value = false;
+};
 
 const currentSection = ref();
 let section = ref();
@@ -300,19 +341,19 @@ header .controls #menu:hover {
 }
 
 .animation-duration-500 {
-  animation-duration: 500ms !important;
+  animation-duration: 450ms !important;
 }
 
 .animation-duration-600 {
-  animation-duration: 600ms !important;
+  animation-duration: 500ms !important;
 }
 
 .animation-duration-700 {
-  animation-duration: 700ms !important;
+  animation-duration: 550ms !important;
 }
 
 .animation-duration-800 {
-  animation-duration: 800ms !important;
+  animation-duration: 650ms !important;
 }
 
 @media (max-width: 450px) {
