@@ -191,7 +191,7 @@ onMounted(() => {
 .home-profile.profile-icons {
   border: 1px solid green;
   position: relative;
-  overflow: hidden;
+  /* overflow-x: hidden; */
 }
 
 .home-profile.profile-icons .vue-circe {
@@ -669,33 +669,68 @@ onMounted(() => {
   }
 
   .home-profile.profile-icons .vue-circe {
-    height: 100px;
-    height: 100px;
+    height: 50px;
+    height: 50px;
   }
 
   .home-profile.profile-icons .laravel-circe {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
   }
 
   .home-profile.profile-icons .api-circe {
-    height: 60px;
-    width: 60px;
+    height: 40px;
+    width: 40px;
   }
 
   .home-profile.profile-icons .db-circe {
-    height: 50px;
-    width: 50px;
+    height: 30px;
+    width: 30px;
+    transform: translate3d(-9.091px, 25px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+      rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    /* animation: none; */
+  }
+
+  @keyframes dbMovement {
+    /* Start: Bottom */
+    0% {
+      transform: translate3d(-9.091px, 1px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Wider Diagonal Left */
+    25% {
+      transform: translate3d(-190px, -20px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(-0deg) skew(0deg, 0deg);
+    }
+
+    /* Back to Bottom */
+    50% {
+      transform: translate3d(-9.091px, 1px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Wider Diagonal Right */
+    75% {
+      transform: translate3d(30px, -30px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Back to Bottom */
+    100% {
+      transform: translate3d(-9.091px, 1px, 0px) scale3d(1, 1, 1) rotateX(0deg)
+        rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
   }
 
   .home-profile.profile-icons .ball-left {
-    height: 25px;
-    width: 25px;
+    height: 15px;
+    width: 15px;
   }
 
   .home-profile.profile-icons .ball-right-lower {
-    height: 35px;
-    width: 35px;
+    height: 25px;
+    width: 25px;
   }
 
   .home-profile.profile-icons .ball-right-upper {
