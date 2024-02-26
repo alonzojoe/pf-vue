@@ -820,4 +820,40 @@ onMounted(() => {
     }
   }
 }
+
+@media (max-width: 450px) {
+  .home-profile.profile-icons .api-circe {
+    height: 40px;
+    width: 40px;
+    transform: translate3d(-19.0162px, 68.02305px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+
+  @keyframes apiMovement {
+
+    /* Start: Bottom */
+    0% {
+      transform: translate3d(32.0256px, 10.07px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Diagonal Left */
+    25% {
+      transform: translate3d(-15.0162px, 55.02305px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Diagonal Left to Diagonal Center Top */
+    50% {
+      transform: translate3d(23px, -150px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Back to Original Position */
+    75% {
+      transform: translate3d(-32.0162px, 50.02305px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Return to Bottom */
+    100% {
+      transform: translate3d(32.0256px, 10.07px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+  }
+}
 </style>
