@@ -107,7 +107,7 @@ const resetForm = () => {
 };
 
 const sendEmail = async () => {
-  if (disableSubmit) return;
+  if (disableSubmit.value) return;
 
   const emailParams = {
     to_email: formData.value.toEmail,
