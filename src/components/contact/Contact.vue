@@ -279,6 +279,9 @@ section {
 @media (max-width: 768px) {
   .contact .contact-container {
     grid-template-columns: repeat(1, 1fr);
+    justify-content: center;
   }
 }
+
+@media (max-width: 450px) {}
 </style>

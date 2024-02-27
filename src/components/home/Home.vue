@@ -926,6 +926,7 @@ onMounted(() => {
   .home-profile.profile-icons .vue-circe {
     height: 50px;
     height: 50px;
+
   }
 
   @keyframes vueMovement {
@@ -940,12 +941,75 @@ onMounted(() => {
     }
 
     50% {
-      transform: translate3d(10.344px, 5.0743px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+      transform: translate3d(-15.344px, 5.0743px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
     }
 
     75% {
       transform: translate3d(-30.344px, 21.0743px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
     }
   }
+
+
+  .home-profile.profile-icons .ball-right-upper {
+    height: 25px;
+    width: 25px;
+
+  }
+
+  @keyframes ballRightUpperMovement {
+
+    /* Start: Original Position */
+    0%,
+    100% {
+      transform: translate3d(150.5048px, 54.4429px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Diagonal Top Right to Bottom Right */
+    25% {
+      transform: translate3d(90.5048px, 160px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Right to Left */
+    50% {
+      transform: translate3d(160px, 160px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Bottom Right to Bottom Left */
+    75% {
+      transform: translate3d(130px, 20px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+  }
+
+  .home-profile.profile-icons .ball-right-lower {
+    height: 25px;
+    width: 25px;
+
+
+  }
+
+  @keyframes ballRightLowerMovement {
+
+    /* Start: Original Position */
+    0%,
+    100% {
+      transform: translate3d(125.5048px, 60.4429px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Diagonal Top Right */
+    25% {
+      transform: translate3d(130px, -30px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(45deg) skew(0deg, 0deg);
+    }
+
+    /* Diagonal Left to Bottom Right */
+    50% {
+      transform: translate3d(105px, 60px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Diagonal Bottom Right to Original Position */
+    75% {
+      transform: translate3d(120px, -80px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg);
+    }
+  }
+
 }
 </style>
