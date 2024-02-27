@@ -171,7 +171,7 @@ onMounted(() => {
 .home-profile.profile-icons {
   border: 1px solid green;
   position: relative;
-  /* overflow-x: hidden; */
+  overflow-x: hidden;
   /* overflow-x: hidden; */
 }
 

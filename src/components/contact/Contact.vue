@@ -51,20 +51,9 @@
               <textarea id="text-message" v-model="formData.message"></textarea>
             </div>
           </div>
-          <VueRecaptcha
-            v-if="disableSubmit"
-            ref="recaptchaRef"
-            :sitekey="siteKey"
-            :load-recaptcha-script="true"
-            @verify="handleSuccess"
-            @error="handleError"
-          ></VueRecaptcha>
-          <button
-            class="btn-sm"
-            :class="{ 'mt-4': disableSubmit }"
-            :disabled="disableSubmit"
-            type="submit"
-          >
+          <VueRecaptcha v-if="disableSubmit" ref="recaptchaRef" :sitekey="siteKey" :load-recaptcha-script="true"
+            @verify="handleSuccess" @error="handleError"></VueRecaptcha>
+          <button class="btn-sm" :class="{ 'mt-4': disableSubmit }" :disabled="disableSubmit" type="submit">
             Send Message
           </button>
         </form>
@@ -137,7 +126,7 @@ const siteKey = computed(() => {
 });
 
 const handleError = () => {
-  alert("captcha failed");
+  console.log("captcha failed");
 };
 
 const handleSuccess = () => {
