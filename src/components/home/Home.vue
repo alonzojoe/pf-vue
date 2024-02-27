@@ -171,7 +171,7 @@ onMounted(() => {
 .home-profile.profile-icons {
   border: 1px solid green;
   position: relative;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   /* overflow-x: hidden; */
 }
 
@@ -822,16 +822,22 @@ onMounted(() => {
 }
 
 @media (max-width: 450px) {
+
+  .home-profile.profile-icons {
+    overflow-x: hidden;
+    /* overflow-x: hidden; */
+  }
+
   .home-profile.profile-icons .api-circe {
     height: 40px;
     width: 40px;
-    transform: translate3d(-19.0162px, 68.02305px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   }
 
   @keyframes apiMovement {
 
     /* Start: Bottom */
-    0% {
+    0%,
+    100% {
       transform: translate3d(32.0256px, 10.07px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
     }
 
@@ -842,17 +848,103 @@ onMounted(() => {
 
     /* Diagonal Left to Diagonal Center Top */
     50% {
-      transform: translate3d(23px, -150px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+      transform: translate3d(45px, -90px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
     }
 
     /* Back to Original Position */
     75% {
-      transform: translate3d(-32.0162px, 50.02305px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+      transform: translate3d(-10.0162px, 50.02305px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+  }
+
+  .home-profile.profile-icons .db-circe {
+    height: 30px;
+    width: 30px;
+
+    /* animation: none; */
+  }
+
+  @keyframes dbMovement {
+
+    /* Start: Bottom */
+    0% {
+      transform: translate3d(-9.091px, -10px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
     }
 
-    /* Return to Bottom */
+    /* Wider Diagonal Left */
+    25% {
+      transform: translate3d(-120px, -3px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-0deg) skew(0deg, 0deg);
+    }
+
+    /* Back to Bottom */
+    50% {
+      transform: translate3d(-9.091px, -10px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Wider Diagonal Right */
+    75% {
+      transform: translate3d(80px, -10px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Back to Bottom */
     100% {
-      transform: translate3d(32.0256px, 10.07px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+      transform: translate3d(-9.091px, -10px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+  }
+
+  .home-profile.profile-icons .ball-left {
+    height: 15px;
+    width: 15px;
+
+    /* animation: none; */
+  }
+
+  @keyframes ballLeftMovement {
+
+    /* Start: Original Position */
+    0%,
+    100% {
+      transform: translate3d(-140.5827px, -1.6944px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Diagonal Downward Left */
+    25% {
+      transform: translate3d(-110px, 60px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(-45deg) skew(0deg, 0deg);
+    }
+
+    /* Left */
+    50% {
+      transform: translate3d(-125px, 130px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    /* Diagonal Downward Left */
+    75% {
+      transform: translate3d(-130px, -50.6944px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+  }
+
+  .home-profile.profile-icons .vue-circe {
+    height: 50px;
+    height: 50px;
+  }
+
+  @keyframes vueMovement {
+
+    0%,
+    100% {
+      transform: translate3d(-21.0743px, 65.344px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    25% {
+      transform: translate3d(-21.0743px, -48.344px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    50% {
+      transform: translate3d(10.344px, 5.0743px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    }
+
+    75% {
+      transform: translate3d(-30.344px, 21.0743px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
     }
   }
 }
