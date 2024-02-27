@@ -59,7 +59,12 @@
             @verify="handleSuccess"
             @error="handleError"
           ></VueRecaptcha>
-          <button class="btn-sm" :disabled="disableSubmit" type="submit">
+          <button
+            class="btn-sm"
+            :class="{ 'mt-4': disableSubmit }"
+            :disabled="disableSubmit"
+            type="submit"
+          >
             Send Message
           </button>
         </form>
@@ -106,7 +111,7 @@ const sendEmail = async () => {
     to_email: formData.value.toEmail,
     to_name: "Joe",
     from_name: `${formData.value.name} (${formData.value.emailFrom})`,
-    subject: formData.value.subject,
+    subject: formData.value.subject.toUpperCase(),
     message: formData.value.message,
   };
 
