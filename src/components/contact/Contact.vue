@@ -55,7 +55,7 @@
             ref="recaptchaRef"
             :sitekey="siteKey"
             :load-recaptcha-script="true"
-            v-if="disableSubmit"
+            v-if="!disableSubmit"
             @verify="handleSuccess"
             @error="handleError"
           ></VueRecaptch>
