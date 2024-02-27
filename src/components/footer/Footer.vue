@@ -5,9 +5,9 @@
         <h3>Joe's Portfolio</h3>
       </div>
       <div class="footer-items socials">
-        <a href="#" class="bx bxl-github"></a>
-        <a href="#" class="bx bxl-linkedin"></a>
-        <a href="#" class="bx bxl-facebook"></a>
+        <a href="https://github.com/alonzojoe" target="blank_" class="bx bxl-github"></a>
+        <a href="https://www.linkedin.com/in/alonzo-joe" target="blank_" class="bx bxl-linkedin"></a>
+        <a href="https://www.facebook.com/alonzojoe" target="blank_" class="bx bxl-facebook"></a>
       </div>
     </div>
     <hr />

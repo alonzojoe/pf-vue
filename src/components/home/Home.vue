@@ -9,9 +9,9 @@
         using RESTful API integration.
       </p>
       <div class="socials">
-        <a href="#" target="_blank" class="bx bxl-facebook"></a>
-        <a href="#" target="_blank" class="bx bxl-github"></a>
-        <a href="#" target="_blank" class="bx bxl-linkedin"></a>
+        <a href="https://github.com/alonzojoe" target="_blank" class="bx bxl-github"></a>
+        <a href="https://www.linkedin.com/in/alonzo-joe" target="_blank" class="bx bxl-linkedin"></a>
+        <a href="https://www.facebook.com/alonzojoe" target="_blank" class="bx bxl-facebook"></a>
       </div>
       <div class="cv">
         <a href="#" class="btn">Download X</a>
@@ -138,7 +138,7 @@ onMounted(() => {
 .home .home-intro .socials {
   display: flex;
   margin-bottom: 2rem;
-  gap: 1.3rem;
+  gap: 1.1rem;
 }
 
 .home .home-intro .socials a {
