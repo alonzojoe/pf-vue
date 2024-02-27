@@ -121,7 +121,7 @@ const sendEmail = async () => {
 };
 
 const siteKey = computed(() => {
-  return "6LfryoApAAAAAAKtH5LI6LBuGonG3cXWn3ROCnTr";
+  return "6LfySIEpAAAAAL0SLAJR0YjzXsNZXalvIhqLo1_z";
 });
 
 const handleError = () => {
