@@ -26,32 +26,32 @@
         </div>
       </div>
       <div class="contact-box">
-        <form action="#">
+        <form @submit.prevent="sendEmail()">
           <div class="input-box">
             <div class="input">
               <label for="name">Name</label>
-              <input type="text" id="name" />
+              <input type="text" v-model="formData.name" id="name" />
             </div>
           </div>
           <div class="input-box">
             <div class="input">
               <label for="email">Email</label>
-              <input type="email" id="email" />
+              <input type="email" v-model="formData.emailFrom" id="email" />
             </div>
           </div>
           <div class="input-box">
             <div class="input">
               <label for="subject">Subject</label>
-              <input type="text" id="subject" />
+              <input type="text" v-model="formData.subject" id="subject" />
             </div>
           </div>
           <div class="input-box">
             <div class="input">
               <label for="text-message">Message</label>
-              <textarea id="text-message"></textarea>
+              <textarea id="text-message" v-model="formData.message"></textarea>
             </div>
           </div>
-          <button class="btn-sm">Send Message</button>
+          <button class="btn-sm" type="submit">Send Message</button>
         </form>
       </div>
     </div>
@@ -60,12 +60,50 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
+import emailjs from "emailjs-com";
+
 const props = defineProps({
   id: String,
 });
 
 const sectionId = ref();
 const sectionName = ref();
+
+const formData = ref({
+  emailFrom: "",
+  toEmail: "5tscholar2k21@gmail.com,",
+  name: "",
+  subject: "",
+  message: "",
+});
+
+const resetForm = () => {
+  Object.keys(formData.value).forEach((e) => {
+    formData.value[e] = "";
+  });
+};
+
+const sendEmail = async () => {
+  const emailParams = {
+    to_email: formData.value.toEmail,
+    subject: formData.value.subject,
+    message: formData.value.message,
+  };
+
+  try {
+    const response = await emailjs.send(
+      "service_bfw2hu5",
+      "template_w2ebq7p",
+      emailParams,
+      "xdWVZQMP5_RMmkXvL"
+    );
+    console.log("Email sent successfully:", response);
+  } catch (error) {
+    console.log("Email failed to sent", error);
+  }
+
+  resetForm();
+};
 
 onMounted(() => {
   sectionId.value = props.id;
