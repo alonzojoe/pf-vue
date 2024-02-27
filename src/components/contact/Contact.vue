@@ -51,7 +51,15 @@
               <textarea id="text-message" v-model="formData.message"></textarea>
             </div>
           </div>
-          <button class="btn-sm" type="submit">Send Message</button>
+          <VueRecaptcha
+            :sitekey="siteKey"
+            :load-recaptcha-script="true"
+            @verify="handleSuccess"
+            @error="handleError"
+          ></VueRecaptcha>
+          <button class="btn-sm" :disabled="disableSubmit" type="submit">
+            Send Message
+          </button>
         </form>
       </div>
     </div>
@@ -59,7 +67,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { VueRecaptcha } from "vue-recaptcha";
 import emailjs from "emailjs-com";
 
 const props = defineProps({
@@ -77,15 +86,21 @@ const formData = ref({
   message: "",
 });
 
+const disableSubmit = ref(true);
 const resetForm = () => {
   Object.keys(formData.value).forEach((e) => {
-    formData.value[e] = "";
+    if (e !== "toEmail") {
+      formData.value[e] = "";
+    }
   });
+  disableSubmit.value = true;
 };
 
 const sendEmail = async () => {
   const emailParams = {
     to_email: formData.value.toEmail,
+    to_name: "Joe",
+    from_name: `${formData.value.name} (${formData.value.emailFrom})`,
     subject: formData.value.subject,
     message: formData.value.message,
   };
@@ -103,6 +118,18 @@ const sendEmail = async () => {
   }
 
   resetForm();
+};
+
+const siteKey = computed(() => {
+  return "6LebRIEpAAAAAPwPG-TYd6WvrL9gJJ5n47qojk5Y";
+});
+
+const handleError = () => {
+  alert("captcha failed");
+};
+
+const handleSuccess = () => {
+  disableSubmit.value = false;
 };
 
 onMounted(() => {
