@@ -51,14 +51,14 @@
               <textarea id="text-message" v-model="formData.message"></textarea>
             </div>
           </div>
-          <VueRecaptch
+          <VueRecaptcha
+            v-if="disableSubmit"
             ref="recaptchaRef"
             :sitekey="siteKey"
             :load-recaptcha-script="true"
-            v-if="!disableSubmit"
             @verify="handleSuccess"
             @error="handleError"
-          ></VueRecaptch>
+          ></VueRecaptcha>
           <button class="btn-sm" :disabled="disableSubmit" type="submit">
             Send Message
           </button>
@@ -95,6 +95,9 @@ const resetForm = () => {
       formData.value[e] = "";
     }
   });
+  if (recaptchaRef.value) {
+    recaptchaRef.value.reset();
+  }
   disableSubmit.value = true;
 };
 
