@@ -51,12 +51,14 @@
               <textarea id="text-message" v-model="formData.message"></textarea>
             </div>
           </div>
-          <VueRecaptcha
+          <VueRecaptch
+            ref="recaptchaRef"
             :sitekey="siteKey"
             :load-recaptcha-script="true"
+            v-if="disableSubmit"
             @verify="handleSuccess"
             @error="handleError"
-          ></VueRecaptcha>
+          ></VueRecaptch>
           <button class="btn-sm" :disabled="disableSubmit" type="submit">
             Send Message
           </button>
@@ -77,7 +79,7 @@ const props = defineProps({
 
 const sectionId = ref();
 const sectionName = ref();
-
+const recaptchaRef = ref(null);
 const formData = ref({
   emailFrom: "",
   toEmail: "5tscholar2k21@gmail.com,",
@@ -268,6 +270,11 @@ section {
 
 .btn-sm:hover {
   background: #7d4ec9;
+}
+
+.btn-sm:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 @media (max-width: 768px) {
