@@ -96,7 +96,8 @@ const toggleTheme = () => {
   PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => {});
 
   currentTheme.value = nextTheme;
-  store.commit("setTheme", nextTheme);
+  localStorage.setItem("app-theme", currentTheme.value);
+  store.commit("setTheme", currentTheme.value);
   emit("toggle-theme", currentTheme.value);
 };
 
