@@ -1,5 +1,5 @@
 <template>
-  <div class="loading">
+  <div class="switcher-container">
     <div class="switch-container pe-none">
       <input
         type="checkbox"
@@ -24,13 +24,13 @@ const isChecked = ref(false);
 </script>
 
 <style scoped>
-.loading {
+.switcher-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 255);
+  background-color: #F7F0F8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,10 +106,10 @@ label {
   transition: 0.3s;
 }
 input:checked + label {
-  background: #c0c0c0;
+  background: #F7F0F8;
 }
 input:checked + label .ball {
-  background: #2a3447;
+  background: #121212;
 }
 input {
   display: none;
