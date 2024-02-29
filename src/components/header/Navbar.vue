@@ -1,4 +1,5 @@
 <template>
+  <Switcher v-if="modalSwitch" :checkType="checkState" />
   <header id="header">
     <a href="" class="logo"> {{ isSmallScreen }} </a>
     <div class="navbar" :class="showMenu">
@@ -75,7 +76,7 @@
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { usePrimeVue } from "primevue/config";
 import { useStore } from "vuex";
-
+import Switcher from "@/components/Switcher/Switcher.vue";
 const store = useStore();
 
 const storeTheme = computed(() => store.getters.getCurrentTheme);
@@ -86,7 +87,12 @@ const currentTheme = ref("lara-light-purple");
 
 const PrimeVue = usePrimeVue();
 
+
+const modalSwitch = ref(false)
+const checkState = ref(false)
 const toggleTheme = () => {
+  modalSwitch.value = true;
+  checkState.value = checkState.value === false ? true : false;
   let nextTheme = "lara-light-purple";
 
   if (currentTheme.value === "lara-light-purple")
@@ -99,6 +105,13 @@ const toggleTheme = () => {
   localStorage.setItem("app-theme", currentTheme.value);
   store.commit("setTheme", currentTheme.value);
   emit("toggle-theme", currentTheme.value);
+  switchLife()
+};
+
+const switchLife = () => {
+  setTimeout(() => {
+    modalSwitch.value = false;
+  }, 1000);
 };
 
 const classTheme = computed(() => {

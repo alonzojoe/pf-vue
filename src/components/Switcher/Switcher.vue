@@ -19,8 +19,20 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-const isChecked = ref(false);
+import { ref, onMounted } from "vue";
+const currentTheme = localStorage.getItem("app-theme");
+const isChecked = ref(currentTheme == "lara-light-purple" ? true : false);
+
+onMounted(() => {
+  setTimeout(() => {
+    isChecked.value = props.checkType
+  }, 100);
+})
+
+const props = defineProps({
+  checkType: Boolean,
+})
+
 </script>
 
 <style scoped>
@@ -36,6 +48,7 @@ const isChecked = ref(false);
   align-items: center;
   flex-direction: column;
   z-index: 999999;
+  /* animation: fadeOut 0.1s ease;  */
 }
 label {
   display: flex;
@@ -122,5 +135,14 @@ label .fa-moon {
 }
 input:checked + label .fa-moon {
   transform: translateX(0), rotate(0);
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1; 
+  }
+  to {
+    opacity: 0; 
+  }
 }
 </style>

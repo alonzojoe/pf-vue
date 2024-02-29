@@ -6977,3 +6977,8 @@ header .controls #menu:hover {
 .card-project {
   background: #1b1b23 !important;
 }
+
+
+.switcher-container{
+  background-color: #121212 !important;
+}

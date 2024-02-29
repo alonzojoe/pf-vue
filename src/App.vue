@@ -7,7 +7,7 @@ import Skills from "@/components/skills/Skills.vue";
 import Projects from "@/components/projects/Projects.vue";
 import Contact from "@/components/contact/Contact.vue";
 import Footer from "@/components/footer/Footer.vue";
-import Switcher from "@/components/Switcher/Switcher.vue";
+
 const appTheme = ref("");
 
 const switchTheme = (theme) => {
@@ -17,7 +17,6 @@ const switchTheme = (theme) => {
 
 <template>
   <div>
-    <Switcher />
     <Navbar @toggle-theme="switchTheme" />
     <div class="page-sections">
       <Home id="home" />
