@@ -9,8 +9,9 @@ import Dialog from "primevue/dialog";
 import Galleria from "primevue/galleria";
 // import "primevue/resources/themes/lara-light-purple/theme.css";
 import "primeflex/primeflex.css";
-import "./assets/css/font-awesome.css";
+import "./assets/css/fontawesome.css";
 import "./assets/css/style.css";
+import "./assets/js/font-awesome.js";
 
 import store from "./store";
 
