@@ -20,8 +20,15 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+
+const props = defineProps({
+  checkType: Boolean,
+  modalSwitch: Boolean
+})
+
 const currentTheme = localStorage.getItem("app-theme");
 const isChecked = ref(currentTheme == "lara-light-purple" ? true : false);
+
 
 onMounted(() => {
   setTimeout(() => {
@@ -29,9 +36,7 @@ onMounted(() => {
   }, 100);
 })
 
-const props = defineProps({
-  checkType: Boolean,
-})
+
 
 </script>
 
@@ -50,6 +55,7 @@ const props = defineProps({
   z-index: 999999;
   /* animation: fadeOut 0.1s ease;  */
 }
+
 label {
   display: flex;
   width: 150px;
@@ -59,8 +65,8 @@ label {
   padding: 0 6px;
   background: #2a3447;
   border-radius: 50px;
-  cursor: pointer;
-  position: relative;
+  transition: opacity 0.5s ease; 
+  opacity: 1; 
 }
 
 label i {
@@ -71,7 +77,7 @@ label .fa-sun {
   transition: 0.8s;
 }
 label .fa-moon {
-  color: #fff;
+  color: #183153;
   transition: 0.8s;
 }
 label .ball {
