@@ -108,10 +108,10 @@ const sendEmail = async () => {
 
   try {
     const response = await emailjs.send(
-      "service_bfw2hu5",
-      "template_w2ebq7p",
+      import.meta.env.VITE_MAIL_SERVICE,
+      import.meta.env.VITE_MAIL_TEMPLATE,
       emailParams,
-      "xdWVZQMP5_RMmkXvL"
+      import.meta.env.VITE_MAIL_USER
     );
     console.log("Email sent successfully:", response);
   } catch (error) {
