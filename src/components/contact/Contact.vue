@@ -53,8 +53,8 @@
               <textarea id="text-message" v-model="formData.message"></textarea>
             </div>
           </div>
-          <!-- <VueRecaptcha v-if="disableSubmit" ref="recaptchaRef" :sitekey="siteKey" :load-recaptcha-script="true"
-            @verify="handleSuccess" @error="handleError"></VueRecaptcha> -->
+          <VueRecaptcha v-if="disableSubmit" ref="recaptchaRef" :sitekey="siteKey" :load-recaptcha-script="true"
+            @verify="handleSuccess" @error="handleError"></VueRecaptcha>
           <button class="btn-sm" :class="{ 'mt-4': disableSubmit }" :disabled="disableSubmit || sending" type="submit">
             {{ !sending ? 'Send Message' : 'Sending' }} <i v-if="sending" class="fas fa-spinner fa-spin"></i>
           </button>
