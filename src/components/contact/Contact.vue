@@ -55,10 +55,10 @@
           </div>
           <!-- <VueRecaptcha v-if="disableSubmit" ref="recaptchaRef" :sitekey="siteKey" :load-recaptcha-script="true"
             @verify="handleSuccess" @error="handleError"></VueRecaptcha> -->
-          <button class="btn-sm" :class="{ 'mt-4': disableSubmit }" type="submit">
-            Send Message
+          <button class="btn-sm" :class="{ 'mt-4': disableSubmit }" :disabled="disableSubmit || sending" type="submit">
+            {{ !sending ? 'Send Message' : 'Sending' }} <i v-if="sending" class="fas fa-spinner fa-spin"></i>
           </button>
-          <!-- :disabled="disableSubmit" -->
+
         </form>
       </div>
     </div>
@@ -69,11 +69,14 @@
 import { ref, onMounted, computed, watch } from "vue";
 import { VueRecaptcha } from "vue-recaptcha";
 import { validationStatus, validationChecker, validateFields } from "./validation";
+import { useToast } from 'primevue/usetoast';
 import emailjs from "emailjs-com";
 
 const props = defineProps({
   id: String,
 });
+
+const toast = useToast();
 
 const sectionId = ref();
 const sectionName = ref();
@@ -89,6 +92,7 @@ const formData = ref({
 const disableSubmit = ref(true);
 const resetForm = () => {
   flagSave.value = false
+  sending.value = false
   Object.keys(formData.value).forEach((e) => {
     if (e !== "toEmail") {
       formData.value[e] = "";
@@ -103,35 +107,38 @@ const resetForm = () => {
 
 
 const flagSave = ref(false)
+const sending = ref(false)
 const sendEmail = async () => {
-  flagSave.value = true
   const errors = await validateFields(1, formData.value, 0)
+  flagSave.value = true
   if (errors === 0) {
-    console.log('you can now send email :V')
+    sending.value = true
+    if (disableSubmit.value) return;
+
+    const emailParams = {
+      to_email: formData.value.toEmail,
+      to_name: "Joe",
+      from_name: `${formData.value.name} (${formData.value.emailFrom})`,
+      subject: formData.value.subject.toUpperCase(),
+      message: formData.value.message,
+    };
+
+    try {
+      const response = await emailjs.send(
+        import.meta.env.VITE_MAIL_SERVICE,
+        import.meta.env.VITE_MAIL_TEMPLATE,
+        emailParams,
+        import.meta.env.VITE_MAIL_USER
+      );
+      // console.log("Email sent successfully:", response);
+      toast.add({ severity: 'success', summary: 'Message', detail: 'Email sent successfully.', life: 3000 });
+    } catch (error) {
+      console.log("Email failed to sent", error);
+    }
+
+    resetForm();
   }
-  // if (disableSubmit.value) return;
 
-  // const emailParams = {
-  //   to_email: formData.value.toEmail,
-  //   to_name: "Joe",
-  //   from_name: `${formData.value.name} (${formData.value.emailFrom})`,
-  //   subject: formData.value.subject.toUpperCase(),
-  //   message: formData.value.message,
-  // };
-
-  // try {
-  //   const response = await emailjs.send(
-  //     import.meta.env.VITE_MAIL_SERVICE,
-  //     import.meta.env.VITE_MAIL_TEMPLATE,
-  //     emailParams,
-  //     import.meta.env.VITE_MAIL_USER
-  //   );
-  //   console.log("Email sent successfully:", response);
-  // } catch (error) {
-  //   console.log("Email failed to sent", error);
-  // }
-
-  // resetForm();
 };
 
 watch(() => {

@@ -7,6 +7,7 @@ import Button from "primevue/button";
 import AnimateOnScroll from "primevue/animateonscroll";
 import Dialog from "primevue/dialog";
 import Galleria from "primevue/galleria";
+import ToastService from 'primevue/toastservice';
 // import "primevue/resources/themes/lara-light-purple/theme.css";
 import "primeflex/primeflex.css";
 import "./assets/css/fontawesome.css";
@@ -23,6 +24,7 @@ app.component("Tag", Tag);
 app.component("Modal", Dialog);
 app.component("Galleria", Galleria);
 app.use(PrimeVue);
+app.use(ToastService);
 app.use(store);
 
 app.mount("#app");

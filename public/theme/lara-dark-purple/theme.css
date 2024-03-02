@@ -7022,3 +7022,21 @@ header .controls #menu:hover {
     transform: translateX(2px);
   }
 }
+
+.p-toast-message.p-toast-message-success{
+  margin-bottom: 1rem !important;
+  padding: 2rem 1rem;
+}
+
+.p-toast-message-text {
+  padding: 0 1rem
+}
+
+.p-toast-message-text .p-toast-summary{
+  font-size: 1.3rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.p-toast-message-text .p-toast-detail{
+  font-size: 1.2rem !important;
+}
