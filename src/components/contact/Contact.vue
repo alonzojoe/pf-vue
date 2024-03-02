@@ -28,25 +28,25 @@
       <div class="contact-box">
         <form @submit.prevent="sendEmail()">
           <div class="input-box">
-            <div class="input">
+            <div class="input group-invalid">
               <label for="name">Name</label>
               <input type="text" v-model="formData.name" id="name" />
             </div>
           </div>
           <div class="input-box">
-            <div class="input">
+            <div class="input group-invalid">
               <label for="email">Email</label>
               <input type="email" v-model="formData.emailFrom" id="email" />
             </div>
           </div>
           <div class="input-box">
-            <div class="input">
+            <div class="input group-invalid">
               <label for="subject">Subject</label>
               <input type="text" v-model="formData.subject" id="subject" />
             </div>
           </div>
           <div class="input-box">
-            <div class="input">
+            <div class="input group-invalid">
               <label for="text-message">Message</label>
               <textarea id="text-message" v-model="formData.message"></textarea>
             </div>
@@ -274,6 +274,40 @@ section {
 .btn-sm:disabled {
   opacity: 0.6;
   cursor: not-allowed;
+}
+
+/* .input.group-invalid>textarea {
+  animation: shake 0.4s 1 !important;
+  border-color: #ff0026 !important;
+  background-color: #ed7c7c !important;
+} */
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  90% {
+    transform: translateX(-2px);
+  }
+
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+
+  30%,
+  70% {
+    transform: translateX(-2px);
+  }
+
+  40%,
+  60% {
+    transform: translateX(2px);
+  }
 }
 
 @media (max-width: 768px) {

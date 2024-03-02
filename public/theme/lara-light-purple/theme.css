@@ -5747,3 +5747,14 @@
     color: #ffffff;
   }
 }
+
+.input.group-invalid>label {
+  color: #ff0026 !important;
+}
+
+.input.group-invalid>input,
+.input.group-invalid>textarea {
+  animation: shake 0.4s 1 !important;
+  border-color: #ff0026 !important;
+  background-color: #fdeded !important;
+}
