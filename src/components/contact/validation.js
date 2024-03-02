@@ -10,7 +10,7 @@ export const validationStatus = ref({
 
 export const validationChecker = async (formData) => {
     for (const field of Object.keys(validationStatus.value)) {
-        if (!formData[field]) {
+        if (formData[field].trim().length === 0) {
             validationStatus.value[field] = false
         }else{
             validationStatus.value[field] = true
@@ -28,11 +28,13 @@ export const validateFields = async (toast, formData, isWatch) => {
         { payload: 'message', message: 'Message is required' },
     ]
 
+    validationChecker(formData)
+
     let errors = 0;
 
 
     requiredFields.every((field) => {
-        if (!formData[field.payload]) {
+        if (formData[field.payload].trim().length === 0) {
             errors++;
             if (isWatch != 1) {
                 console.log('Field Required', field.message)

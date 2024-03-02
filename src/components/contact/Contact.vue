@@ -28,34 +28,37 @@
       <div class="contact-box">
         <form @submit.prevent="sendEmail()">
           <div class="input-box">
-            <div class="input group-invalid">
-              <label for="name">Name</label>
+            <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.name }">
+              <label for="name">Name <span v-if="flagSave && !validationStatus.name">is required *</span></label>
               <input type="text" v-model="formData.name" id="name" />
             </div>
           </div>
           <div class="input-box">
-            <div class="input group-invalid">
-              <label for="email">Email</label>
+            <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.emailFrom }">
+              <label for=" email">Email <span v-if="flagSave && !validationStatus.emailFrom">is required *</span></label>
               <input type="email" v-model="formData.emailFrom" id="email" />
             </div>
           </div>
           <div class="input-box">
-            <div class="input group-invalid">
-              <label for="subject">Subject</label>
+            <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.subject }">
+              <label for="subject">Subject <span v-if="flagSave && !validationStatus.subject">is
+                  required *</span></label>
               <input type="text" v-model="formData.subject" id="subject" />
             </div>
           </div>
           <div class="input-box">
-            <div class="input group-invalid">
-              <label for="text-message">Message</label>
+            <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.message }">
+              <label for="text-message">Message <span v-if="flagSave && !validationStatus.message">is
+                  required *</span></label>
               <textarea id="text-message" v-model="formData.message"></textarea>
             </div>
           </div>
-          <VueRecaptcha v-if="disableSubmit" ref="recaptchaRef" :sitekey="siteKey" :load-recaptcha-script="true"
-            @verify="handleSuccess" @error="handleError"></VueRecaptcha>
-          <button class="btn-sm" :class="{ 'mt-4': disableSubmit }" :disabled="disableSubmit" type="submit">
+          <!-- <VueRecaptcha v-if="disableSubmit" ref="recaptchaRef" :sitekey="siteKey" :load-recaptcha-script="true"
+            @verify="handleSuccess" @error="handleError"></VueRecaptcha> -->
+          <button class="btn-sm" :class="{ 'mt-4': disableSubmit }" type="submit">
             Send Message
           </button>
+          <!-- :disabled="disableSubmit" -->
         </form>
       </div>
     </div>
@@ -63,8 +66,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, watch } from "vue";
 import { VueRecaptcha } from "vue-recaptcha";
+import { validationStatus, validationChecker, validateFields } from "./validation";
 import emailjs from "emailjs-com";
 
 const props = defineProps({
@@ -84,6 +88,7 @@ const formData = ref({
 
 const disableSubmit = ref(true);
 const resetForm = () => {
+  flagSave.value = false
   Object.keys(formData.value).forEach((e) => {
     if (e !== "toEmail") {
       formData.value[e] = "";
@@ -95,31 +100,46 @@ const resetForm = () => {
   disableSubmit.value = true;
 };
 
+
+
+const flagSave = ref(false)
 const sendEmail = async () => {
-  if (disableSubmit.value) return;
-
-  const emailParams = {
-    to_email: formData.value.toEmail,
-    to_name: "Joe",
-    from_name: `${formData.value.name} (${formData.value.emailFrom})`,
-    subject: formData.value.subject.toUpperCase(),
-    message: formData.value.message,
-  };
-
-  try {
-    const response = await emailjs.send(
-      import.meta.env.VITE_MAIL_SERVICE,
-      import.meta.env.VITE_MAIL_TEMPLATE,
-      emailParams,
-      import.meta.env.VITE_MAIL_USER
-    );
-    console.log("Email sent successfully:", response);
-  } catch (error) {
-    console.log("Email failed to sent", error);
+  flagSave.value = true
+  const errors = await validateFields(1, formData.value, 0)
+  if (errors === 0) {
+    console.log('you can now send email :V')
   }
+  // if (disableSubmit.value) return;
 
-  resetForm();
+  // const emailParams = {
+  //   to_email: formData.value.toEmail,
+  //   to_name: "Joe",
+  //   from_name: `${formData.value.name} (${formData.value.emailFrom})`,
+  //   subject: formData.value.subject.toUpperCase(),
+  //   message: formData.value.message,
+  // };
+
+  // try {
+  //   const response = await emailjs.send(
+  //     import.meta.env.VITE_MAIL_SERVICE,
+  //     import.meta.env.VITE_MAIL_TEMPLATE,
+  //     emailParams,
+  //     import.meta.env.VITE_MAIL_USER
+  //   );
+  //   console.log("Email sent successfully:", response);
+  // } catch (error) {
+  //   console.log("Email failed to sent", error);
+  // }
+
+  // resetForm();
 };
+
+watch(() => {
+  formData.value
+  if (flagSave.value === true) {
+    validateFields(1, formData.value, 1)
+  }
+}, { deep: true })
 
 const siteKey = computed(() => {
   return import.meta.env.VITE_SITE_KEY;
@@ -282,33 +302,7 @@ section {
   background-color: #ed7c7c !important;
 } */
 
-@keyframes shake {
 
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-
-  10%,
-  90% {
-    transform: translateX(-2px);
-  }
-
-  20%,
-  80% {
-    transform: translateX(2px);
-  }
-
-  30%,
-  70% {
-    transform: translateX(-2px);
-  }
-
-  40%,
-  60% {
-    transform: translateX(2px);
-  }
-}
 
 @media (max-width: 768px) {
   .contact .contact-container {
