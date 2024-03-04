@@ -1,7 +1,7 @@
 <template>
   <Switcher v-if="modalSwitch" :checkType="checkState" />
   <header id="header">
-    <a href="" class="logo"> {{ isSmallScreen }} </a>
+    <a href="" class="logo"> Joe </a>
     <div class="navbar" :class="showMenu">
       <a
         href="#home"
