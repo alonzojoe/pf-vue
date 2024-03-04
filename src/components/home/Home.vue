@@ -1012,4 +1012,11 @@ onMounted(() => {
   }
 
 }
+
+@media screen and (min-width: 1920px) {
+  .home {
+    background-image: v-bind(bgImage);
+    background-size: cover;
+  }
+}
 </style>
