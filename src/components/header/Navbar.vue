@@ -187,6 +187,7 @@ header .logo {
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
   color: var(--text-light);
+  font-weight: 600;
 }
 
 header .navbar {
