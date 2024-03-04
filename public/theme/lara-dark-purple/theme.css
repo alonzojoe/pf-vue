@@ -6982,3 +6982,61 @@ header .controls #menu:hover {
 .switcher-container{
   background-color: #121212 !important;
 }
+
+.input.group-invalid>label {
+  color: #ff758c !important; 
+}
+
+.input.group-invalid>input,
+.input.group-invalid>textarea {
+  animation: shake 0.4s 1;
+  border-color: #ff758c !important; 
+  background-color: #a03a3a !important;
+  color: #ffffff !important; 
+}
+
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  10%,
+  90% {
+    transform: translateX(-2px);
+  }
+
+  20%,
+  80% {
+    transform: translateX(2px);
+  }
+
+  30%,
+  70% {
+    transform: translateX(-2px);
+  }
+
+  40%,
+  60% {
+    transform: translateX(2px);
+  }
+}
+
+.p-toast-message.p-toast-message-success{
+  margin-bottom: 1rem !important;
+  padding: 2rem 1rem;
+}
+
+.p-toast-message-text {
+  padding: 0 1rem
+}
+
+.p-toast-message-text .p-toast-summary{
+  font-size: 1.3rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.p-toast-message-text .p-toast-detail{
+  font-size: 1.2rem !important;
+}
