@@ -14,7 +14,7 @@
         <a href="https://www.facebook.com/alonzojoe" target="_blank" class="bx bxl-facebook"></a>
       </div>
       <div class="cv">
-        <a href="#" class="btn">Download X</a>
+        <a href="vite.svg" class="btn" download>Download CV</a>
       </div>
     </div>
     <div class="home-profile profile-icons">
@@ -1013,7 +1013,11 @@ onMounted(() => {
 
 }
 
-@media screen and (min-width: 1920px) {
+@media screen and (min-width: 1024px) {
+
+}
+
+@media screen and (max-width: 1920px) {
   .home {
     background-image: v-bind(bgImage);
     background-size: cover;
