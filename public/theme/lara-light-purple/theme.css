@@ -5804,3 +5804,8 @@
 .p-toast-message-text .p-toast-detail{
   font-size: 1.2rem !important;
 }
+
+header .logo .text-logo {
+  color: #14141A !important;
+  font-family: "Poppins", sans-serif !important;
+}

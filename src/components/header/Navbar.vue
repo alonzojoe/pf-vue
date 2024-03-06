@@ -1,77 +1,38 @@
 <template>
   <Switcher v-if="modalSwitch" :checkType="checkState" />
   <header id="header">
-    <a href="" class="logo"> 
-      <img src="../../../src/assets/icons/joe-dark.png" alt="joe-logo" v-show="currentTheme == 'lara-light-purple'" />
-      <img src="../../../src/assets/icons/joe-light.png" alt="joe-logo" v-show="currentTheme == 'lara-dark-purple'"> 
-      <span class="text-logo">Joe</span> 
+    <a href="" class="logo">
+      <!-- <img src="../../../src/assets/icons/joe-dark.png" alt="joe-logo" v-show="currentTheme == 'lara-light-purple'" />
+      <img src="../../../src/assets/icons/joe-light.png" alt="joe-logo" v-show="currentTheme == 'lara-dark-purple'"> -->
+      <span class="text-logo">
+        {{ joe }}
+      </span>
     </a>
     <div class="navbar" :class="showMenu">
-      <a
-        href="#home"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-400': isSmallScreen && isToggle,
-          active: currentSection == 'home',
-        }"
-        @click="navigateMenu"
-        >Home</a
-      >
-      <a
-        href="#about"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-500': isSmallScreen && isToggle,
-          active: currentSection == 'about',
-        }"
-        @click="navigateMenu"
-        >About</a
-      >
-      <a
-        href="#skills"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-600': isSmallScreen && isToggle,
-          active: currentSection == 'skills',
-        }"
-        @click="navigateMenu"
-        >Skills</a
-      >
-      <a
-        href="#projects"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-700': isSmallScreen && isToggle,
-          active: currentSection == 'projects',
-        }"
-        @click="navigateMenu"
-        >Projects</a
-      >
-      <a
-        href="#contact"
-        class="menu-item-selection"
-        :class="{
-          'fadeindown animation-duration-800': isSmallScreen && isToggle,
-          active: currentSection == 'contact',
-        }"
-        @click="navigateMenu"
-        >Contact</a
-      >
+      <a href="#home" class="menu-item-selection" :class="{
+    'fadeindown animation-duration-400': isSmallScreen && isToggle,
+    active: currentSection == 'home',
+  }" @click="navigateMenu">Home</a>
+      <a href="#about" class="menu-item-selection" :class="{
+    'fadeindown animation-duration-500': isSmallScreen && isToggle,
+    active: currentSection == 'about',
+  }" @click="navigateMenu">About</a>
+      <a href="#skills" class="menu-item-selection" :class="{
+    'fadeindown animation-duration-600': isSmallScreen && isToggle,
+    active: currentSection == 'skills',
+  }" @click="navigateMenu">Skills</a>
+      <a href="#projects" class="menu-item-selection" :class="{
+    'fadeindown animation-duration-700': isSmallScreen && isToggle,
+    active: currentSection == 'projects',
+  }" @click="navigateMenu">Projects</a>
+      <a href="#contact" class="menu-item-selection" :class="{
+    'fadeindown animation-duration-800': isSmallScreen && isToggle,
+    active: currentSection == 'contact',
+  }" @click="navigateMenu">Contact</a>
     </div>
     <div class="controls">
-      <a
-        href="javascript:void(0);"
-        class="bx"
-        :class="classTheme"
-        id="theme"
-        @click="toggleTheme()"
-      ></a>
-      <a
-        href="javascript:void(0);"
-        :class="menu"
-        id="menu"
-        @click="isToggle = !isToggle"
-      ></a>
+      <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
+      <a href="javascript:void(0);" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
     </div>
   </header>
 </template>
@@ -82,7 +43,7 @@ import { usePrimeVue } from "primevue/config";
 import { useStore } from "vuex";
 import Switcher from "@/components/Switcher/Switcher.vue";
 const store = useStore();
-
+const joe = ref(`<Joe/>`)
 const storeTheme = computed(() => store.getters.getCurrentTheme);
 
 const emit = defineEmits(["toggle-theme"]);
@@ -103,7 +64,7 @@ const toggleTheme = () => {
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => {});
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
 
   currentTheme.value = nextTheme;
   localStorage.setItem("app-theme", currentTheme.value);
@@ -191,17 +152,17 @@ header .logo {
   align-items: center;
 }
 
-header .logo img{
-    max-width: 100%;
-    width: 40px;
-    height: auto;
+header .logo img {
+  max-width: 100%;
+  width: 40px;
+  height: auto;
 }
 
 header .logo .text-logo {
   font-size: 3rem;
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
-  color: var(--text-light);
+  /* color: var(--text-light); */
   font-weight: 600;
 }
 

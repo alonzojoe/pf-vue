@@ -7040,3 +7040,7 @@ header .controls #menu:hover {
 .p-toast-message-text .p-toast-detail{
   font-size: 1.2rem !important;
 }
+
+header .logo .text-logo {
+  color: #FFFFFF !important;
+}

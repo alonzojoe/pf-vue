@@ -3,7 +3,7 @@
     <h2 class="heading">Contact</h2>
     <h5 class="sub-heading">Let's build awesome stuffs for you.</h5>
     <div class="contact-container">
-      <div class="contact-box">
+      <div class="contact-box animation-duration-1000" v-animateonscroll="{ enterClass: 'fadeinleft' }">
         <div class="container-info">
           <div class="contact-info">
             <div class="contact-icon">
@@ -25,7 +25,7 @@
           </div>
         </div>
       </div>
-      <div class="contact-box">
+      <div class="contact-box animation-duration-1000" v-animateonscroll="{ enterClass: 'fadeinright' }">
         <form @submit.prevent="sendEmail()">
           <div class="input-box">
             <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.name }">
@@ -35,7 +35,8 @@
           </div>
           <div class="input-box">
             <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.emailFrom }">
-              <label for=" email">Email <span v-if="flagSave && !validationStatus.emailFrom">is required *</span></label>
+              <label for=" email">Email <span v-if="flagSave && !validationStatus.emailFrom">is required
+                  *</span></label>
               <input type="email" v-model="formData.emailFrom" id="email" />
             </div>
           </div>
