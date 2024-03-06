@@ -1,18 +1,13 @@
 <template>
-  <section
-    v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
-    class="about animation-duration-1000"
-    :id="sectionId"
-  >
+  <section v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="about animation-duration-1000"
+    :id="sectionId">
     <h2 class="heading">About</h2>
     <div class="about-content">
-      <div
-        v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
-        class="about-paragraph animation-duration-1000"
-      >
+      <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
+        class="about-paragraph animation-duration-1000">
         <p>
-          Hello, I'm Joe, a motivated and collaborative software engineer with
-          several years of industry experience.
+          Hello, I'm Joe, a passionate software engineer with
+          4+ years of industry experience.
         </p>
         <p>
           My passion is to build functional web applications using the skills I
@@ -28,11 +23,15 @@
           dynamic, functional, user-friendly web applications. I remain
           dedicated to continually expanding my knowledge in this dynamic field.
         </p>
+        <p>
+          What I like most about the industry I'm in is its continuous evolution. Technology continually
+          challenges me to learn and stay updated on new technologies and frameworks as they release new versions to
+          enhance their performance and fix ongoing issues. This nature of techonolgy evolution not only keeps me
+          interested in this field but also inspires my passion for facing new challenges.
+        </p>
       </div>
-      <div
-        v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
-        class="about-paragraph animation-duration-1000"
-      >
+      <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
+        class="about-paragraph animation-duration-1000">
         <h3>Bachelor of Science in Information Technology</h3>
         <span>Don Honorio Ventura State University</span>
       </div>

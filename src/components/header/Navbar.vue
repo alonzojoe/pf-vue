@@ -357,4 +357,16 @@ header .controls #menu:hover {
     font-weight: 600;
   }
 }
+
+@media (max-width: 1279px) {
+  header {
+    padding: 1.7rem 4%;
+  }
+}
+
+@media (max-width: 1200px) {
+  header {
+    padding: 1.5rem 2%;
+  }
+}
 </style>
