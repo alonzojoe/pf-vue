@@ -43,7 +43,7 @@ import { usePrimeVue } from "primevue/config";
 import { useStore } from "vuex";
 import Switcher from "@/components/Switcher/Switcher.vue";
 const store = useStore();
-const joe = ref(`<Joe/>`)
+const joe = ref(`< Joe />`)
 const storeTheme = computed(() => store.getters.getCurrentTheme);
 
 const emit = defineEmits(["toggle-theme"]);
@@ -144,7 +144,7 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--box-shadow-bottom);
-  z-index: 200;
+  z-index: 99999;
 }
 
 header .logo {

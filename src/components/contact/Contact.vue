@@ -262,6 +262,7 @@ section {
   text-align: center;
   flex-direction: column;
   padding: 5rem;
+  margin-top: 5rem;
 }
 
 .contact .contact-container .contact-box .container-info .contact-info {
@@ -284,7 +285,7 @@ section {
 .contact .contact-container .contact-box .container-info .contact-info span {
   color: var(--text-light);
   font-size: 1.7rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .btn-sm {
