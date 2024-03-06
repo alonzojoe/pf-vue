@@ -1,35 +1,21 @@
 <template>
   <section class="projects" :id="sectionId">
-    <h2 class="heading">Projects</h2>
+    <h2 class="heading animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">Projects</h2>
 
     <div class="projects-container">
-      <div class="card-project">
-        <Carousel
-          :value="products"
-          :numVisible="3"
-          :numScroll="1"
-          :responsiveOptions="responsiveOptions"
-        >
+      <div class="card-project animation-duration-500" v-animateonscroll="{ enterClass: 'fadeindown' }">
+        <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
           <!-- circular
           :autoplayInterval="3000" -->
           <template #item="slotProps">
             <div class="border-1 surface-border border-round m-2 p-3">
               <div class="mb-3">
                 <div class="relative mx-auto">
-                  <img
-                    :src="
-                      'https://primefaces.org/cdn/primevue/images/product/' +
-                      slotProps.data.image
-                    "
-                    :alt="slotProps.data.name"
-                    class="w-full border-round"
-                  />
-                  <Tag
-                    :value="slotProps.data.inventoryStatus"
-                    :severity="getSeverity(slotProps.data.inventoryStatus)"
-                    class="absolute"
-                    style="left: 5px; top: 5px"
-                  />
+                  <img :src="'https://primefaces.org/cdn/primevue/images/product/' +
+    slotProps.data.image
+    " :alt="slotProps.data.name" class="w-full border-round" />
+                  <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)"
+                    class="absolute" style="left: 5px; top: 5px" />
                 </div>
               </div>
               <div class="mb-3">
@@ -50,41 +36,24 @@
     </div>
   </section>
   <div class="card flex justify-content-center">
-    <Galleria
-      v-model:visible="displayBasic"
-      :value="images"
-      :responsiveOptions="responsiveGallery"
-      :numVisible="5"
-      containerStyle="max-width: 50%"
-      :circular="true"
-      :fullScreen="true"
-      :showItemNavigators="true"
-    >
+    <Galleria v-model:visible="displayBasic" :value="images" :responsiveOptions="responsiveGallery" :numVisible="5"
+      containerStyle="max-width: 50%" :circular="true" :fullScreen="true" :showItemNavigators="true">
+
       <template #item="slotProps">
-        <img
-          :src="slotProps.item.itemImageSrc"
-          :alt="slotProps.item.alt"
-          style="width: 100%; display: block"
-        />
+        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
       </template>
+
       <template #thumbnail="slotProps">
-        <img
-          :src="slotProps.item.thumbnailImageSrc"
-          :alt="slotProps.item.alt"
-          style="display: block"
-        />
+        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
       </template>
+
       <template #caption="slotProps">
         <div class="text-xl mb-2 font-bold">{{ slotProps.item.title }}</div>
         <p class="text-white">{{ slotProps.item.alt }}</p>
       </template>
     </Galleria>
 
-    <Button
-      label="Show"
-      icon="pi pi-external-link"
-      @click="displayBasic = true"
-    />
+    <Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
   </div>
 
   <ProjectDetails :visible="visible" @close-modal="visible = false" />
@@ -193,6 +162,7 @@ onMounted(() => {
 .btn-sm:hover {
   background: #7d4ec9;
 }
+
 .card-project {
   background: #f5fbf5;
   padding: 2rem;
@@ -205,6 +175,7 @@ onMounted(() => {
 p {
   line-height: 1.75;
 }
+
 .projects {
   border: 1px solid red;
   /* background: var(--bg-light); */
