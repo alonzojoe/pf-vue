@@ -144,7 +144,7 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--box-shadow-bottom);
-  z-index: 99999;
+  z-index: 999;
 }
 
 header .logo {
