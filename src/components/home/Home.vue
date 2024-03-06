@@ -1,6 +1,6 @@
 <template>
   <section class="home fadeindown animation-duration-100" :id="sectionId">
-    <div class="home-intro">
+    <div class="home-intro animation-duration-1000" v-animateonscroll="{ enterClass: 'fadeinleft' }">
       <h3>Hello, I'm</h3>
       <h1>Joenell Alonzo</h1>
       <h5>A Software Engineer From <span>Pampanga, Philippines 2020</span></h5>
@@ -17,7 +17,7 @@
         <a href="vite.svg" class="btn" download>Download CV</a>
       </div>
     </div>
-    <div class="home-profile profile-icons">
+    <div class="home-profile profile-icons animation-duration-1000" v-animateonscroll="{ enterClass: 'fadeinright' }">
       <img class="vue-circe" src="../../assets/icons/vue-circ.png" alt="Vue" />
       <img class="laravel-circe" src="../../assets/icons/laravel-circ.png" alt="Laravel" />
       <img class="api-circe" src="../../assets/icons/api-circ.png" alt="API" />
@@ -1013,9 +1013,7 @@ onMounted(() => {
 
 }
 
-@media screen and (min-width: 1024px) {
-
-}
+@media screen and (min-width: 1024px) {}
 
 @media screen and (max-width: 1920px) {
   .home {
