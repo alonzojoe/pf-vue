@@ -1,7 +1,11 @@
 <template>
   <Switcher v-if="modalSwitch" :checkType="checkState" />
   <header id="header">
-    <a href="" class="logo"> Joe </a>
+    <a href="" class="logo"> 
+      <img src="../../../src/assets/icons/joe-dark.png" alt="joe-logo" v-show="currentTheme == 'lara-light-purple'" />
+      <img src="../../../src/assets/icons/joe-light.png" alt="joe-logo" v-show="currentTheme == 'lara-dark-purple'"> 
+      <span class="text-logo">Joe</span> 
+    </a>
     <div class="navbar" :class="showMenu">
       <a
         href="#home"
@@ -183,7 +187,18 @@ header {
 }
 
 header .logo {
-  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+header .logo img{
+    max-width: 100%;
+    width: 40px;
+    height: auto;
+}
+
+header .logo .text-logo {
+  font-size: 3rem;
   border-radius: 0.5rem;
   padding: 0.5rem 1.5rem;
   color: var(--text-light);
