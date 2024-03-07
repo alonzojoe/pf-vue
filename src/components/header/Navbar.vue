@@ -148,9 +148,9 @@ onMounted(() => {
   window.addEventListener("resize", handleResize);
 });
 
-const setMountedTheme = (theme, blanketTheme) => {
+const setMountedTheme = (theme) => {
   currentTheme.value = theme;
-  let nextTheme = blanketTheme;
+  let nextTheme = theme;
 
 
   if (currentTheme.value === "lara-dark-purple")
@@ -161,7 +161,7 @@ const setMountedTheme = (theme, blanketTheme) => {
 
   currentTheme.value = nextTheme;
   // localStorage.setItem("app-theme", currentTheme.value);
-  store.commit("setTheme", currentTheme.value);
+  store.commit("setTheme", nextTheme);
   emit("toggle-theme", currentTheme.value);
 }
 
@@ -172,9 +172,11 @@ const mountedTheme = () => {
   const theme = localStorage.getItem('app-theme')
   console.log('apptheme', theme)
   if (theme == null || theme == 'lara-dark-purple') {
-    setMountedTheme('lara-light-purple', 'lara-dark-purple')
+    setMountedTheme('lara-light-purple')
+    checkState.value = true
   } else {
-    setMountedTheme('lara-dark-purple', 'lara-light-purple')
+    setMountedTheme('lara-dark-purple')
+    checkState.value = false
   }
 }
 
