@@ -4,9 +4,9 @@ export const ProductService = {
       {
         id: "1000",
         code: "f230fh0g3",
-        name: "Bamboo Watch",
-        description: "Product Description",
-        image: "bamboo-watch.jpg",
+        name: "Edify - HIS (Hospital Information System)",
+        description: "Project Description",
+        image: "ed1.png",
         price: 65,
         category: "Accessories",
         quantity: 24,
@@ -16,7 +16,7 @@ export const ProductService = {
       {
         id: "1001",
         code: "nvklal433",
-        name: "Performance Digital Monitoring System",
+        name: "PDMS (Performance Digital Monitoring System)",
         description: "Project Description",
         image: "pd1.jpeg",
         price: 72,
