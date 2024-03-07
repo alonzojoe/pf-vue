@@ -109,13 +109,30 @@ let section = ref();
 const updateScroll = () => {
   section.value.forEach((sec) => {
     let top = window.scrollY;
-    let offset = sec.offsetTop - 150;
+    let offset = sec.offsetTop - 140;
     let height = sec.offsetHeight;
     let id = sec.getAttribute("id");
 
     if (top >= offset && top < offset + height) {
       currentSection.value = id;
     }
+
+  //  if (top >= offset && top < offset + height) {
+  //     currentSection.value = id;
+
+  //     if (id == 'home') {
+  //       sec.style.paddingTop = "100px";
+  //     }else{
+  //       sec.style.paddingTop = "40px"; // Adjust the value as needed
+  //     }
+
+  //     // Assuming you want to update the padding-top of the current section
+      
+  //   } else {
+  //     // Reset the padding-top for other sections
+  //     sec.style.paddingTop = "100px";
+  //   }
+  
   });
 };
 

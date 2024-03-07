@@ -16,7 +16,7 @@ export const ProductService = {
       {
         id: "1001",
         code: "nvklal433",
-        name: "PDMS (Performance Digital Monitoring System)",
+        name: "Performance Digital Monitoring System",
         description: "Project Description",
         image: "pd1.jpeg",
         price: 72,
@@ -40,9 +40,9 @@ export const ProductService = {
       {
         id: "1003",
         code: "244wgerg2",
-        name: "Blue T-Shirt",
-        description: "Product Description",
-        image: "blue-t-shirt.jpg",
+        name: "Vaccine-Preventable Diseases Referral Laboratory",
+        description: "Project Description",
+        image: "vpd1.png",
         price: 29,
         category: "Clothing",
         quantity: 25,
