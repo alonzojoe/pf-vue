@@ -48,26 +48,26 @@ const storeTheme = computed(() => store.getters.getCurrentTheme);
 
 const emit = defineEmits(["toggle-theme"]);
 
-const currentTheme = ref("lara-light-purple");
+const currentTheme = ref("lara-dark-purple");
 
 const PrimeVue = usePrimeVue();
 
 
 const modalSwitch = ref(false)
 const checkState = ref(false)
-const toggleTheme = () => {
+const toggleTheme = (theme) => {
   modalSwitch.value = true;
   checkState.value = checkState.value === false ? true : false;
-  let nextTheme = "lara-light-purple";
+  let nextTheme = currentTheme.value == "lara-dark-purple" ? 'lara-light-purple' : 'lara-dark-purple';
 
-  let storageTheme = localStorage.getItem("app-theme");
+  // let storageTheme = localStorage.getItem("app-theme");
 
-  storageTheme == null || storageTheme == "lara-dark-purple"
+  // storageTheme == null || storageTheme == "lara-dark-purple"
 
-  if (currentTheme.value === "lara-light-purple")
-    nextTheme = "lara-dark-purple";
-  else if (currentTheme.value === "lara-dark-purple")
+  if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
+  else if (currentTheme.value === "lara-light-purple")
+    nextTheme = "lara-dark-purple";
   PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
 
   currentTheme.value = nextTheme;
@@ -121,22 +121,22 @@ const updateScroll = () => {
       currentSection.value = id;
     }
 
-  //  if (top >= offset && top < offset + height) {
-  //     currentSection.value = id;
+    //  if (top >= offset && top < offset + height) {
+    //     currentSection.value = id;
 
-  //     if (id == 'home') {
-  //       sec.style.paddingTop = "100px";
-  //     }else{
-  //       sec.style.paddingTop = "40px"; // Adjust the value as needed
-  //     }
+    //     if (id == 'home') {
+    //       sec.style.paddingTop = "100px";
+    //     }else{
+    //       sec.style.paddingTop = "40px"; // Adjust the value as needed
+    //     }
 
-  //     // Assuming you want to update the padding-top of the current section
-      
-  //   } else {
-  //     // Reset the padding-top for other sections
-  //     sec.style.paddingTop = "100px";
-  //   }
-  
+    //     // Assuming you want to update the padding-top of the current section
+
+    //   } else {
+    //     // Reset the padding-top for other sections
+    //     sec.style.paddingTop = "100px";
+    //   }
+
   });
 };
 
@@ -148,9 +148,43 @@ onMounted(() => {
   window.addEventListener("resize", handleResize);
 });
 
+const setMountedTheme = (theme, blanketTheme) => {
+  currentTheme.value = theme;
+  let nextTheme = blanketTheme;
+
+
+  if (currentTheme.value === "lara-dark-purple")
+    nextTheme = "lara-light-purple";
+  else if (currentTheme.value === "lara-light-purple")
+    nextTheme = "lara-dark-purple";
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
+
+  currentTheme.value = nextTheme;
+  // localStorage.setItem("app-theme", currentTheme.value);
+  store.commit("setTheme", currentTheme.value);
+  emit("toggle-theme", currentTheme.value);
+}
+
+const mountedTheme = () => {
+  // currentTheme.value = localStorage.getItem('app-theme')
+  // currentTheme.value == null || currentTheme.value == 'lara-dark-purple' ?
+  //   toggleTheme('lara-dark-purple') : toggleTheme('lara-light-purple')
+  const theme = localStorage.getItem('app-theme')
+  console.log('apptheme', theme)
+  if (theme == null || theme == 'lara-dark-purple') {
+    setMountedTheme('lara-light-purple', 'lara-dark-purple')
+  } else {
+    setMountedTheme('lara-dark-purple', 'lara-light-purple')
+  }
+}
+
 onUnmounted(() => {
   window.removeEventListener("resize", handleResize);
 });
+
+onMounted(() => {
+  mountedTheme();
+})
 
 
 //  const theme = localStorage.getItem("app-theme");

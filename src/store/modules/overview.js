@@ -1,6 +1,6 @@
 const state = {
   data: {
-    theme: "",
+    theme: "lara-dark-purple",
   },
 };
 
