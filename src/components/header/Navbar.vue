@@ -147,6 +147,25 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("resize", handleResize);
 });
+
+
+//  const theme = localStorage.getItem("app-theme");
+//       theme == null || theme == "white-theme"
+//         ? toggleChangeTheme("white-theme")
+//         : toggleChangeTheme("dark-theme");
+
+
+
+//     const mountedTheme = () => {
+//       const theme = localStorage.getItem("app-theme");
+//       theme == null || theme == "white-theme"
+//         ? toggleChangeTheme("white-theme")
+//         : toggleChangeTheme("dark-theme");
+//     };
+
+
+// lara-dark-purple
+// lara-light-purple
 </script>
 
 <style scoped>

@@ -1,7 +1,8 @@
 <template>
-  <section v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }" class="about animation-duration-1000"
-    :id="sectionId">
-    <h2 class="heading">About</h2>
+  <section class="about" :id="sectionId">
+    <div class="animation-duration-1000" v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }">
+
+    <h2 class="heading animation-duration-1000">About</h2>
     <div class="about-content">
       <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
         class="about-paragraph animation-duration-1000">
@@ -35,6 +36,8 @@
         <h3>Bachelor of Science in Information Technology</h3>
         <span>Don Honorio Ventura State University</span>
       </div>
+    </div>
+          
     </div>
   </section>
 </template>
