@@ -60,6 +60,10 @@ const toggleTheme = () => {
   checkState.value = checkState.value === false ? true : false;
   let nextTheme = "lara-light-purple";
 
+  let storageTheme = localStorage.getItem("app-theme");
+
+  storageTheme == null || storageTheme == "lara-dark-purple"
+
   if (currentTheme.value === "lara-light-purple")
     nextTheme = "lara-dark-purple";
   else if (currentTheme.value === "lara-dark-purple")
