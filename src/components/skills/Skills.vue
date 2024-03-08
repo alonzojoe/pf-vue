@@ -80,7 +80,7 @@
       </div>
       <div v-animateonscroll="{ enterClass: 'fadeindown' }" class="skill-card animation-duration-100">
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/api-page-svgrepo-com.svg" alt="REST API" />
+          <img src="../../../src/assets/icons/api.svg" alt="REST API" />
         </div>
         <span>REST API</span>
       </div>
