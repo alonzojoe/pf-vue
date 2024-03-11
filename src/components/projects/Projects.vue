@@ -11,7 +11,7 @@
             <div class="border-1 surface-border border-round m-2 p-3">
               <div class="mb-3">
                 <div class="relative mx-auto">
-                  <img :src="'../src/assets/projects/' +
+                  <img :src="'/projects/' +
     slotProps.data.image
     " :alt="slotProps.data.name" class="w-full border-round" />
                   <!-- <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)"
@@ -40,12 +40,12 @@
       containerStyle="max-width: 50%" :circular="true" :fullScreen="true" :showItemNavigators="true">
 
       <template #item="slotProps">
-        <img :src="`../src/assets/projects-details/${slotProps.item.itemImageSrc}`" :alt="slotProps.item.alt"
+        <img :src="`/projects-details/${slotProps.item.itemImageSrc}`" :alt="slotProps.item.alt"
           style="width: 100%; display: block" />
       </template>
 
       <template #thumbnail="slotProps">
-        <img :src="`../src/assets/projects-details/${slotProps.item.thumbnailImageSrc}`" :alt="slotProps.item.alt"
+        <img :src="`/projects-details/${slotProps.item.thumbnailImageSrc}`" :alt="slotProps.item.alt"
           style="display: block" />
       </template>
 
