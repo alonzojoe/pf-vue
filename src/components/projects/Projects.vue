@@ -54,10 +54,7 @@
         <p class="text-white">{{ slotProps.item.alt }}</p>
       </template>
     </Galleria>
-
-    <Button label="Show" icon="pi pi-external-link" @click="displayBasic = true" />
   </div>
-
   <ProjectDetails :visible="visible" @close-modal="visible = false" />
 </template>
 

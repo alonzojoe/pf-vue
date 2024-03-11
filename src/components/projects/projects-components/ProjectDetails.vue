@@ -1,24 +1,27 @@
 <template>
-  <Modal
-    class="modal-details"
-    :visible="bool"
-    maximizable
-    modal
-    header="Header"
-    @update:visible="closeModal"
-    :draggable="false"
-    :style="{ width: '60vw' }"
-    :breakpoints="{ '1199px': '75vw', '575px': '90vw' }"
-  >
-    <p class="m-0">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+  <Modal class="modal-details" :visible="bool" modal :header="spacer" @update:visible="closeModal" :draggable="false"
+    :style="{ width: '40vw' }" resize="false" :breakpoints="{ '1199px': '75vw', '575px': '90vw' }">
+    <h1>Performance Governance Digital Monitoring System</h1>
+    <p class="ml-4 m-0 mt-2 text-2xl">
+      • Created a Performance Governance Digital Monitoring System that monthly tracks the submitted deliverables, and
+      at the end of the year, it verifies whether the deliverables have been accomplished.
     </p>
+
+    <p class="ml-4 m-0 mt-2 text-2xl">
+      • I was assigned as the lead developer for this project and assigned vital modules, such as User Management,
+      Operations
+      Review, Department Requests (Addition/Deletion), Graphs &amp; Charts, Dashboard Notifications and Monitoring of
+      Monthly
+      Reports of Deliverables.
+    </p>
+    <p class="ml-4 m-0 mt-2 text-2xl"> • Implemented SMS notifications using the Smart API Gateway for system updates,
+      including
+      deadlines
+      for
+      submission and
+      other important announcements.</p>
+
+
   </Modal>
 </template>
 
@@ -27,6 +30,8 @@ import { ref, watchEffect } from "vue";
 const props = defineProps({
   visible: Boolean,
 });
+
+const spacer = ref(' ');
 
 const emit = defineEmits("close-modal");
 
