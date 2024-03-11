@@ -26,7 +26,7 @@
                   <button class="btn-sm" @click="viewDetails">Details</button>
                 </span>
                 <span>
-                  <button class="btn-sm" @click="viewDetails">Preview</button>
+                  <button class="btn-sm" @click="previewSnaps(slotProps.data.alias)">Preview</button>
                 </span>
               </div>
             </div>
@@ -40,11 +40,13 @@
       containerStyle="max-width: 50%" :circular="true" :fullScreen="true" :showItemNavigators="true">
 
       <template #item="slotProps">
-        <img :src="slotProps.item.itemImageSrc" :alt="slotProps.item.alt" style="width: 100%; display: block" />
+        <img :src="`../src/assets/projects-details/${slotProps.item.itemImageSrc}`" :alt="slotProps.item.alt"
+          style="width: 100%; display: block" />
       </template>
 
       <template #thumbnail="slotProps">
-        <img :src="slotProps.item.thumbnailImageSrc" :alt="slotProps.item.alt" style="display: block" />
+        <img :src="`../src/assets/projects-details/${slotProps.item.thumbnailImageSrc}`" :alt="slotProps.item.alt"
+          style="display: block" />
       </template>
 
       <template #caption="slotProps">
@@ -64,6 +66,8 @@ import { ref, onMounted } from "vue";
 import { ProductService } from "./systems";
 import ProjectDetails from "./projects-components/ProjectDetails.vue";
 import { PhotoService } from "./systems/photos";
+import { PdService } from "./systems/pdms"
+
 const props = defineProps({
   id: String,
 });
@@ -137,6 +141,14 @@ const responsiveGallery = ref([
   },
 ]);
 const displayBasic = ref(false);
+
+const previewSnaps = async (type) => {
+  if (type === 'pd') {
+    PdService.getImages().then((data) => (images.value = data))
+  }
+  displayBasic.value = true
+}
+
 
 onMounted(() => {
   sectionId.value = props.id;

@@ -1,4 +1,4 @@
-export const PhotoService = {
+export const PdService = {
     getData() {
       return [
         {
@@ -27,9 +27,9 @@ export const PhotoService = {
         },
         {
            itemImageSrc:
-            "pd/pd4.jpeg",
+            "pd/pd4.png",
           thumbnailImageSrc:
-            "pd/pd4-thumb.jpeg",
+            "pd/pd4-thumb.png",
             "alt": "This module displays the monitoring of accomplishments for processes, divided into core and support processes. It follows a color scheme with red indicating not started/stopped, yellow for ongoing, and green for accomplished.",
             "title": "Graphs Representation"
         },
