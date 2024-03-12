@@ -39,7 +39,7 @@ export const ProductService = {
         quantity: 2,
         inventoryStatus: "LOWSTOCK",
         rating: 3,
-        alias: "",
+        alias: "cd",
       },
       {
         id: "1003",
