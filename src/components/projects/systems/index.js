@@ -44,7 +44,7 @@ export const ProductService = {
       {
         id: "1003",
         code: "244wgerg2",
-        name: "VPD Referral Laboratory",
+        name: "VPD Referral Laboratory System",
         description: "Project Description",
         image: "vpd1.png",
         price: 29,
