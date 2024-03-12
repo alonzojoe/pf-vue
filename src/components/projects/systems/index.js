@@ -13,7 +13,7 @@ export const ProductService = {
         inventoryStatus: "INSTOCK",
         rating: 5,
         alias: "",
-      alias: "",
+        alias: "",
       },
       {
         id: "1001",
@@ -26,7 +26,7 @@ export const ProductService = {
         quantity: 61,
         inventoryStatus: "INSTOCK",
         rating: 4,
-      alias: "pd",
+        alias: "pd",
       },
       {
         id: "1002",
@@ -39,7 +39,7 @@ export const ProductService = {
         quantity: 2,
         inventoryStatus: "LOWSTOCK",
         rating: 3,
-      alias: "",
+        alias: "",
       },
       {
         id: "1003",
@@ -52,7 +52,7 @@ export const ProductService = {
         quantity: 25,
         inventoryStatus: "INSTOCK",
         rating: 5,
-      alias: "",
+        alias: "vp",
       },
       {
         id: "1004",
@@ -65,7 +65,7 @@ export const ProductService = {
         quantity: 73,
         inventoryStatus: "INSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1005",
@@ -78,7 +78,7 @@ export const ProductService = {
         quantity: 0,
         inventoryStatus: "OUTOFSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1006",
@@ -91,7 +91,7 @@ export const ProductService = {
         quantity: 5,
         inventoryStatus: "LOWSTOCK",
         rating: 3,
-      alias: "",
+        alias: "",
       },
       {
         id: "1007",
@@ -104,7 +104,7 @@ export const ProductService = {
         quantity: 23,
         inventoryStatus: "INSTOCK",
         rating: 5,
-      alias: "",
+        alias: "",
       },
       {
         id: "1008",
@@ -117,7 +117,7 @@ export const ProductService = {
         quantity: 2,
         inventoryStatus: "LOWSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1009",
@@ -130,7 +130,7 @@ export const ProductService = {
         quantity: 63,
         inventoryStatus: "INSTOCK",
         rating: 3,
-      alias: "",
+        alias: "",
       },
       {
         id: "1010",
@@ -143,7 +143,7 @@ export const ProductService = {
         quantity: 0,
         inventoryStatus: "OUTOFSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1011",
@@ -156,7 +156,7 @@ export const ProductService = {
         quantity: 23,
         inventoryStatus: "INSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1012",
@@ -169,7 +169,7 @@ export const ProductService = {
         quantity: 74,
         inventoryStatus: "INSTOCK",
         rating: 5,
-      alias: "",
+        alias: "",
       },
       {
         id: "1013",
@@ -182,7 +182,7 @@ export const ProductService = {
         quantity: 0,
         inventoryStatus: "OUTOFSTOCK",
         rating: 3,
-      alias: "",
+        alias: "",
       },
       {
         id: "1014",
@@ -195,7 +195,7 @@ export const ProductService = {
         quantity: 8,
         inventoryStatus: "LOWSTOCK",
         rating: 5,
-      alias: "",
+        alias: "",
       },
       {
         id: "1015",
@@ -208,7 +208,7 @@ export const ProductService = {
         quantity: 34,
         inventoryStatus: "INSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1016",
@@ -221,7 +221,7 @@ export const ProductService = {
         quantity: 12,
         inventoryStatus: "INSTOCK",
         rating: 3,
-      alias: "",
+        alias: "",
       },
       {
         id: "1017",
@@ -234,7 +234,7 @@ export const ProductService = {
         quantity: 42,
         inventoryStatus: "INSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1018",
@@ -247,7 +247,7 @@ export const ProductService = {
         quantity: 41,
         inventoryStatus: "INSTOCK",
         rating: 5,
-      alias: "",
+        alias: "",
       },
       {
         id: "1019",
@@ -260,7 +260,7 @@ export const ProductService = {
         quantity: 63,
         inventoryStatus: "INSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1020",
@@ -273,7 +273,7 @@ export const ProductService = {
         quantity: 0,
         inventoryStatus: "OUTOFSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1021",
@@ -286,7 +286,7 @@ export const ProductService = {
         quantity: 6,
         inventoryStatus: "LOWSTOCK",
         rating: 3,
-      alias: "",
+        alias: "",
       },
       {
         id: "1022",
@@ -299,7 +299,7 @@ export const ProductService = {
         quantity: 62,
         inventoryStatus: "INSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1023",
@@ -312,7 +312,7 @@ export const ProductService = {
         quantity: 2,
         inventoryStatus: "LOWSTOCK",
         rating: 5,
-      alias: "",
+        alias: "",
       },
       {
         id: "1024",
@@ -325,7 +325,7 @@ export const ProductService = {
         quantity: 0,
         inventoryStatus: "INSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1025",
@@ -338,7 +338,7 @@ export const ProductService = {
         quantity: 52,
         inventoryStatus: "INSTOCK",
         rating: 4,
-      alias: "",
+        alias: "",
       },
       {
         id: "1026",
@@ -351,7 +351,7 @@ export const ProductService = {
         quantity: 3,
         inventoryStatus: "LOWSTOCK",
         rating: 3,
-      alias: "",
+        alias: "",
       },
       {
         id: "1027",
@@ -364,7 +364,7 @@ export const ProductService = {
         quantity: 35,
         inventoryStatus: "INSTOCK",
         rating: 3,
-      alias: "",
+        alias: "",
       },
       {
         id: "1028",
@@ -377,7 +377,7 @@ export const ProductService = {
         quantity: 15,
         inventoryStatus: "INSTOCK",
         rating: 5,
-      alias: "",
+        alias: "",
       },
       {
         id: "1029",
@@ -390,7 +390,7 @@ export const ProductService = {
         quantity: 25,
         inventoryStatus: "INSTOCK",
         rating: 8,
-      alias: "",
+        alias: "",
       },
     ];
   },
