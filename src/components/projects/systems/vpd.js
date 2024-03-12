@@ -16,8 +16,8 @@ export const VpService = {
       {
         itemImageSrc: "vp/vp3.png",
         thumbnailImageSrc: "vp/vp3-thumb.png",
-        alt: "Theme Switching functionality for Light / Dark Mode.",
-        title: "Dashboard Dark Mode",
+        alt: "Theme Switching functionality, Light / Dark Mode.",
+        title: "Theme Switch",
       },
       {
         itemImageSrc: "vp/vp4.png",
