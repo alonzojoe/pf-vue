@@ -3,7 +3,7 @@
     <h2 class="heading animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
       Contact</h2>
     <h5 class="sub-heading animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
-      Let's build awesome stuffs for you.</h5>
+      Let's build awesome projects for you.</h5>
     <div class="contact-container">
       <div class="contact-box animation-duration-1000" v-animateonscroll="{ enterClass: 'fadeinleft' }">
         <div class="container-info">
