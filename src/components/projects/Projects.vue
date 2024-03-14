@@ -1,42 +1,24 @@
 <template>
   <section class="projects" :id="sectionId">
-    <h2
-      class="heading animation-duration-300"
-      v-animateonscroll="{ enterClass: 'fadeindown' }"
-    >
+    <h2 class="heading animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
       Projects
     </h2>
-    <h5
-      class="sub-heading animation-duration-300"
-      v-animateonscroll="{ enterClass: 'fadeindown' }"
-    >
+    <h5 class="sub-heading animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
       My collaborative and personal projects, showcasing my skills and
       experiences in web development.
     </h5>
 
     <div class="projects-container">
-      <div
-        class="card-project animation-duration-500"
-        v-animateonscroll="{ enterClass: 'fadeindown' }"
-      >
-        <Carousel
-          :value="products"
-          :numVisible="3"
-          :numScroll="1"
-          :responsiveOptions="responsiveOptions"
-        >
+      <div class="card-project animation-duration-500" v-animateonscroll="{ enterClass: 'fadeindown' }">
+        <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
           <!-- circular
           :autoplayInterval="3000" -->
           <template #item="slotProps">
             <div class="border-1 surface-border border-round m-2 p-3">
               <div class="mb-3">
                 <div class="relative mx-auto">
-                  <img
-                    :src="'/projects/' + slotProps.data.image"
-                    :alt="slotProps.data.name"
-                    class="w-full border-round"
-                    preview
-                  />
+                  <img :src="'/projects/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full border-round"
+                    preview />
                   <!-- <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)"
                     class="absolute" style="left: 5px; top: 5px" /> -->
                 </div>
@@ -49,10 +31,7 @@
                   <button class="btn-sm" @click="viewDetails">Details</button>
                 </span>
                 <span>
-                  <button
-                    class="btn-sm"
-                    @click="previewSnaps(slotProps.data.alias)"
-                  >
+                  <button class="btn-sm" @click="previewSnaps(slotProps.data.alias)">
                     Preview
                   </button>
                 </span>
@@ -64,30 +43,16 @@
     </div>
   </section>
   <div class="card flex justify-content-center">
-    <Galleria
-      v-model:visible="displayBasic"
-      :value="images"
-      :responsiveOptions="responsiveGallery"
-      :numVisible="5"
-      containerStyle="max-width: 50%"
-      :circular="true"
-      :fullScreen="true"
-      :showItemNavigators="true"
-    >
+    <Galleria v-model:visible="displayBasic" :value="images" :responsiveOptions="responsiveGallery" :numVisible="5"
+      containerStyle="max-width: 50%" :circular="true" :fullScreen="true" :showItemNavigators="true">
       <template #item="slotProps">
-        <img
-          :src="`/projects-details/${slotProps.item.itemImageSrc}`"
-          :alt="slotProps.item.alt"
-          style="width: 100%; display: block"
-        />
+        <img :src="`/projects-details/${slotProps.item.itemImageSrc}`" :alt="slotProps.item.alt"
+          style="width: 100%; display: block" />
       </template>
 
       <template #thumbnail="slotProps">
-        <img
-          :src="`/projects-details/${slotProps.item.thumbnailImageSrc}`"
-          :alt="slotProps.item.alt"
-          style="display: block"
-        />
+        <img :src="`/projects-details/${slotProps.item.thumbnailImageSrc}`" :alt="slotProps.item.alt"
+          style="display: block" />
       </template>
 
       <template #caption="slotProps">
@@ -242,12 +207,12 @@ p {
 }
 
 .projects {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* background: var(--bg-light); */
 }
 
 .projects .projects-container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 3rem 0;
   /* display: grid;
     gap: 1.5rem;

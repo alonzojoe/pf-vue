@@ -175,7 +175,7 @@ section {
 }
 
 .contact {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   background: #763ed0;
   /* background: var(--bg-light); */
 }
@@ -189,7 +189,7 @@ section {
 }
 
 .contact .contact-container {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 3rem;

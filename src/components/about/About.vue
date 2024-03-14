@@ -1,15 +1,10 @@
 <template>
   <section class="about" :id="sectionId">
-    <div
-      class="animation-duration-1000"
-      v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
-    >
+    <div class="animation-duration-1000" v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }">
       <h2 class="heading animation-duration-1000">About</h2>
       <div class="about-content">
-        <div
-          v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
-          class="about-paragraph animation-duration-1000"
-        >
+        <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
+          class="about-paragraph animation-duration-1000">
           <p>
             Hello, I'm Joe, a passionate software engineer with 4+ years of
             industry experience.
@@ -38,10 +33,8 @@
             field but also inspires my passion for facing new challenges.
           </p>
         </div>
-        <div
-          v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
-          class="about-paragraph animation-duration-1000"
-        >
+        <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
+          class="about-paragraph animation-duration-1000">
           <h3>Bachelor of Science in Information Technology</h3>
           <span>Don Honorio Ventura Technological State University</span>
         </div>
@@ -67,7 +60,7 @@ onMounted(() => {
 
 <style scoped>
 .about {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   /* background: var(--bg-light); */
 }
 
@@ -79,7 +72,7 @@ onMounted(() => {
 }
 
 .about .about-content .about-paragraph {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 3rem;
 }
 

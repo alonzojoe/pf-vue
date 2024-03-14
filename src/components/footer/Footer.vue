@@ -26,7 +26,7 @@ const currentYear = ref(moment().year());
 
 <style scoped>
 .footer {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding: 3rem 20%;
   padding-bottom: 5rem;
 }

@@ -221,7 +221,7 @@ header {
   align-items: center;
   box-shadow: var(--box-shadow-bottom);
   z-index: 999;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 header .logo {

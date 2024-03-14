@@ -14,7 +14,7 @@
         <a href="https://www.facebook.com/alonzojoe" target="_blank" class="bx bxl-facebook"></a>
       </div>
       <div class="cv">
-        <a href="vite.svg" class="btn" download>Download CV</a>
+        <a href="JOENELL ALONZO - CV.pdf" class="btn" download>Download CV</a>
       </div>
     </div>
     <div class="home-profile profile-icons animation-duration-1000" v-animateonscroll="{ enterClass: 'fadeinright' }">
@@ -81,19 +81,19 @@ onMounted(() => {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding-bottom: 9rem;
 }
 
 .home .home-intro {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .home .home-profile {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 
   width: 100%;
   height: 580px;
@@ -169,7 +169,7 @@ onMounted(() => {
 }
 
 .home-profile.profile-icons {
-  border: 1px solid green;
+  /* border: 1px solid green; */
   position: relative;
   /* overflow-x: hidden; */
   /* overflow-x: hidden; */
@@ -571,7 +571,7 @@ onMounted(() => {
   }
 
   .home .home-intro .socials {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     justify-content: center;
     gap: 1rem;
     margin-bottom: 0;
@@ -582,7 +582,7 @@ onMounted(() => {
   }
 
   .cv {
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     align-items: center;
     justify-content: center;
