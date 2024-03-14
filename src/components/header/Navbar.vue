@@ -215,12 +215,13 @@ header {
   left: 0;
   right: 0;
   background: var(--bg-light);
-  padding: 1.7rem 9%;
+  padding: 1rem 9%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--box-shadow-bottom);
   z-index: 999;
+  border: 1px solid red;
 }
 
 header .logo {
@@ -237,7 +238,7 @@ header .logo img {
 header .logo .text-logo {
   font-size: 3rem;
   border-radius: 0.5rem;
-  padding: 0.5rem 1.5rem;
+  padding: 0rem 1.5rem;
   /* color: var(--text-light); */
   font-weight: 600;
 }
@@ -436,13 +437,13 @@ header .controls #menu:hover {
 
 @media (max-width: 1279px) {
   header {
-    padding: 1.7rem 4%;
+    padding: 1rem 4%;
   }
 }
 
 @media (max-width: 1200px) {
   header {
-    padding: 1.5rem 2%;
+    padding: 1rem 2%;
   }
 }
 </style>
