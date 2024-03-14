@@ -56,15 +56,15 @@ export const ProductService = {
       {
         id: "1004",
         code: "h456wer53",
-        name: "Bracelet",
+        name: "RIS File Watcher",
         description: "Product Description",
-        image: "bracelet.jpg",
+        image: "fww.png",
         price: 15,
         category: "Accessories",
         quantity: 73,
         inventoryStatus: "INSTOCK",
         rating: 4,
-        alias: "",
+        alias: "fw",
       },
       {
         id: "1005",
