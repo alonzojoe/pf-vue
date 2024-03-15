@@ -1,10 +1,25 @@
 <template>
   <section class="about" :id="sectionId">
-    <div class="animation-duration-1000" v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }">
+    <div
+      class="animation-duration-1000"
+      v-animateonscroll="{
+        enterClass: 'fadein',
+        once: true,
+      }"
+    >
+      <!-- :class="{
+          'fadeindown animation-duration-500': isSmallScreen && isToggle,
+          active: currentSection == 'about',
+        }" -->
       <h2 class="heading animation-duration-1000">About</h2>
       <div class="about-content">
-        <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
-          class="about-paragraph animation-duration-1000">
+        <div
+          v-animateonscroll="{
+            enterClass: 'fadein',
+            once: true,
+          }"
+          class="about-paragraph animation-duration-1000"
+        >
           <p>
             Hello, I'm Joe, a passionate software engineer with 4+ years of
             industry experience.
@@ -33,10 +48,16 @@
             field but also inspires my passion for facing new challenges.
           </p>
         </div>
-        <div v-animateonscroll="{ enterClass: 'fadein', leaveClass: 'fadeout' }"
-          class="about-paragraph animation-duration-1000">
+        <div
+          v-animateonscroll="{
+            enterClass: 'fadein',
+            once: true,
+          }"
+          class="about-paragraph animation-duration-1000"
+        >
           <h3>Bachelor of Science in Information Technology</h3>
           <span>Don Honorio Ventura Technological State University</span>
+          <pre>{{ scrolledItems }} {{ sectionId }} {{ sectionName }}</pre>
         </div>
       </div>
     </div>
@@ -44,7 +65,11 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
+import { useStore } from "vuex";
+const store = useStore();
+const scrolledItems = computed(() => store.getters.getScrolledItems);
+
 const props = defineProps({
   id: String,
 });

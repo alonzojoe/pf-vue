@@ -1,24 +1,51 @@
 <template>
   <section class="projects" :id="sectionId">
-    <h2 class="heading animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
+    <h2
+      class="heading animation-duration-300"
+      v-animateonscroll="{
+        enterClass: 'fadeindown',
+        once: true,
+      }"
+    >
       Projects
     </h2>
-    <h5 class="sub-heading animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
+    <h5
+      class="sub-heading animation-duration-300"
+      v-animateonscroll="{
+        enterClass: 'fadeindown',
+        once: true,
+      }"
+    >
       My collaborative and personal projects, showcasing my skills and
       experiences in web development.
     </h5>
 
     <div class="projects-container">
-      <div class="card-project animation-duration-500" v-animateonscroll="{ enterClass: 'fadeindown' }">
-        <Carousel :value="products" :numVisible="3" :numScroll="1" :responsiveOptions="responsiveOptions">
+      <div
+        class="card-project animation-duration-500"
+        v-animateonscroll="{
+          enterClass: 'fadeindown',
+          once: true,
+        }"
+      >
+        <Carousel
+          :value="products"
+          :numVisible="3"
+          :numScroll="1"
+          :responsiveOptions="responsiveOptions"
+        >
           <!-- circular
           :autoplayInterval="3000" -->
           <template #item="slotProps">
             <div class="border-1 surface-border border-round m-2 p-3">
               <div class="mb-3">
                 <div class="relative mx-auto">
-                  <img :src="'/projects/' + slotProps.data.image" :alt="slotProps.data.name" class="w-full border-round"
-                    preview />
+                  <img
+                    :src="'/projects/' + slotProps.data.image"
+                    :alt="slotProps.data.name"
+                    class="w-full border-round"
+                    preview
+                  />
                   <!-- <Tag :value="slotProps.data.inventoryStatus" :severity="getSeverity(slotProps.data.inventoryStatus)"
                     class="absolute" style="left: 5px; top: 5px" /> -->
                 </div>
@@ -31,7 +58,10 @@
                   <button class="btn-sm" @click="viewDetails">Details</button>
                 </span>
                 <span>
-                  <button class="btn-sm" @click="previewSnaps(slotProps.data.alias)">
+                  <button
+                    class="btn-sm"
+                    @click="previewSnaps(slotProps.data.alias)"
+                  >
                     Preview
                   </button>
                 </span>
@@ -43,16 +73,30 @@
     </div>
   </section>
   <div class="card flex justify-content-center">
-    <Galleria v-model:visible="displayBasic" :value="images" :responsiveOptions="responsiveGallery" :numVisible="5"
-      containerStyle="max-width: 50%" :circular="true" :fullScreen="true" :showItemNavigators="true">
+    <Galleria
+      v-model:visible="displayBasic"
+      :value="images"
+      :responsiveOptions="responsiveGallery"
+      :numVisible="5"
+      containerStyle="max-width: 50%"
+      :circular="true"
+      :fullScreen="true"
+      :showItemNavigators="true"
+    >
       <template #item="slotProps">
-        <img :src="`/projects-details/${slotProps.item.itemImageSrc}`" :alt="slotProps.item.alt"
-          style="width: 100%; display: block" />
+        <img
+          :src="`/projects-details/${slotProps.item.itemImageSrc}`"
+          :alt="slotProps.item.alt"
+          style="width: 100%; display: block"
+        />
       </template>
 
       <template #thumbnail="slotProps">
-        <img :src="`/projects-details/${slotProps.item.thumbnailImageSrc}`" :alt="slotProps.item.alt"
-          style="display: block" />
+        <img
+          :src="`/projects-details/${slotProps.item.thumbnailImageSrc}`"
+          :alt="slotProps.item.alt"
+          style="display: block"
+        />
       </template>
 
       <template #caption="slotProps">
@@ -65,7 +109,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import Image from "primevue/image";
 import { ProductService } from "./systems";
 import ProjectDetails from "./projects-components/ProjectDetails.vue";
@@ -75,6 +119,10 @@ import { VpService } from "./systems/vpd";
 import { CdService } from "./systems/cdh";
 import { EdService } from "./systems/ed";
 import { FwService } from "./systems/fw";
+
+import { useStore } from "vuex";
+const store = useStore();
+const scrolledItems = computed(() => store.getters.getScrolledItems);
 
 const props = defineProps({
   id: String,

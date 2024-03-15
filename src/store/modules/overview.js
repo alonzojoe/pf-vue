@@ -21,7 +21,7 @@ const actions = {};
 
 const getters = {
   getCurrentTheme: (state) => state.data.theme,
-  getScrolledItems: () => state.data.scrolledItems,
+  getScrolledItems: (state) => state.data.scrolledItems,
 };
 
 export default {
