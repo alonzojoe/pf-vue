@@ -9,30 +9,72 @@
       </span>
     </a>
     <div class="navbar" :class="showMenu">
-      <a href="#home" class="menu-item-selection" :class="{
-    'fadeindown animation-duration-400': isSmallScreen && isToggle,
-    active: currentSection == 'home',
-  }" @click="navigateMenu">Home</a>
-      <a href="#about" class="menu-item-selection" :class="{
-    'fadeindown animation-duration-500': isSmallScreen && isToggle,
-    active: currentSection == 'about',
-  }" @click="navigateMenu">About</a>
-      <a href="#skills" class="menu-item-selection" :class="{
-    'fadeindown animation-duration-600': isSmallScreen && isToggle,
-    active: currentSection == 'skills',
-  }" @click="navigateMenu">Skills</a>
-      <a href="#projects" class="menu-item-selection" :class="{
-    'fadeindown animation-duration-700': isSmallScreen && isToggle,
-    active: currentSection == 'projects',
-  }" @click="navigateMenu">Projects</a>
-      <a href="#contact" class="menu-item-selection" :class="{
-    'fadeindown animation-duration-800': isSmallScreen && isToggle,
-    active: currentSection == 'contact',
-  }" @click="navigateMenu">Contact</a>
+      <a
+        href="#home"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-400': isSmallScreen && isToggle,
+          active: currentSection == 'home',
+        }"
+        @click="navigateMenu"
+        >Home</a
+      >
+      <a
+        href="#about"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-500': isSmallScreen && isToggle,
+          active: currentSection == 'about',
+        }"
+        @click="navigateMenu"
+        >About</a
+      >
+      <a
+        href="#skills"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-600': isSmallScreen && isToggle,
+          active: currentSection == 'skills',
+        }"
+        @click="navigateMenu"
+        >Skills</a
+      >
+      <a
+        href="#projects"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-700': isSmallScreen && isToggle,
+          active: currentSection == 'projects',
+        }"
+        @click="navigateMenu"
+        >Projects</a
+      >
+      <a
+        href="#contact"
+        class="menu-item-selection"
+        :class="{
+          'fadeindown animation-duration-800': isSmallScreen && isToggle,
+          active: currentSection == 'contact',
+        }"
+        @click="navigateMenu"
+        >Contact</a
+      >
     </div>
     <div class="controls">
-      <a href="javascript:void(0);" class="bx" :class="classTheme" id="theme" @click="toggleTheme()"></a>
-      <a href="javascript:void(0);" :class="menu" id="menu" @click="isToggle = !isToggle"></a>
+      <a
+        href="javascript:void(0);"
+        class="bx"
+        :class="classTheme"
+        id="theme"
+        @click="toggleTheme()"
+      ></a>
+      <a
+        href="javascript:void(0);"
+        :class="menu"
+        id="menu"
+        @click="isToggle = !isToggle"
+      ></a>
+      <a href="">{{ scrolledItems }}</a>
     </div>
   </header>
 </template>
@@ -43,7 +85,7 @@ import { usePrimeVue } from "primevue/config";
 import { useStore } from "vuex";
 import Switcher from "@/components/Switcher/Switcher.vue";
 const store = useStore();
-const joe = ref(`< Joe />`)
+const joe = ref(`< Joe />`);
 const storeTheme = computed(() => store.getters.getCurrentTheme);
 
 const emit = defineEmits(["toggle-theme"]);
@@ -52,13 +94,15 @@ const currentTheme = ref("lara-dark-purple");
 
 const PrimeVue = usePrimeVue();
 
-
-const modalSwitch = ref(false)
-const checkState = ref(false)
+const modalSwitch = ref(false);
+const checkState = ref(false);
 const toggleTheme = (theme) => {
   modalSwitch.value = true;
   checkState.value = checkState.value === false ? true : false;
-  let nextTheme = currentTheme.value == "lara-dark-purple" ? 'lara-light-purple' : 'lara-dark-purple';
+  let nextTheme =
+    currentTheme.value == "lara-dark-purple"
+      ? "lara-light-purple"
+      : "lara-dark-purple";
 
   // let storageTheme = localStorage.getItem("app-theme");
 
@@ -68,13 +112,13 @@ const toggleTheme = (theme) => {
     nextTheme = "lara-light-purple";
   else if (currentTheme.value === "lara-light-purple")
     nextTheme = "lara-dark-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => {});
 
   currentTheme.value = nextTheme;
   localStorage.setItem("app-theme", currentTheme.value);
   store.commit("setTheme", currentTheme.value);
   emit("toggle-theme", currentTheme.value);
-  switchLife()
+  switchLife();
 };
 
 const switchLife = () => {
@@ -110,6 +154,7 @@ const navigateMenu = () => {
 const currentSection = ref();
 let section = ref();
 
+const scrolledItems = computed(() => store.getters.getScrolledItems);
 const updateScroll = () => {
   section.value.forEach((sec) => {
     let top = window.scrollY;
@@ -119,6 +164,12 @@ const updateScroll = () => {
 
     if (top >= offset && top < offset + height) {
       currentSection.value = id;
+
+      if (!scrolledItems.value.includes(id) && id !== null) {
+        setTimeout(() => {
+          store.commit("addSection", id);
+        }, 500);
+      }
     }
 
     //  if (top >= offset && top < offset + height) {
@@ -136,7 +187,6 @@ const updateScroll = () => {
     //     // Reset the padding-top for other sections
     //     sec.style.paddingTop = "100px";
     //   }
-
   });
 };
 
@@ -152,33 +202,32 @@ const setMountedTheme = (theme) => {
   currentTheme.value = theme;
   let nextTheme = theme;
 
-
   if (currentTheme.value === "lara-dark-purple")
     nextTheme = "lara-light-purple";
   else if (currentTheme.value === "lara-light-purple")
     nextTheme = "lara-dark-purple";
-  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => { });
+  PrimeVue.changeTheme(currentTheme.value, nextTheme, "theme", () => {});
 
   currentTheme.value = nextTheme;
   // localStorage.setItem("app-theme", currentTheme.value);
   store.commit("setTheme", nextTheme);
   emit("toggle-theme", currentTheme.value);
-}
+};
 
 const mountedTheme = () => {
   // currentTheme.value = localStorage.getItem('app-theme')
   // currentTheme.value == null || currentTheme.value == 'lara-dark-purple' ?
   //   toggleTheme('lara-dark-purple') : toggleTheme('lara-light-purple')
-  const theme = localStorage.getItem('app-theme')
-  console.log('apptheme', theme)
-  if (theme == null || theme == 'lara-dark-purple') {
-    setMountedTheme('lara-light-purple')
-    checkState.value = true
+  const theme = localStorage.getItem("app-theme");
+  console.log("apptheme", theme);
+  if (theme == null || theme == "lara-dark-purple") {
+    setMountedTheme("lara-light-purple");
+    checkState.value = true;
   } else {
-    setMountedTheme('lara-dark-purple')
-    checkState.value = false
+    setMountedTheme("lara-dark-purple");
+    checkState.value = false;
   }
-}
+};
 
 onUnmounted(() => {
   window.removeEventListener("resize", handleResize);
@@ -186,15 +235,12 @@ onUnmounted(() => {
 
 onMounted(() => {
   mountedTheme();
-})
-
+});
 
 //  const theme = localStorage.getItem("app-theme");
 //       theme == null || theme == "white-theme"
 //         ? toggleChangeTheme("white-theme")
 //         : toggleChangeTheme("dark-theme");
-
-
 
 //     const mountedTheme = () => {
 //       const theme = localStorage.getItem("app-theme");
@@ -202,7 +248,6 @@ onMounted(() => {
 //         ? toggleChangeTheme("white-theme")
 //         : toggleChangeTheme("dark-theme");
 //     };
-
 
 // lara-dark-purple
 // lara-light-purple
