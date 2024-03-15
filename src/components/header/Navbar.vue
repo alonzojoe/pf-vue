@@ -74,7 +74,7 @@
         id="menu"
         @click="isToggle = !isToggle"
       ></a>
-      <a href="">{{ scrolledItems }}</a>
+      <!-- <a href="">{{ scrolledItems }}</a> -->
     </div>
   </header>
 </template>

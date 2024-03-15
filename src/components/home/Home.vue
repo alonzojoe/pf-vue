@@ -5,7 +5,7 @@
       v-animateonscroll="{
         enterClass: 'fadeinleft',
         once: true,
-        threshold: 1,
+        threshold: 0.3,
       }"
     >
       <h3>Hello, I'm</h3>
@@ -41,7 +41,7 @@
       v-animateonscroll="{
         enterClass: 'fadeinright',
         once: true,
-        threshold: 1,
+        threshold: 0.3,
       }"
     >
       <img class="vue-circe" src="../../assets/icons/vue-circ.png" alt="Vue" />
