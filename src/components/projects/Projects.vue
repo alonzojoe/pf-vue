@@ -24,8 +24,9 @@
       <div
         class="card-project animation-duration-500"
         v-animateonscroll="{
-          enterClass: 'fadeindown',
+          enterClass: isSmallScreen ? 'fadein' : 'fadeindown',
           once: true,
+          threshold: isSmallScreen ? 0.2 : 0.3,
         }"
       >
         <Carousel
@@ -109,7 +110,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, onUnmounted } from "vue";
 import Image from "primevue/image";
 import { ProductService } from "./systems";
 import ProjectDetails from "./projects-components/ProjectDetails.vue";
@@ -123,6 +124,11 @@ import { FwService } from "./systems/fw";
 import { useStore } from "vuex";
 const store = useStore();
 const scrolledItems = computed(() => store.getters.getScrolledItems);
+const isSmallScreen = ref(window.innerWidth <= 768);
+
+const handleResize = () => {
+  isSmallScreen.value = window.innerWidth <= 768;
+};
 
 const props = defineProps({
   id: String,
@@ -223,6 +229,11 @@ onMounted(() => {
   ProductService.getProductsSmall().then(
     (data) => (products.value = data.slice(0, 9))
   );
+  window.addEventListener("resize", handleResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
 });
 </script>
 

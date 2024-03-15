@@ -1,17 +1,35 @@
 <template>
   <footer class="footer" id="footer">
-    <div class="footer-box animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
+    <div
+      class="footer-box animation-duration-300"
+      v-animateonscroll="{ enterClass: 'fadeindown', threshold: 0.3 }"
+    >
       <div class="footer-items">
         <h3>Joe's Portfolio</h3>
       </div>
       <div class="footer-items socials">
-        <a href="https://github.com/alonzojoe" target="blank_" class="bx bxl-github"></a>
-        <a href="https://www.linkedin.com/in/alonzo-joe" target="blank_" class="bx bxl-linkedin"></a>
-        <a href="https://www.facebook.com/alonzojoe" target="blank_" class="bx bxl-facebook"></a>
+        <a
+          href="https://github.com/alonzojoe"
+          target="blank_"
+          class="bx bxl-github"
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/alonzo-joe"
+          target="blank_"
+          class="bx bxl-linkedin"
+        ></a>
+        <a
+          href="https://www.facebook.com/alonzojoe"
+          target="blank_"
+          class="bx bxl-facebook"
+        ></a>
       </div>
     </div>
     <hr />
-    <p class="animation-duration-500" v-animateonscroll="{ enterClass: 'fadeindown' }">
+    <p
+      class="animation-duration-500"
+      v-animateonscroll="{ enterClass: 'fadeindown', threshold: 0.2 }"
+    >
       &copy; Joenell Alonzo. All Rights Reserved {{ currentYear }}
     </p>
   </footer>

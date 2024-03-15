@@ -4,9 +4,7 @@
     <a href="" class="logo">
       <!-- <img src="../../../src/assets/icons/joe-dark.png" alt="joe-logo" v-show="currentTheme == 'lara-light-purple'" />
       <img src="../../../src/assets/icons/joe-light.png" alt="joe-logo" v-show="currentTheme == 'lara-dark-purple'"> -->
-      <span class="text-logo">
-        {{ joe }}
-      </span>
+      <span class="text-logo"> {{ joe }} </span>
     </a>
     <div class="navbar" :class="showMenu">
       <a
@@ -145,6 +143,7 @@ const isSmallScreen = ref(window.innerWidth <= 768);
 
 const handleResize = () => {
   isSmallScreen.value = window.innerWidth <= 768;
+  store.commit("setScreenSize", window.innerWidth);
 };
 
 const navigateMenu = () => {
@@ -190,12 +189,15 @@ const updateScroll = () => {
   });
 };
 
+const screenWidth = computed(() => store.getters.getScreenSize);
+
 onMounted(() => {
   section.value = document.querySelectorAll("section");
   window.addEventListener("scroll", updateScroll);
   updateScroll();
 
   window.addEventListener("resize", handleResize);
+  store.commit("setScreenSize", window.innerWidth);
 });
 
 const setMountedTheme = (theme) => {

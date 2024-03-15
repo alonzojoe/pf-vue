@@ -2,6 +2,7 @@ const state = {
   data: {
     theme: "lara-dark-purple",
     scrolledItems: [],
+    screenSize: "asdsad",
   },
 };
 
@@ -15,6 +16,10 @@ const mutations = {
       state.data.scrolledItems.push(payload);
     }
   },
+
+  setScreenSize: (state, payload) => {
+    state.data.screenSize = payload;
+  },
 };
 
 const actions = {};
@@ -22,6 +27,7 @@ const actions = {};
 const getters = {
   getCurrentTheme: (state) => state.data.theme,
   getScrolledItems: (state) => state.data.scrolledItems,
+  getScreenSize: (state) => state.data.screenSize,
 };
 
 export default {

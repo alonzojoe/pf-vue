@@ -1,11 +1,25 @@
 <template>
   <section class="contact" :id="sectionId">
-    <h2 class="heading animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
-      Contact</h2>
-    <h5 class="sub-heading animation-duration-300" v-animateonscroll="{ enterClass: 'fadeindown' }">
-      Let's build awesome projects for you.</h5>
+    <h2
+      class="heading animation-duration-300"
+      v-animateonscroll="{ enterClass: 'fadeindown' }"
+    >
+      Contact
+    </h2>
+    <h5
+      class="sub-heading animation-duration-300"
+      v-animateonscroll="{ enterClass: 'fadeindown' }"
+    >
+      Let's build awesome projects for you.
+    </h5>
     <div class="contact-container">
-      <div class="contact-box animation-duration-1000" v-animateonscroll="{ enterClass: 'fadeinleft' }">
+      <div
+        class="contact-box animation-duration-1000"
+        v-animateonscroll="{
+          enterClass: isSmallScreen ? 'fadein' : 'fadeinleft',
+          threshold: isSmallScreen ? 0.1 : 0.3,
+        }"
+      >
         <div class="container-info">
           <div class="contact-info">
             <div class="contact-icon">
@@ -27,41 +41,93 @@
           </div>
         </div>
       </div>
-      <div class="contact-box animation-duration-1000" v-animateonscroll="{ enterClass: 'fadeinright' }">
+      <div
+        class="contact-box animation-duration-1000"
+        v-animateonscroll="{
+          enterClass: isSmallScreen ? 'fadein' : 'fadeinright',
+          threshold: isSmallScreen ? 0.1 : 0.3,
+        }"
+      >
         <form @submit.prevent="sendEmail()">
           <div class="input-box">
-            <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.name }">
-              <label for="name">Name <span v-if="flagSave && !validationStatus.name">is required *</span></label>
+            <div
+              class="input"
+              :class="{ 'group-invalid': flagSave && !validationStatus.name }"
+            >
+              <label for="name"
+                >Name
+                <span v-if="flagSave && !validationStatus.name"
+                  >is required *</span
+                ></label
+              >
               <input type="text" v-model="formData.name" id="name" />
             </div>
           </div>
           <div class="input-box">
-            <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.emailFrom }">
-              <label for=" email">Email <span v-if="flagSave && !validationStatus.emailFrom">is required
-                  *</span></label>
+            <div
+              class="input"
+              :class="{
+                'group-invalid': flagSave && !validationStatus.emailFrom,
+              }"
+            >
+              <label for=" email"
+                >Email
+                <span v-if="flagSave && !validationStatus.emailFrom"
+                  >is required *</span
+                ></label
+              >
               <input type="email" v-model="formData.emailFrom" id="email" />
             </div>
           </div>
           <div class="input-box">
-            <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.subject }">
-              <label for="subject">Subject <span v-if="flagSave && !validationStatus.subject">is
-                  required *</span></label>
+            <div
+              class="input"
+              :class="{
+                'group-invalid': flagSave && !validationStatus.subject,
+              }"
+            >
+              <label for="subject"
+                >Subject
+                <span v-if="flagSave && !validationStatus.subject"
+                  >is required *</span
+                ></label
+              >
               <input type="text" v-model="formData.subject" id="subject" />
             </div>
           </div>
           <div class="input-box">
-            <div class="input" :class="{ 'group-invalid': flagSave && !validationStatus.message }">
-              <label for="text-message">Message <span v-if="flagSave && !validationStatus.message">is
-                  required *</span></label>
+            <div
+              class="input"
+              :class="{
+                'group-invalid': flagSave && !validationStatus.message,
+              }"
+            >
+              <label for="text-message"
+                >Message
+                <span v-if="flagSave && !validationStatus.message"
+                  >is required *</span
+                ></label
+              >
               <textarea id="text-message" v-model="formData.message"></textarea>
             </div>
           </div>
-          <VueRecaptcha v-if="disableSubmit" ref="recaptchaRef" :sitekey="siteKey" :load-recaptcha-script="true"
-            @verify="handleSuccess" @error="handleError"></VueRecaptcha>
-          <button class="btn-sm" :class="{ 'mt-4': disableSubmit }" :disabled="disableSubmit || sending" type="submit">
-            {{ !sending ? 'Send Message' : 'Sending' }} <i v-if="sending" class="fas fa-spinner fa-spin"></i>
+          <VueRecaptcha
+            v-if="disableSubmit"
+            ref="recaptchaRef"
+            :sitekey="siteKey"
+            :load-recaptcha-script="true"
+            @verify="handleSuccess"
+            @error="handleError"
+          ></VueRecaptcha>
+          <button
+            class="btn-sm"
+            :class="{ 'mt-4': disableSubmit }"
+            :disabled="disableSubmit || sending"
+            type="submit"
+          >
+            {{ !sending ? "Send Message" : "Sending" }}
+            <i v-if="sending" class="fas fa-spinner fa-spin"></i>
           </button>
-
         </form>
       </div>
     </div>
@@ -69,11 +135,22 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed, watch } from "vue";
+import { ref, onMounted, computed, watch, onUnmounted } from "vue";
 import { VueRecaptcha } from "vue-recaptcha";
-import { validationStatus, validationChecker, validateFields } from "./validation";
-import { useToast } from 'primevue/usetoast';
+import {
+  validationStatus,
+  validationChecker,
+  validateFields,
+} from "./validation";
+import { useToast } from "primevue/usetoast";
 import emailjs from "emailjs-com";
+import { useStore } from "vuex";
+const store = useStore();
+const isSmallScreen = ref(window.innerWidth <= 768);
+
+const handleResize = () => {
+  isSmallScreen.value = window.innerWidth <= 768;
+};
 
 const props = defineProps({
   id: String,
@@ -94,8 +171,8 @@ const formData = ref({
 
 const disableSubmit = ref(true);
 const resetForm = () => {
-  flagSave.value = false
-  sending.value = false
+  flagSave.value = false;
+  sending.value = false;
   Object.keys(formData.value).forEach((e) => {
     if (e !== "toEmail") {
       formData.value[e] = "";
@@ -107,15 +184,13 @@ const resetForm = () => {
   disableSubmit.value = true;
 };
 
-
-
-const flagSave = ref(false)
-const sending = ref(false)
+const flagSave = ref(false);
+const sending = ref(false);
 const sendEmail = async () => {
-  const errors = await validateFields(1, formData.value, 0)
-  flagSave.value = true
+  const errors = await validateFields(1, formData.value, 0);
+  flagSave.value = true;
   if (errors === 0) {
-    sending.value = true
+    sending.value = true;
     if (disableSubmit.value) return;
 
     const emailParams = {
@@ -134,22 +209,29 @@ const sendEmail = async () => {
         import.meta.env.VITE_MAIL_USER
       );
       // console.log("Email sent successfully:", response);
-      toast.add({ severity: 'success', summary: 'Message', detail: 'Email sent successfully.', life: 3000 });
+      toast.add({
+        severity: "success",
+        summary: "Message",
+        detail: "Email sent successfully.",
+        life: 3000,
+      });
     } catch (error) {
       console.log("Email failed to sent", error);
     }
 
     resetForm();
   }
-
 };
 
-watch(() => {
-  formData.value
-  if (flagSave.value === true) {
-    validateFields(1, formData.value, 1)
-  }
-}, { deep: true })
+watch(
+  () => {
+    formData.value;
+    if (flagSave.value === true) {
+      validateFields(1, formData.value, 1);
+    }
+  },
+  { deep: true }
+);
 
 const siteKey = computed(() => {
   return import.meta.env.VITE_SITE_KEY;
@@ -166,6 +248,11 @@ const handleSuccess = () => {
 onMounted(() => {
   sectionId.value = props.id;
   sectionName.value = props.id.charAt(0).toUpperCase() + props.id.slice(1);
+  window.addEventListener("resize", handleResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
 });
 </script>
 
@@ -313,8 +400,6 @@ section {
   background-color: #ed7c7c !important;
 } */
 
-
-
 @media (max-width: 768px) {
   .contact .contact-container {
     grid-template-columns: repeat(1, 1fr);
@@ -322,5 +407,6 @@ section {
   }
 }
 
-@media (max-width: 450px) {}
+@media (max-width: 450px) {
+}
 </style>
