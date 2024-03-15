@@ -17,7 +17,7 @@
           v-animateonscroll="{
             enterClass: 'fadein',
             once: true,
-            threshold: 0.3,
+            threshold: isSmallScreen ? 0.1 : 0.2,
             rootMargin: '500px',
           }"
           class="about-paragraph animation-duration-1000"
@@ -53,7 +53,7 @@
         <div
           v-animateonscroll="{
             enterClass: 'fadein',
-            threshold: 0.3,
+            threshold: isSmallScreen ? 0.1 : 0.2,
             once: true,
           }"
           class="about-paragraph animation-duration-1000"
@@ -67,10 +67,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, onUnmounted } from "vue";
 import { useStore } from "vuex";
 const store = useStore();
 const scrolledItems = computed(() => store.getters.getScrolledItems);
+
+const isSmallScreen = ref(window.innerWidth <= 768);
+
+const handleResize = () => {
+  isSmallScreen.value = window.innerWidth <= 768;
+};
 
 const props = defineProps({
   id: String,
@@ -82,6 +88,11 @@ const sectionName = ref();
 onMounted(() => {
   sectionId.value = props.id;
   sectionName.value = props.id.charAt(0).toUpperCase() + props.id.slice(1);
+  window.addEventListener("resize", handleResize);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
 });
 </script>
 

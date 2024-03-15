@@ -33,7 +33,7 @@
         ></a>
       </div>
       <div class="cv">
-        <a href="JOENELL ALONZO - CV.pdf" class="btn" download>Download CV</a>
+        <a href="javascript:void(0);" class="btn" download>Download CV</a>
       </div>
     </div>
     <div
@@ -78,12 +78,12 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
-import imageBackground from "../../assets/background/home-bg.png";
+import imageBackground from "../../assets/background/home-bg.webp";
 import mainIcon from "../../assets/icons/joe.svg";
 import mainIconPng from "../../assets/icons/joev1.png";
 
-import profileLight from "../../assets/icons/joe-updated.png";
-import profileDark from "../../assets/icons/joe-dark-mode.png";
+import profileLight from "../../assets/icons/joe-updated.webp";
+import profileDark from "../../assets/icons/joe-dark-mode.webp";
 
 const store = useStore();
 const scrolledItems = computed(() => store.getters.getScrolledItems);
