@@ -17,6 +17,8 @@
           v-animateonscroll="{
             enterClass: 'fadein',
             once: true,
+            threshold: 0,
+            rootMargin: '500px',
           }"
           class="about-paragraph animation-duration-1000"
         >
@@ -57,7 +59,6 @@
         >
           <h3>Bachelor of Science in Information Technology</h3>
           <span>Don Honorio Ventura Technological State University</span>
-          <pre>{{ scrolledItems }} {{ sectionId }} {{ sectionName }}</pre>
         </div>
       </div>
     </div>

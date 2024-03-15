@@ -3,7 +3,7 @@
     <div
       class="home-intro animation-duration-1000"
       v-animateonscroll="{
-        enterClass: 'fadeinleft',
+        enterClass: isSmallScreen ? 'fadein' : 'fadeinleft',
         once: true,
         threshold: 0.3,
       }"
@@ -39,7 +39,7 @@
     <div
       class="home-profile profile-icons animation-duration-1000"
       v-animateonscroll="{
-        enterClass: 'fadeinright',
+        enterClass: isSmallScreen ? 'fadein' : 'fadeinright',
         once: true,
         threshold: 0.3,
       }"
@@ -76,7 +76,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { useStore } from "vuex";
 import imageBackground from "../../assets/background/home-bg.png";
 import mainIcon from "../../assets/icons/joe.svg";
@@ -108,9 +108,20 @@ const props = defineProps({
 const sectionId = ref();
 const sectionName = ref();
 
+const isSmallScreen = ref(window.innerWidth <= 768);
+
+const handleResize = () => {
+  isSmallScreen.value = window.innerWidth <= 768;
+};
+
+onUnmounted(() => {
+  window.removeEventListener("resize", handleResize);
+});
+
 onMounted(() => {
   sectionId.value = props.id;
   sectionName.value = props.id.charAt(0).toUpperCase() + props.id.slice(1);
+  window.addEventListener("resize", handleResize);
 });
 </script>
 

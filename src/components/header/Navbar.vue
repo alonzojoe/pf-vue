@@ -265,7 +265,7 @@ header {
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--box-shadow-bottom);
-  z-index: 999;
+  z-index: 9999;
   /* border: 1px solid red; */
 }
 
