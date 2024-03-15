@@ -14,7 +14,7 @@
     </h5>
     <div class="contact-container">
       <div
-        class="contact-box animation-duration-1000"
+        class="contact-box animation-duration-500"
         v-animateonscroll="{
           enterClass: isSmallScreen ? 'fadein' : 'fadeinleft',
           threshold: isSmallScreen ? 0.1 : 0.3,
@@ -42,7 +42,7 @@
         </div>
       </div>
       <div
-        class="contact-box animation-duration-1000"
+        class="contact-box animation-duration-500"
         v-animateonscroll="{
           enterClass: isSmallScreen ? 'fadein' : 'fadeinright',
           threshold: isSmallScreen ? 0.1 : 0.3,

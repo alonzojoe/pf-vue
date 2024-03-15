@@ -1,7 +1,7 @@
 <template>
   <section class="home" :id="sectionId">
     <div
-      class="home-intro animation-duration-1000"
+      class="home-intro animation-duration-500"
       v-animateonscroll="{
         enterClass: isSmallScreen ? 'fadein' : 'fadeinleft',
         once: true,
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div
-      class="home-profile profile-icons animation-duration-1000"
+      class="home-profile profile-icons animation-duration-500"
       v-animateonscroll="{
         enterClass: isSmallScreen ? 'fadein' : 'fadeinright',
         once: true,

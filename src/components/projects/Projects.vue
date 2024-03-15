@@ -22,7 +22,7 @@
 
     <div class="projects-container">
       <div
-        class="card-project animation-duration-500"
+        class="card-project animation-duration-400"
         v-animateonscroll="{
           enterClass: isSmallScreen ? 'fadein' : 'fadeindown',
           once: true,

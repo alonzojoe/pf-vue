@@ -17,7 +17,7 @@
           v-animateonscroll="{
             enterClass: 'fadein',
             once: true,
-            threshold: 0,
+            threshold: 0.3,
             rootMargin: '500px',
           }"
           class="about-paragraph animation-duration-1000"
@@ -53,6 +53,7 @@
         <div
           v-animateonscroll="{
             enterClass: 'fadein',
+            threshold: 0.3,
             once: true,
           }"
           class="about-paragraph animation-duration-1000"
