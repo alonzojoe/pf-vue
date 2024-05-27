@@ -75,7 +75,7 @@
         class="skill-card animation-duration-300"
       >
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/react.svg" alt="React" />
+          <img src="../../../src/assets/icons/react-2.svg" alt="React" />
         </div>
         <span>React</span>
       </div>
