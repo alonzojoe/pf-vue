@@ -66,7 +66,7 @@
         class="skill-card animation-duration-200"
       >
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/vuex.png" alt="Vue.js" />
+          <img src="../../../src/assets/icons/vuex.png" alt="VueX" />
         </div>
         <span>VueX</span>
       </div>
@@ -75,18 +75,18 @@
         class="skill-card animation-duration-300"
       >
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/primevue.png" alt="Vue.js" />
+          <img src="../../../src/assets/icons/react.svg" alt="React" />
         </div>
-        <span>PrimeVue</span>
+        <span>React</span>
       </div>
       <div
         v-animateonscroll="{ enterClass: 'fadeindown' }"
         class="skill-card animation-duration-400"
       >
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/primeflex.png" alt="Vue.js" />
+          <img src="../../../src/assets/icons/redux.svg" alt="Redux" />
         </div>
-        <span>PrimeFlex</span>
+        <span>Redux</span>
       </div>
 
       <div
@@ -142,7 +142,7 @@
         class="skill-card animation-duration-200"
       >
         <div class="skill-icon">
-          <img src="../../../src/assets/icons/git.png" alt="REST API" />
+          <img src="../../../src/assets/icons/git.png" alt="Git" />
         </div>
         <span>Git</span>
       </div>
